@@ -6,6 +6,14 @@ import React from 'react'
 }
 */
 //Convention is to use es6
-const Greet = () => <h1>Welcome ot Ark</h1>
-
+const Greet = (props) => {
+    console.log(props)
+    return (
+        <div>
+            <h1>Welcome to Ark {props.name}
+            </h1>
+            {props.children}
+        </div>
+    )
+}
 export default Greet

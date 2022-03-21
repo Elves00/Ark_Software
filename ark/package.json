@@ -1,6 +1,6 @@
 {
   "name": "ark",
-  "homepage": "https://elves00.github.io/ark_software", 
+  "homepage": "https://elves00.github.io/ark_software",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

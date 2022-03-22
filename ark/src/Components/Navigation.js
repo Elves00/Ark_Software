@@ -4,10 +4,10 @@ class Navigation extends Component {
     render() {
         return (
             <div>
-                <ul>
-                    <li>Profile</li>
-                    <li>Comunication</li>
-                    <li>Boss</li>
+                <ul className="special">
+                    <li className="specialTwo">Profile</li>
+                    <li className="specialTwo">Comunication</li>
+                    <li className="specialTwo" >Boss</li>
                 </ul>
             </div>
         )

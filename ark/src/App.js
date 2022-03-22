@@ -6,10 +6,15 @@ import Hello from './Components/Hello';
 import Message from './Components/Message';
 import Test from './Components/Test';
 import Navigation from './Components/Navigation';
+import Jump from './Components/Jump'
+import Navbar from './Components/Navbar/Navbar';
+import React from 'react';
+
+
 function App() {
   return (
-    <div className="App">
-      
+    <div >
+      <Navbar/>
      {/*Since there is no content between tags can have it self clossing */}
      <Greet name="User"><p>This is the childrens prop</p></Greet>
      <Welcome name="User"><p>Some random child writing</p></Welcome>
@@ -17,6 +22,8 @@ function App() {
      <Message></Message>
     <Test></Test>
     <Navigation/>
+    <Jump/>
+    
    </div>
   );
 }

@@ -11,7 +11,7 @@ import card from '../logo192.png'
 export default function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <NavLink className="navbar-brand" to="/">
           <img src={card} alt="Avatar" style={{ "width": 25 + '%' }} />
         </NavLink>
@@ -29,23 +29,32 @@ export default function Navbar() {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+              <NavLink className="nav-link" to="/raidPage">
+                Raids
+              </NavLink>
+            </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/bossPage">
-                RAID!!
+                Bosses
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/create">
-                Create Record
+              <NavLink className="nav-link" to="/forumPage">
+                Forum
               </NavLink>
             </li>
             <li className="nav-item">
-              {/* */}
-              <NavLink className="nav-link" to="/createUser">
-                Create User
+              <NavLink className="nav-link" to="/chatPage">
+                Chat
               </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/accountPage">
+                Account
+              </NavLink>
+            </li>
 
-            </li>
           </ul>
         </div>
       </nav>

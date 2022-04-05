@@ -18,32 +18,34 @@ import Forums from "./components/forumPage";
 import Chat from "./components/chatPage";
 import Account from "./components/accountPage";
 import NotFound from "./components/notFoundPage";
+import HomePage from "./components/homePage";
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <div style={{ margin: 20 }}>
-      <Routes>
-        {/*First as Not found*/}
-        <Route path='*' element={<NotFound />} />
-        <Route exact path="/" element={<RecordList />} />
-        <Route path="/edit/:id" element={<Edit />} />
-        <Route path="/create" element={<Create />} />
-        <Route path="/bossPage" element={<Boss />} />
-        <Route path="/raidPage" element={<Raid />} />
-        <Route path="/forumPage" element={<Forums />} />
-        <Route path="/chatPage" element={<Chat />} />
-        <Route path="/accountPage" element={<Account />} />
-        <Route exact path="/" element={<BossCard />} />
+        <Routes>
+          {/*First as Not found*/}
+          <Route path='*' element={<NotFound />} />
+          <Route exact path="/" element={<HomePage />} />
+          {/*<Route path="/homePage" element={<RecordList />} />*/}
+          <Route path="/edit/:id" element={<Edit />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/bossPage" element={<Boss />} />
+          <Route path="/raidPage" element={<Raid />} />
+          <Route path="/forumPage" element={<Forums />} />
+          <Route path="/chatPage" element={<Chat />} />
+          <Route path="/accountPage" element={<Account />} />
+          <Route exact path="/" element={<BossCard />} />
 
-        <Route path="/createUser" element={<CreateUser />} />
-        <Route exact path="/" element={<RecordUserList />} />
-        <Route path="/editUser/:id" element={<EditUser />} />
+          <Route path="/createUser" element={<CreateUser />} />
+          <Route exact path="/" element={<RecordUserList />} />
+          <Route path="/editUser/:id" element={<EditUser />} />
 
-      </Routes>
-      </div>
-    </div>
+        </Routes >
+      </div >
+    </div >
   );
 };
 

@@ -13,6 +13,7 @@ import RecordUserList from "./components/recordUserList";
 import EditUser from "./components/editUser";
 import Boss from "./components/bossPage";
 import BossCard from "./components/bossCard";
+import HomePage from "./components/homePage";
 
 const App = () => {
   return (
@@ -20,7 +21,8 @@ const App = () => {
       <Navbar />
       <div style={{ margin: 20 }}>
       <Routes>
-        <Route exact path="/" element={<RecordList />} />
+        <Route exact path="/" element={<HomePage />} />
+        {/*<Route path="/homePage" element={<RecordList />} />*/}
         <Route path="/edit/:id" element={<Edit />} />
         <Route path="/create" element={<Create />} />
         <Route path="/bossPage" element={<Boss />} />

@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <NavLink className="navbar-brand" to="/">
+        <NavLink  className="nav-link" to="/">
           <img src={card} alt="Avatar" style={{ "width": 25 + '%' }} />
         </NavLink>
         <button

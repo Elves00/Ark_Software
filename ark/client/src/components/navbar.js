@@ -8,56 +8,44 @@ import { NavLink } from "react-router-dom";
 //Import image
 import card from '../logo192.png'
 // Here, we display our Navbar
+
+
 export default function Navbar() {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <NavLink className="navbar-brand" to="/">
-          <img src={card} alt="Avatar" style={{ "width": 25 + '%' }} />
-        </NavLink>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ml-auto">
+    //Colour of Navbar
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark"> 
+      {/*Logo*/}
+      <NavLink className="navbar-brand" to="/"><img src={card} alt="Avatar" style={{ "width": 25 + '%' }} /></NavLink>
+      {/*I think this is the hamburger menu*/}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      {/*Everything that goes in this div, will collaspe into the navbar menu */}
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          {/*Makes current page nav-link highlighted*/}
+          <li class="nav-item active">
+            <span class="sr-only">(current)</span>
+          </li>
           <li className="nav-item">
-              <NavLink className="nav-link" to="/raidPage">
-                Raids
-              </NavLink>
+            <NavLink className="nav-link" to="/raidPage">Raids</NavLink>
+          </li>
+          <li className="nav-item">
+              <NavLink className="nav-link" to="/bossPage">Bosses</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/bossPage">
-                Bosses
-              </NavLink>
+              <NavLink className="nav-link" to="/forumPage">Forum</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/forumPage">
-                Forum
-              </NavLink>
+              <NavLink className="nav-link" to="/chatPage">Chat</NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/chatPage">
-                Chat
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/accountPage">
-                Account
-              </NavLink>
-            </li>
-
-          </ul>
-        </div>
-      </nav>
-    </div>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/accountPage">Account</NavLink>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }

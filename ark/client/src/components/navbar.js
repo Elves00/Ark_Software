@@ -1,4 +1,6 @@
 import React from "react";
+//This imports the ability for the menu to show up when minimized.
+import "bootstrap/dist/js/bootstrap.min.js";
 
 // We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
@@ -16,30 +18,30 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark"> 
       {/*Logo*/}
       <NavLink className="navbar-brand" to="/"><img src={card} alt="Avatar" style={{ "width": 25 + '%' }} /></NavLink>
-      {/*I think this is the hamburger menu*/}
+      {/*Hamburger menu*/}
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       {/*Everything that goes in this div, will collaspe into the navbar menu */}
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
-          {/*Makes current page nav-link highlighted*/}
-          <li class="nav-item active">
-            <span class="sr-only">(current)</span>
-          </li>
+          {/*Makes current page nav-link highlighted/white text*/}
+          <li class="nav-item active"><span class="sr-only">(current)</span></li>
+          {/*Menu Items */}
           <li className="nav-item">
             <NavLink className="nav-link" to="/raidPage">Raids</NavLink>
           </li>
           <li className="nav-item">
-              <NavLink className="nav-link" to="/bossPage">Bosses</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/forumPage">Forum</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/chatPage">Chat</NavLink>
-            </li>
+            <NavLink className="nav-link" to="/bossPage">Bosses</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/forumPage">Forum</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/chatPage">Chat</NavLink>
+          </li>
         </ul>
+        {/*This is so the Account Link is on the right*/}
         <ul class="navbar-nav ms-auto">
           <li className="nav-item">
             <NavLink className="nav-link" to="/accountPage">Account</NavLink>
@@ -49,3 +51,6 @@ export default function Navbar() {
     </nav>
   );
 }
+
+// The below code can be used if we want the navbar to collapse once a link it clicked, but makes full screen navbar 'blink'
+// <NavLink className="nav-link" data-toggle="collapse" data-target="#navbarText" to="/raidPage">Raids</NavLink>

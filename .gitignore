@@ -1,2 +1,3 @@
-
-ark/client/node_modules/.cache/.eslintcache
+config.env
+/client/node_modules
+/server/node_modules

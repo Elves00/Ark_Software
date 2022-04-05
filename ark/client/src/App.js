@@ -37,10 +37,10 @@ const App = () => {
           <Route path="/forumPage" element={<Forums />} />
           <Route path="/chatPage" element={<Chat />} />
           <Route path="/accountPage" element={<Account />} />
-          <Route exact path="/" element={<BossCard />} />
+          <Route path="/" element={<BossCard />} />
 
           <Route path="/createUser" element={<CreateUser />} />
-          <Route exact path="/" element={<RecordUserList />} />
+  
           <Route path="/editUser/:id" element={<EditUser />} />
 
         </Routes >

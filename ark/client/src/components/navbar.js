@@ -40,6 +40,10 @@ export default function Navbar() {
           <li className="nav-item">
             <NavLink className="nav-link" to="/chatPage">Chat</NavLink>
           </li>
+          {/*Here for testing purposes, will comment out later*/}
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/hey">BrokenTest</NavLink>
+          </li>
         </ul>
         {/*This is so the Account Link is on the right*/}
         <ul class="navbar-nav ms-auto">

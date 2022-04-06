@@ -20,6 +20,8 @@ export default function HomePage() {
     }, []);
 
 
+    
+
 
 
     return (
@@ -39,6 +41,7 @@ export default function HomePage() {
 
             {/*Width is the state*/}
             <p>You clicked {width} times</p>
+            
         </div>
     );
 }

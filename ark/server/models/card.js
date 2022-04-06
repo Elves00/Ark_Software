@@ -27,3 +27,17 @@ first_card.save(function(err){
     if (err) return handleError(err);
     //saved
 });
+
+SomeModel.create({ title: 'Brecons Card',views:10}, function (err, first_card) {
+    if (err) return handleError(err);
+    // saved!
+  });
+
+  // Access model field values using dot notation
+console.log(first_card.name); //should log 'also_awesome'
+
+// Change record by modifying the fields, then calling save().
+first_card.title="New cool name";
+first_card.save(function (err) {
+  if (err) return handleError(err); // saved!
+});

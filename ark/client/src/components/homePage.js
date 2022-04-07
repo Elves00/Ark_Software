@@ -1,6 +1,6 @@
 import "./homePage.css"
 import React, { useEffect, useState } from "react";
-import BossCard from "./bossCard";
+import Card from "./card";
 
 
 export default function HomePage() {
@@ -20,28 +20,32 @@ export default function HomePage() {
     }, []);
 
 
-    
-
-
-
     return (
-        <div>
-            <h1>Lost Ark</h1>
+        <div className="container">
+ 
             {/*Display popular raid cards here */}
             <h2>Popular Raids</h2>
             <div className="grid-container-raids">
-                <h2 className="grid-item">Popular Raids</h2>
-                <h2 className="grid-item">Popular Raids</h2>
-                <h2 className="grid-item">Popular Raids</h2>
-                <h2 className="box">Popular Raids</h2>
-                <h2 className="box">Popular Raids</h2>
-                <h2 className="box">Popular Raids</h2>
+                <Card name="Guardian Raid" date="7/04/2022" />  
+                <Card name="Guardian Raid" date="7/04/2022" />  
+                <Card name="Guardian Raid" date="7/04/2022" />  
+                <Card name="Guardian Raid" date="7/04/2022" />  
+                <Card name="Guardian Raid" date="7/04/2022" />
+                <Card name="Guardian Raid" date="7/04/2022" />
             </div>
             <h2>Popular Pages</h2>
+            <div className="grid-container-raids">
+            <Card name="Guardian Raid" date="7/04/2022" />  
+                <Card name="Guardian Raid" date="7/04/2022" />  
+                <Card name="Guardian Raid" date="7/04/2022" />  
+                <Card name="Guardian Raid" date="7/04/2022" />  
+                <Card name="Guardian Raid" date="7/04/2022" />
+                <Card name="Guardian Raid" date="7/04/2022" />
+            </div>
 
             {/*Width is the state*/}
-            <p>You clicked {width} times</p>
-            
+            <p>Screen width:{width} </p>
+
         </div>
     );
 }

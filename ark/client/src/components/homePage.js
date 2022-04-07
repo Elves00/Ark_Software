@@ -27,12 +27,7 @@ export default function HomePage() {
             <h2>Popular Raids</h2>
             <div className="grid-container-raids">
                 <Card name="Guardian Raid" date="7/04/2022" />  
-                <Card name="Guardian Raid" date="7/04/2022" />  
-                <Card name="Guardian Raid" date="7/04/2022" />  
-                <Card name="Guardian Raid" date="7/04/2022" />  
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
-            </div>
+                   </div>
             <h2>Popular Pages</h2>
             <div className="grid-container-raids">
             <Card name="Guardian Raid" date="7/04/2022" />  

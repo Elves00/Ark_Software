@@ -15,8 +15,7 @@ body {
     color: black;
     background-image: url('GuardianRaid.jpg');
     background-repeat: no-repeat;
-    background-size: auto;
-    text-align: center;
+    background-size: cover;
     border-radius: 5px;
 }
 
@@ -35,7 +34,7 @@ body {
     font-size: calc(10px + 1.5vw);
 }
 
-/*Hove effect*/
+/*Hover effect*/
 .card-inner-front-text:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -44,9 +43,11 @@ body {
     background-image: linear-gradient(to right, #eac04b, #ecd595, #eac04b);
 
 }
+
 .card-inner-front-date{
-     /*Positions text above where its written in*/
-     position: absolute;
-    bottom: 0px;
-    
+     /*Positions text relative to the bottom of the container with a scalling margin*/
+     text-align: right;
+     position:relative;
+     margin-bottom: auto;
+
 }

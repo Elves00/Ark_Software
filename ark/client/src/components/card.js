@@ -13,6 +13,7 @@ function Card(props) {
                     <p class="card-inner-front-date">
                         {props.date}
                     </p>
+                
                 </div>
             </div>
         </div>

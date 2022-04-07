@@ -28,6 +28,7 @@ first_card.save(function(err){
     //saved
 });
 
+//Creates a card?
 SomeModel.create({ title: 'Brecons Card',views:10}, function (err, first_card) {
     if (err) return handleError(err);
     // saved!
@@ -41,3 +42,15 @@ first_card.title="New cool name";
 first_card.save(function (err) {
   if (err) return handleError(err); // saved!
 });
+
+
+
+CardSchema.virtual('domain').get(function(){
+    return this.title
+});
+
+const User = mongoose.model('User',CardSchema);
+
+let doc =await User.create({email: 'test@gmail.com'});
+
+doc.domain;

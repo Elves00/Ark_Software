@@ -10,11 +10,12 @@ h2 {
 }
 
 .container{
+
     padding: 10px 10px 10px 10px;
 }
 .grid-container-raids {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .box {

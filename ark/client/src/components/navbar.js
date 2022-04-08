@@ -15,6 +15,7 @@ import card from '../logo192.png'
 export default function Navbar() {
   return (
     //Colour of Navbar
+    
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark"> 
       {/*Logo*/}
       <NavLink className="navbar-brand" to="/"><img src={card} alt="Avatar" style={{ "width": 25 + '%' }} /></NavLink>
@@ -52,6 +53,7 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
+      
     </nav>
   );
 }

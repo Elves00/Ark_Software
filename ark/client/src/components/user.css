@@ -2,6 +2,19 @@ body {
   background-color: #343434;
 }
 
+h3 {
+  text-align: center;
+  color: #e6b31e;
+  font-size: 50px;
+}
+
+span {
+  font-size: 0.7rem;
+  display: block;
+  margin: 0.5rem 0;
+  color: #cacaca;
+}
+
 form {
   padding: 20px 0;
   position: relative;
@@ -40,6 +53,6 @@ form button {
 }
 
 ::placeholder {
-  color: black;
+  color: #cacaca;
   opacity: 1;
 }

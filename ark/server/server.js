@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const users = require("./controllers/userController");
+const cards = require("./controllers/cardController");
 const connectDB = require("./db/conn");
 
 const port = process.env.PORT || 5000;
@@ -12,6 +13,8 @@ app.use(express.json());
 app.use(require("./routes/record"));
 
 app.post("/register", users.createOne);
+app.post("/createCard", cards.createOne);
+
 
 // perform a database connection when server starts
 connectDB();

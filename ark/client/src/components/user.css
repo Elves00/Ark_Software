@@ -1,0 +1,45 @@
+body {
+  background-color: #343434;
+}
+
+form {
+  padding: 20px 0;
+  position: relative;
+  text-align: center;
+}
+form input {
+  border: 1px solid #cacaca;
+  background-color: #fcfaf1;
+  width: 250px;
+  border-radius: 3px;
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: black;
+  font-weight: 300;
+}
+
+form button {
+  appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: black;
+  border-radius: 3px;
+  width: 250px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.form button:hover {
+  background-color: #e6b31e;
+}
+
+::placeholder {
+  color: black;
+  opacity: 1;
+}

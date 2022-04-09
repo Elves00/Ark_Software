@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { NavLink, Navigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./user.css";
 
-const Register = ({ history }) => {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const registerHandler = async (e) => {
     e.preventDefault();
@@ -35,6 +36,8 @@ const Register = ({ history }) => {
         { username, email, password },
         config
       );
+      alert("Account successfully made!");
+      navigate("/");
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {

@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(require("./routes/record"));
 
 app.post("/register", users.createOne);
+app.post("/login", users.findOne);
 
 // perform a database connection when server starts
 connectDB();

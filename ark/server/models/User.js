@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const UserSchema = new mongoose.Schema({
   username: {
@@ -21,5 +22,21 @@ const UserSchema = new mongoose.Schema({
     select: false,
   },
 });
+
+//This function runs before a user is saved in the database using the mongoose pre functionality 
+UserSchema.pre("save", async function(next) {
+  if(!this.isModified("password")){ //checks if the password has been hashed or not, if hashed then ignore the function
+    next();
+  }
+
+  const salt = await bcrypt.genSalt(10); //take 10 salt rounds
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+});
+
+//Function to check passwords for login
+UserSchema.methods.matchPassword = async function(password){
+  return await bcrypt.compare(password, this.password);
+};
 
 module.exports = mongoose.model("User", UserSchema);

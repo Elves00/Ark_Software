@@ -53,6 +53,8 @@ recordRoutes.route("/record/add").post(function (req, response) {
   });
 });
 
+recordRoutes.route()
+
 
 // This section will help you create a new record.
 recordRoutes.route("/record/addUser").post(function (req, response) {
@@ -61,13 +63,14 @@ recordRoutes.route("/record/addUser").post(function (req, response) {
     name: req.body.name,
     email: req.body.email,
     password: req.body.pasword,
-   
+  
   };
   db_connect.collection("records").insertOne(myobj, function (err, res) {
     if (err) throw err;
     response.json(res);
   });
 });
+
 
 
 

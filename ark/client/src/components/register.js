@@ -6,7 +6,8 @@ import "./user.css";
 const Register = ({ history }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useSta
+  te("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [error, setError] = useState("");
 

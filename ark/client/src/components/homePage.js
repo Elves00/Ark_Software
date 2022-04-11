@@ -39,6 +39,7 @@ export default function HomePage() {
 
             {/*Width is the state*/}
             <p>Screen width:{width} </p>
+            {/*Temporary create card*/}
            <CreateCard></CreateCard>
         </div>
     );

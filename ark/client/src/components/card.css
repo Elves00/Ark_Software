@@ -28,14 +28,21 @@ body {
     /*Positions text above where its written in*/
     position: relative;
     bottom: 10px;
-    color: white;
+    color: transparent;
     background-color: rgba(20, 19, 18, 0.1);
     margin-top: 50%;
     transition: color, background-color;
-    transition-duration: .35s;
+    transition-duration: 1s;
     transition-timing-function: ease;
+  
     /*Minumum text size*/
-    font-size: calc(10px + 1.5vw);
+    font-size: calc(10px + 1.5vw); 
+}
+
+.card-inner:hover  .card-inner-front-text{
+  color: white;
+  transform:translateY(20px);
+  transition:1s;
 }
 
 /*Hover effect*/
@@ -45,7 +52,8 @@ body {
     color: #141312;
     background-color: #eac04b;
     background-image: linear-gradient(to right, #eac04b, #ecd595, #eac04b);
-
+    transition-duration: 1s;
+    transition-timing-function: ease;
 }
 
 .card-inner-front-date{

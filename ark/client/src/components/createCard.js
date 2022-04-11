@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./user.css";
 
+//Function to create a card 
 const CreateCard = ({ history }) => {
   const [name, setname] = useState("");
   const [count, setcount] = useState(0);
-//   const [password, setPassword] = useSta
-//   te("");
-//   const [confirmpassword, setConfirmpassword] = useState("");
+
   const [error, setError] = useState("");
 
   
@@ -20,16 +19,6 @@ const CreateCard = ({ history }) => {
         "Content-Type": "application/json",
       },
     };
-
-    // if (password !== confirmpassword) {
-    //   //if confirm pass and pass do not match, reset both fields
-    //   setPassword("");
-    //   setConfirmpassword("");
-    //   setTimeout(() => {
-    //     setError("");
-    //   }, 5000);
-    //   return alert("Confirm password did not match!");
-    // }
 
     try {
       await axios.post(

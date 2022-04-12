@@ -16,25 +16,61 @@ module.exports = {
       res.json(card);
     });
   },
-  // This section will help you get a list of all the records.
 
-  get: (req, res) => {
-    Card.find()
-      .select('name count')
-      .then((allCard) => {
+  //checks the database req=request res=response
+  findOne: async (req, res) => {
+    // const {email, password} = req.body;
+    const { name, count } = req.body;
 
-        return res.status(200).json({
-          success: true,
-          message: 'A list of all causes',
-          Cause: allCause,
-        });
-      })
-      .catch((err) => {
-        res.status(500).json({
-          success: false,
-          message: 'Server error. Please try again.',
-          error: err.message,
-        });
+    //If either of name or count are not present we have a problem
+    if (!name || !count) {
+      res.status(400).json({ success: false, error: "Please provide email and password" })
+    }
+
+    //Try find one in the database
+    try {
+      const user = await User.findOne({ name })
+      if (!user) {
+        res.status(404).json({ success: false, error: "Invalid name" });
+      }
+      //Token stuff i dont understand
+      res.status(200).json({
+        success: true,
+        token: "ogweoifnweiofbw"
       });
+    } catch (err) {
+      console.log(err);
+      // res.status(500).json({success:false, error: err.message});
+    }
   },
+
+
+  get: async (req, res) => {
+    try {
+      const card = await Card.find({})
+      if (!card) {
+        res.status(404).json({ success: false, error: "No Cards" });
+      }
+      res.json(Card);
+    } catch (err) {
+      console.log(err);
+    
+    }
+
+  }
+
+  /*
+// This section will help you get a list of all the records.
+  recordRoutes.route("/record").get(function (req, res) {
+    let db_connect = dbo.getDb("employees");
+    db_connect
+      .collection("records")
+      .find({})
+      .toArray(function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+  });
+  */
+
 };

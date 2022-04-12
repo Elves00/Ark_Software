@@ -20,7 +20,7 @@ const Login = () => {
     };
 
     try{
-      await axios.get(
+      await axios.post(
         "http://localhost:5000/login",
         {email, password}, 
         config

@@ -54,6 +54,8 @@ recordRoutes.route("/record/add").post(function (req, response) {
 });
 
 
+
+
 // This section will help you create a new record.
 recordRoutes.route("/record/addUser").post(function (req, response) {
   let db_connect = dbo.getDb();

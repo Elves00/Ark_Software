@@ -10,12 +10,6 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if(localStorage.getItem("token")){
-  //     navigate("/");
-  //   }
-  // });
-
   const loginHandler = async (e) => {
     e.preventDefault();
 

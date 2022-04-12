@@ -53,7 +53,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
   });
 });
 
-recordRoutes.route()
+
 
 
 // This section will help you create a new record.

@@ -1,6 +1,6 @@
 import "./homePage.css"
 import React, { useEffect, useState } from "react";
-// import BossCard from "./bossCard";
+import BossCard from "./bossCard";
 
 
 export default function HomePage() {

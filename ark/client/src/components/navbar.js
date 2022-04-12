@@ -61,7 +61,7 @@ export default function Navbar() {
           </li>
           {/*Here for testing purposes, will comment out later*/}
           <li className="nav-item">
-            <NavLink className="nav-link" to="/hey">
+            <NavLink className="nav-link" to="/404">
               BrokenTest
             </NavLink>
           </li>

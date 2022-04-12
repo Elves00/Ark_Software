@@ -15,8 +15,12 @@ app.use(require("./routes/record"));
 
 //Allow post method for these paths?? using model schemas?
 app.post("/register", users.createOne);
+<<<<<<< HEAD
 app.post("/createCard", cards.createOne);
 
+=======
+app.post("/login", users.findOne);
+>>>>>>> Davis
 
 // perform a database connection when server starts
 connectDB();

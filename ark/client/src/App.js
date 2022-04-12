@@ -19,6 +19,7 @@ import Chat from "./components/chatPage";
 import Account from "./components/accountPage";
 import NotFound from "./components/notFoundPage";
 import HomePage from "./components/homePage";
+import Profile from "./components/profilePage";
 
 const App = () => {
   return (
@@ -29,7 +30,6 @@ const App = () => {
           {/*First as Not found*/}
           <Route path='*' element={<NotFound />} />
           <Route exact path="/" element={<HomePage />} />
-          {/*<Route path="/homePage" element={<RecordList />} />*/}
           <Route path="/edit/:id" element={<Edit />} />
           <Route path="/create" element={<Create />} />
           <Route path="/bossPage" element={<Boss />} />
@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/forumPage" element={<Forums />} />
           <Route path="/chatPage" element={<Chat />} />
           <Route path="/accountPage" element={<Account />} />
-          <Route path="/" element={<BossCard />} />
+          <Route path="/accountPage/profilePage" element={<Profile />} />
 
           <Route path="/createUser" element={<CreateUser />} />
   

@@ -16,9 +16,7 @@ export default function Navbar() {
     //Colour of Navbar
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       {/*Logo*/}
-      <NavLink className="navbar-brand" to="/">
-        <img src={card} alt="Avatar" style={{ width: 25 + "%" }} />
-      </NavLink>
+      <NavLink className="nav-link" to="/"><img src={card} alt="Avatar" style={{ "width": 25 + '%' }} /></NavLink>
       {/*Hamburger menu*/}
       <button
         class="navbar-toggler"
@@ -33,7 +31,7 @@ export default function Navbar() {
       </button>
       {/*Everything that goes in this div, will collaspe into the navbar menu */}
       <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav ml-auto">
           {/*Makes current page nav-link highlighted/white text*/}
           <li class="nav-item active">
             <span class="sr-only">(current)</span>

@@ -1,6 +1,10 @@
-/*body {
+body {
   background-color: #343434;
   color: #cacaca;
+}
+
+h2 {
+  color: #e6b31e;
 }
 
 h3 {
@@ -57,4 +61,3 @@ form button {
   color: #cacaca;
   opacity: 1;
 }
-*/

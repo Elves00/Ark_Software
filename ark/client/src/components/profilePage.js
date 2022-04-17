@@ -11,9 +11,9 @@ export default function Profile() {
             <div class="col-md-10">
                 <div class="row">
                 <div class="col-md-4"><h2>Reebecca</h2><p><img src={card} class="float-left" alt="Avatar" /></p></div>
-                <div class="col-md-8"><h2>Stats</h2><p>I'm some stats</p>
-                <p>I'm some more stats</p>
-                <p>I'm some other stats</p></div>
+                <div class="col-md-8"><h2>Character Information</h2><p>Class: Mage</p>
+                <p>Skills: None</p>
+                <p>Builds: None</p></div>
                 </div>
                 <div class="row">
                 <div class="col-md-10"><h2>About Me</h2><p>Hi, I have to make this real long so that it shows how far this goes, like all the way to where it says friends and 

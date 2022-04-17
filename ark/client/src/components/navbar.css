@@ -1,0 +1,43 @@
+/* Navbar background colour */
+.navbar-custom {
+    background-color: #202020;
+}
+/* The link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: #e6b31e;
+}
+
+/* Color of hovered links */
+.navbar-custom .nav-item:hover .nav-link {
+    color: #a88313;
+}
+
+/* Color of active page/link, I don't know why it has to say !important */
+ .active{
+    color:white!important;
+}
+
+/*Menu Toggle Border Colour*/
+.custom-toggler.navbar-toggler {
+    border-color: #e6b31e;
+}
+
+/*Hamburger Menu Icon Colour*/     
+.custom-toggler .navbar-toggler-icon {
+    background-image: url(
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(230, 179, 30, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/*Hamburger Menu Icon Changes to an X when opened*/   
+.custom-toggler.navbar-toggler.collapsed > .close, .custom-toggler.navbar-toggler:not(.collapsed) > .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23e6b31e' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z'/><path fill-rule='evenodd' d='M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z'/></svg>");
+}
+
+.dropdown-menu{
+    background-color: #202020!important;
+}
+
+.btn {
+    color: #e6b31e!important;
+    background-color: #202020!important;
+}

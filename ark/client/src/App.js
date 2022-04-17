@@ -36,7 +36,7 @@ const App = () => {
           <Route path="/forumPage" element={<Forums />} />
           <Route path="/chatPage" element={<Chat />} />
           <Route path="/accountPage" element={<Account />} />
-          <Route path="/accountPage/profilePage" element={<Profile />} />
+          <Route path="/profilePage" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 

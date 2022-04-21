@@ -25,41 +25,30 @@ export default function HomePage() {
         return () => window.removeEventListener("resize", handleResize);
 
     }, []);
+    
+
+    //My attempt of understanding use effect to constantly update
+    useEffect(()=> {
+        //calls get using the fetchcard path
+        axios.get('http://localhost:fetchCard/')
+            //Response is used to set the cards dat
+            .then(res => {
+                const cards = res.json();
+                this.setCards(cards);
+            })
+            //Catch errors 
+            .catch(function (error) {
+                console.log(error);
+            })
+    });
 
 
-    //  getCards = () => {
-    //      axios.get(   "http://localhost:5000/fetchCard")
-    //      .then(()=>{
-    //          const data = response.data;
-    //          this.setCards({cards: data});
-    //          console.log('Data has arriver');
-    //      })
-    //      .catch(()=>{
-    //          console.log('OOps');
-    //      });
-    //  }
 
-    // useEffect(()=>{
-    // axios
-    //     .get("http://localhost:5000/fetchCard", {
-    //         responseType: "json",
-    //     })
-    //     .then(function (response) {
-    //         console.log(response.data);
-
-    //         alert("Login successful!");
-    //     });
-
-
-    // } , [response.length])
-
-
-    function displayhomeCard(response) {
-        if (!response.length) return null;
-
-        return cards.map((response) => {
+    function displayhomeCard() {
+        //Map all response to new Cards
+        return cards.map((res) => {
             return (
-                <Card name={response.name} date="7/04/2022" ></Card>
+                <Card name={res.name} date="7/04/2022" ></Card>
 
             );
         });
@@ -83,13 +72,14 @@ export default function HomePage() {
                 <Card name="Guardian Raid" date="7/04/2022" />
                 <Card name="Guardian Raid" date="7/04/2022" />
                 {/*Trying to get this to use a get command to search databse and return lots of cards */}
-                {displayhomeCard(["rabbit"])}
+                {displayhomeCard()}
             </div>
 
             {/*Width is the state*/}
             <p>Screen width:{width} </p>
             {/*Temporary create card*/}
             <CreateCard></CreateCard>
+            <p>HELLO {cards.length} HEllO</p>
         </div>
     );
 }

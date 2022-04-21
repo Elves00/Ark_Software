@@ -17,7 +17,9 @@ app.use(require("./routes/record"));
 app.post("/register", users.createOne);
 app.post("/createCard", cards.createOne);
 app.post("/login", users.findOne);
-//app.get("/login",users.findOne);
+//Fetch a card 
+app.get("/fetchCard",cards.get);
+
 // perform a database connection when server starts
 connectDB();
 

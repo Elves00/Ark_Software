@@ -40,7 +40,6 @@ body {
     position: absolute;
     color: white;
     top: 100%;
-    background-color: rgba(20, 19, 18, 0.1);
     transition: 0.8s;
 
 }
@@ -56,10 +55,7 @@ body {
     position: absolute;
     bottom: 0px;
     color: white;
-    background-color: rgba(20, 19, 18, 0.1);
     transition: 0.8s;
-
-
 }
 
 .card-inner:hover .card-inner-front-heading {

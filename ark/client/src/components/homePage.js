@@ -26,27 +26,40 @@ export default function HomePage() {
 
     }, []);
 
-    
-     getCards = () => {
-         axios.get(   "http://localhost:5000/register")
-         .then(()=>{
-             const data = response.data;
-             this.setCards({cards: data});
-             console.log('Data has arriver');
-         })
-         .catch(()=>{
-             console.log('OOps');
-         });
-     }
-     
+
+    //  getCards = () => {
+    //      axios.get(   "http://localhost:5000/fetchCard")
+    //      .then(()=>{
+    //          const data = response.data;
+    //          this.setCards({cards: data});
+    //          console.log('Data has arriver');
+    //      })
+    //      .catch(()=>{
+    //          console.log('OOps');
+    //      });
+    //  }
+
+    // useEffect(()=>{
+    // axios
+    //     .get("http://localhost:5000/fetchCard", {
+    //         responseType: "json",
+    //     })
+    //     .then(function (response) {
+    //         console.log(response.data);
+
+    //         alert("Login successful!");
+    //     });
 
 
-    function displayhomeCard(props) {
-        if (!props.length) return null;
+    // } , [response.length])
 
-        return cards.map((props) => {
+
+    function displayhomeCard(response) {
+        if (!response.length) return null;
+
+        return cards.map((response) => {
             return (
-                <Card name={props.name} date="7/04/2022" ></Card>
+                <Card name={response.name} date="7/04/2022" ></Card>
 
             );
         });

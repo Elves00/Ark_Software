@@ -26,19 +26,19 @@ export default function HomePage() {
 
     }, []);
 
-   /* 
-    getCards = () => {
-        axios.get(   "http://localhost:5000/register")
-        .then(()=>{
-            const data = response.data;
-            this.setCards({cards: data});
-            console.log('Data has arriver');
-        })
-        .catch(()=>{
-            console.log('OOps');
-        });
-    }
-    */
+    
+     getCards = () => {
+         axios.get(   "http://localhost:5000/register")
+         .then(()=>{
+             const data = response.data;
+             this.setCards({cards: data});
+             console.log('Data has arriver');
+         })
+         .catch(()=>{
+             console.log('OOps');
+         });
+     }
+     
 
 
     function displayhomeCard(props) {
@@ -69,6 +69,7 @@ export default function HomePage() {
                 <Card name="Guardian Raid" date="7/04/2022" />
                 <Card name="Guardian Raid" date="7/04/2022" />
                 <Card name="Guardian Raid" date="7/04/2022" />
+                {/*Trying to get this to use a get command to search databse and return lots of cards */}
                 {displayhomeCard(["rabbit"])}
             </div>
 

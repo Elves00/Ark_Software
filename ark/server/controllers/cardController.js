@@ -17,19 +17,30 @@ module.exports = {
     });
   },
 
-  get: async (req, res) => {
-    try {
-      const card = await Card.find({})
-      if (!card) {
-        res.status(404).json({ success: false, error: "No Cards" });
+  
+  get: ((req, res) => {
+    Card.find((error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        res.json(data)
       }
-      res.json(Card);
-    } catch (err) {
-      console.log(err);
+    })
+  }),
 
-    }
+  // get: async (req, res) => {
+  //   try {
+  //     const card = await Card.find({})
+  //     if (!card) {
+  //       res.status(404).json({ success: false, error: "No Cards" });
+  //     }
+  //     res.json(Card);
+  //   } catch (err) {
+  //     console.log(err);
 
-  },
+  //   }
+
+  // },
 
   /*
 // This section will help you get a list of all the records.
@@ -45,15 +56,6 @@ module.exports = {
   });
   */
 
-  get: ((req, res) => {
-    user.find((error, data) => {
-      if (error) {
-        return next(error)
-      } else {
-        res.json(data)
-      }
-    })
-  }),
 
 //   get((req, res) => {
 //   user.findById(req.params.id, (error, data) => {

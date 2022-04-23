@@ -25,23 +25,17 @@ export default function HomePage() {
         return () => window.removeEventListener("resize", handleResize);
 
     }, []);
-    
+
 
     //My attempt of understanding use effect to constantly update
-    useEffect(()=> {
+    useEffect(() => {
         //calls get using the fetchcard path
-        axios.get('http://localhost:fetchCard/')
+        axios.get('http://localhost:5000/fetchCard')
             //Response is used to set the cards dat
-            .then(res => {
-                const cards = res.json();
-                this.setCards(cards);
-            })
-            //Catch errors 
-            .catch(function (error) {
-                console.log(error);
-            })
-    });
-
+            .then((res) => {
+                setCards(res.data);
+            });
+    }, []);
 
 
     function displayhomeCard() {
@@ -57,20 +51,19 @@ export default function HomePage() {
     return (
 
         <div className="container">
-
+            <div className="top">
+                <div className="trial">
+                    <h1 className="header">Welcome to Ark</h1>
+                </div>
+            </div>
             {/*Display popular raid cards here */}
-            <h2 className="Title" >Popular Raids</h2>
+            <h2 className="title" >Popular Raids</h2>
             <div className="grid-container-raids">
                 <Card name="Guardian Raid" date="7/04/2022" />
             </div>
-            <h2 className="Title" >Popular Pages</h2>
+            <h2 className="title" >Popular Pages</h2>
             <div className="grid-container-raids">
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
+
                 {/*Trying to get this to use a get command to search databse and return lots of cards */}
                 {displayhomeCard()}
             </div>
@@ -80,6 +73,8 @@ export default function HomePage() {
             {/*Temporary create card*/}
             <CreateCard></CreateCard>
             <p>HELLO {cards.length} HEllO</p>
+            <div className="footer">a</div>
+        
         </div>
     );
 }

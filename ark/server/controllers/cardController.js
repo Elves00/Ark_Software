@@ -17,54 +17,20 @@ module.exports = {
     });
   },
 
-  
+  //Gets data from mongo db on cards
   get: ((req, res) => {
+
+    // Card.sort({ count: 'asc', test: -1 });
+    //Finds all cards
     Card.find((error, data) => {
       if (error) {
         return next(error)
       } else {
+        //Transform card data into json and set as res
         res.json(data)
       }
-    })
+      //Sort by count in descending order with a limit of 8
+    }).sort({count: -1}).limit(8)
   }),
-
-  // get: async (req, res) => {
-  //   try {
-  //     const card = await Card.find({})
-  //     if (!card) {
-  //       res.status(404).json({ success: false, error: "No Cards" });
-  //     }
-  //     res.json(Card);
-  //   } catch (err) {
-  //     console.log(err);
-
-  //   }
-
-  // },
-
-  /*
-// This section will help you get a list of all the records.
-  recordRoutes.route("/record").get(function (req, res) {
-    let db_connect = dbo.getDb("employees");
-    db_connect
-      .collection("records")
-      .find({})
-      .toArray(function (err, result) {
-        if (err) throw err;
-        res.json(result);
-      });
-  });
-  */
-
-
-//   get((req, res) => {
-//   user.findById(req.params.id, (error, data) => {
-//     if (error) {
-//       return next(error)
-//     } else {
-//       res.json(data)
-//     }
-//   })
-// })
 
 };

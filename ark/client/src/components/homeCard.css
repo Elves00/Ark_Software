@@ -1,12 +1,10 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-
 }
 
 /*Controlls the size of the card*/
 .card {
     padding: 20px;
-
     min-width: 200px;
     min-height: 200px;
     max-width: 300px;
@@ -15,8 +13,8 @@ body {
     background-image: url('GuardianRaid.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 5px;
-
+    border-radius: 30px;
+    background-color: transparent;
 }
 
 
@@ -40,7 +38,6 @@ body {
     position: absolute;
     color: white;
     top: 100%;
-    background-color: rgba(20, 19, 18, 0.1);
     transition: 0.8s;
 
 }
@@ -48,6 +45,11 @@ body {
 .card-inner-front-title {
     /*Minumum text size*/
     font-size: calc(10px + 1vw);
+    color: white;
+}
+
+.card-inner-front-title:hover {
+    color: white;
 }
 
 /*Controlls the text */
@@ -56,12 +58,11 @@ body {
     position: absolute;
     bottom: 0px;
     color: white;
-    background-color: rgba(20, 19, 18, 0.1);
     transition: 0.8s;
-
-
 }
 
+
+/*Transitions the heading and body text upwards on hover*/
 .card-inner:hover .card-inner-front-heading {
     bottom: 50%;
     text-decoration: underline;
@@ -70,23 +71,11 @@ body {
 
 .card-inner:hover .card-inner-front-body {
     top: 50%;
-
     transition: 0.8s;
 }
 
-/* 
-.card-inner-front-title:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    color: #141312;
-    background-color: #eac04b;
-    background-image: linear-gradient(to right, #eac04b, #ecd595, #eac04b);
-    transition-duration: 1s;
-    transition-timing-function: ease;
-} */
-
+/*Positions text relative to the bottom of the container with a scalling margin*/
 .card-inner-front-date {
-    /*Positions text relative to the bottom of the container with a scalling margin*/
     text-align: right;
     position: absolute;
     margin-bottom: auto;

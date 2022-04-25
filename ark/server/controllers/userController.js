@@ -44,6 +44,20 @@ module.exports = {
       console.log(err);
       // res.status(500).json({success:false, error: err.message});
     }
-  }
+  },
+
+   //Gets user data from mongodb
+   get: ((req, res) => {
+    //Finds single user
+    User.find((error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        //Transform card data into json and set as res
+        res.json(data)
+      }
+
+    })
+  }),
 
 };

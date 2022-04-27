@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const currentUser = 'reebecca'; //Later this will become a check with database if someone is signed in
+var currentUser = 'reebecca'; //Later this will become a check with database if someone is signed in
 
 
 export default function Profile() {

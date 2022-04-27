@@ -13,6 +13,18 @@ app.use(cors());
 app.use(express.json());
 app.use(require("./routes/record"));
 
+// //These are to track sessions to follow who is logged in
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(require("express-session")({    
+//   secret:"Hello World, this is a session",    
+//   resave: false,    
+//   saveUninitialized: false
+// }));
+// passport.use(new LocalStrategy(users.authenticate()));
+// passport.serializeUser(users.serializeUser());
+// passport.deserializeUser(users.deserializeUser());
+
 //Allow post method for these paths?? using model schemas?
 app.post("/register", users.createOne);
 app.post("/createCard", cards.createOne);

@@ -48,7 +48,7 @@ module.exports = {
 
    //Gets user data from mongodb
    get: ((req, res) => {
-    //Finds single user
+    //Finds user
     User.find((error, data) => {
       if (error) {
         return next(error)

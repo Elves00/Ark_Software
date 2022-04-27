@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+// var passportLocalMongoose = require("passport-local-mongoose"); 
+
 
 const UserSchema = new mongoose.Schema({
   username: {
@@ -38,5 +40,8 @@ UserSchema.pre("save", async function(next) {
 UserSchema.methods.matchPassword = async function(password){
   return await bcrypt.compare(password, this.password);
 };
+
+// //This is Bex trying to track a session to see what user is logged in
+// UserSchema.plugin(passportLocalMongoose); 
 
 module.exports = mongoose.model("User", UserSchema);

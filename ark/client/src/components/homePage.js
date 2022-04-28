@@ -42,7 +42,7 @@ export default function HomePage() {
         //Map all response to new Cards
         return cards.map((res) => {
             return (
-                <Card name={res.name} date="7/04/2022" ></Card>
+                <Card name={res.name} content={res.content} date="7/04/2022" ></Card>
 
             );
         });
@@ -74,7 +74,7 @@ export default function HomePage() {
             <CreateCard></CreateCard>
             <p>HELLO {cards.length} HEllO</p>
             <div className="footer">a</div>
-        
+
         </div>
     );
 }

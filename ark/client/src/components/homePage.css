@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-    background-color: rgb(59, 59, 59);
+    background-color: #343434;
     padding: 10px 10px 10px 10px;
     position: relative;
    
@@ -26,25 +26,25 @@ body {
 .header {
     text-align: center;
     text-decoration: underline;
-    color: black;
+    color: #e6b31e;
     /* background-color: #eac04b; */
     margin-top: 60px;
     margin-bottom: 20px;
     background-size: cover;
     font-size: 60px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Source Sans Pro", sans-serif;
      
 }
 
 .title {
     text-align: center;
     text-decoration: underline;
-    color: #141312;
+    color: #e6b31e;
     /* background-color: #eac04b; */
     margin-top: 60px;
     margin-bottom: 20px;
     background-size: cover;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Source Sans Pro", sans-serif;
     
 }
 

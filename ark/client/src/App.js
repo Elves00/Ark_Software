@@ -19,6 +19,7 @@ import NotFound from "./components/notFoundPage";
 import HomePage from "./components/homePage";
 import Login from "./components/login";
 import Register from "./components/register";
+import Private from "./components/routing/auth";
 
 const App = () => {
   return (
@@ -34,7 +35,9 @@ const App = () => {
           <Route path="/create" element={<Create />} />
           <Route path="/bossPage" element={<Boss />} />
           <Route path="/raidPage" element={<Raid />} />
-          <Route path="/forumPage" element={<Forums />} />
+          <Route exact path="/forumPage" element={<Private />}>
+            <Route exact path="/forumPage" element={<Forums />} />
+          </Route>
           <Route path="/chatPage" element={<Chat />} />
           <Route path="/accountPage" element={<Account />} />
           <Route path="/" element={<BossCard />} />

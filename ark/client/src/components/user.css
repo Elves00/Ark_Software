@@ -49,7 +49,7 @@ form button {
   text-align: center;
 }
 
-.form button:hover {
+form button:hover {
   background-color: #e6b31e;
 }
 

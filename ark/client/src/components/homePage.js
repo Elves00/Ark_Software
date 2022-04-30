@@ -1,32 +1,15 @@
 import "./homePage.css"
 import React, { useEffect, useState } from "react";
-import Card from "./homeCard2";
-import CreateCard from "./createCard";
+import Card from "./homeCard";
 import axios from "axios";
-import './homeCard2.css';
+import './homeCard.css';
 
 
 
 export default function HomePage() {
 
-    //The state width and how to set it plus intial condition
-    const [width, setWidth] = useState(window.innerWidth);
-
     //useState sets the function state
     const [cards, setCards] = useState([]);
-
-
-
-    //Use effect re-sets the width state every time there is a window event
-    useEffect(() => {
-        function handleResize() {
-            setWidth(window.innerWidth);
-        }
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-
-    }, []);
-
 
     //My attempt of understanding use effect to constantly update
     useEffect(() => {
@@ -69,17 +52,8 @@ export default function HomePage() {
                         {displayhomeCard()}
                     </ul>
                 </div>
-            </div>
-
-            {/*Width is the state*/}
-            <p>Screen width:{width} </p>
-            {/*Temporary create card*/}
-            <CreateCard></CreateCard>
-            <p>HELLO {cards.length} HEllO</p>
-            <div className="footer">a</div>
-
-        
-
+            </div>   
+            <div className="footer"></div>
 
         </div>
     );

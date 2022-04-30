@@ -1,8 +1,5 @@
 import React from "react";
-import './bossCard.css';
 import { Link } from 'react-router-dom';
-
-import card from '../logo192.png'
 
  function BossCard({ path, label, text, src}) {
     return (
@@ -15,7 +12,7 @@ import card from '../logo192.png'
                     >
                         <img
                             src={src}
-                            alt="Lost Ark Image"
+                            alt="Lost Ark"
                             className="cards__item__img"
                         />
                     </figure>

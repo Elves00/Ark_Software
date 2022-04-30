@@ -1,8 +1,9 @@
 import "./homePage.css"
 import React, { useEffect, useState } from "react";
-import Card from "./homeCard";
+import Card from "./homeCard2";
 import CreateCard from "./createCard";
 import axios from "axios";
+import './homeCard2.css';
 
 
 
@@ -42,11 +43,10 @@ export default function HomePage() {
         //Map all response to new Cards
         return cards.map((res) => {
             return (
-                <Card name={res.name} content={res.content} date="7/04/2022" ></Card>
-
+                <Card path="bossPage" src={res.image} name={res.name} tag={res.tag} date="7/04/2022" ></Card>
             );
         });
-        
+
     };
 
     return (
@@ -58,15 +58,17 @@ export default function HomePage() {
                 </div>
             </div>
             {/*Display popular raid cards here */}
-            <h2 className="title" >Popular Raids</h2>
+            <h2 className="title" >Featured Page</h2>
             <div className="grid-container-raids">
-                <Card name="Guardian Raid" date="7/04/2022" />
+                <Card src="Lost-Ark-Images/laimage1.jpg"tag= "Dungeon"name="Guardian Raid" date="7/04/2022" />
             </div>
             <h2 className="title" >Popular Pages</h2>
-            <div className="grid-container-raids">
-
-                {/*Trying to get this to use a get command to search databse and return lots of cards */}
-                {displayhomeCard()}
+            <div className="cards__container">
+                <div className="cards__wrapper">
+                    <ul className="cards__items">
+                        {displayhomeCard()}
+                    </ul>
+                </div>
             </div>
 
             {/*Width is the state*/}
@@ -75,6 +77,8 @@ export default function HomePage() {
             <CreateCard></CreateCard>
             <p>HELLO {cards.length} HEllO</p>
             <div className="footer">a</div>
+
+        
 
 
         </div>

@@ -90,16 +90,24 @@ export default function Boss() {
                             label="Dungeon"
                             path="/services"
                         />
-                    </ul>
-                    <div class="break"></div>
-                    <h2>Phantom Palace</h2>
-                    <ul className="cards__items">
-                        <BossCard
+                          <BossCard
                             src="Lost-Ark-Images/img1.jpg"
                             text="Hall of the Twisted Warlord"
                             label="Dungeon"
                             path="/services"
                         />
+                    </ul>
+                    <div class="break"></div>
+                    <h2>Phantom Palace</h2>
+                    <ul className="cards__items">
+                       
+                          <BossCard
+                            src="Lost-Ark-Images/img1.jpg"
+                            text="Hall of the Twisted Warlord"
+                            label="Dungeon"
+                            path="/services"
+                        />
+                        
                         <BossCard
                             src="Lost-Ark-Images/laimage1.jpg"
                             text="Hildebrandt Palace"

@@ -30,7 +30,7 @@ module.exports = {
         res.json(data)
       }
       //Sort by count in descending order with a limit of 8
-    }).sort({count: -1}).limit(8)
+    }).sort({count: -1}).limit(4)
   }),
 
 };

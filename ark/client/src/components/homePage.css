@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Title {
+    text-align: center;
+}
+
+
+.container {
+
+    padding: 10px 10px 10px 10px;
+}
+
+.grid-container-raids {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.gird-item {
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}

@@ -1,15 +1,18 @@
-
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import './bossPage.css'
-import BossCard from "./bossCard";
+import React, { useEffect, useState } from 'react';
+import './bossPage.css';
+import BossCard from './bossCard';
 
 //The record
 const Record = (props) => (
     //Uses props.record.name where .record is v important cause we are passing in record as props
     <div>
-        <BossCard name={props.record.name} email={props.record.email} password={props.record.password}></BossCard>
-        <button className="btn btn-link"
+        <BossCard
+            name={props.record.name}
+            email={props.record.email}
+            password={props.record.password}
+        ></BossCard>
+        <button
+            className="btn btn-link"
             onClick={() => {
                 props.deleteRecord(props.record._id);
             }}
@@ -20,7 +23,6 @@ const Record = (props) => (
 );
 
 export default function Boss() {
-
     //useState sets the function state
     const [records, setRecords] = useState([]);
 
@@ -44,11 +46,10 @@ export default function Boss() {
         return;
     }, [records.length]);
 
-
     // This method will delete a record
     async function deleteRecord(id) {
         await fetch(`http://localhost:5000/${id}`, {
-            method: "DELETE"
+            method: 'DELETE'
         });
 
         const newRecords = records.filter((el) => el._id !== id);
@@ -71,32 +72,49 @@ export default function Boss() {
     }
 
     return (
-        <div>
-            <h1>BIG SCARRY BOSSS</h1>
-
-
-            <div class="grid-container">
-
-                {recordList()}
-
-                <div class="grid-item"><BossCard name="Rebecca"></BossCard></div>
-                <div class="grid-item"><BossCard></BossCard></div>
-                <div class="grid-item"><BossCard></BossCard></div>
-                <div class="grid-item"><BossCard></BossCard></div>
-                <div class="grid-item"><BossCard></BossCard></div>
-                <div class="grid-item"><BossCard></BossCard></div>
-                <div class="grid-item"><BossCard></BossCard></div>
-                <div class="grid-item"><BossCard></BossCard></div>
-                <div class="grid-item"><BossCard></BossCard></div>
-                {/*One item in the grid not a bunch of items */}
-
+        <div className="cards">
+            <h1>Abyssal Dungeon Boss Guide</h1>
+            <h2>Ancient Elveria</h2>
+            <div className="cards__container">
+                <div className="cards__wrapper">
+                    <ul className="cards__items">
+                        <BossCard
+                            src="Lost-Ark-Images/img1.jpg"
+                            text="Demon Beast Canyon"
+                            label="Dungeon"
+                            path="/services"
+                        />
+                        <BossCard
+                            src="Lost-Ark-Images/laimage1.jpg"
+                            text="Necromancer's Origin"
+                            label="Dungeon"
+                            path="/services"
+                        />
+                    </ul>
+                    <div class="break"></div>
+                    <h2>Phantom Palace</h2>
+                    <ul className="cards__items">
+                        <BossCard
+                            src="Lost-Ark-Images/img1.jpg"
+                            text="Hall of the Twisted Warlord"
+                            label="Dungeon"
+                            path="/services"
+                        />
+                        <BossCard
+                            src="Lost-Ark-Images/laimage1.jpg"
+                            text="Hildebrandt Palace"
+                            label="Dungeon"
+                            path="/services"
+                        />
+                        {/* <CardItem
+                    src='Lost-Ark-Images/laimage1.jpg'
+                    text='Ark of Arrogance'
+                    label='Dungeon'
+                    path='/services'
+                    /> */}
+                    </ul>
+                </div>
             </div>
-
-
-
         </div>
-
     );
 }
-
-

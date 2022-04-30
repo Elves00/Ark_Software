@@ -20,7 +20,7 @@ module.exports = {
   //Gets data from mongo db on cards
   get: ((req, res) => {
 
-    // Card.sort({ count: 'asc', test: -1 });
+   
     //Finds all cards
     Card.find((error, data) => {
       if (error) {

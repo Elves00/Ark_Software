@@ -46,6 +46,7 @@ export default function HomePage() {
 
             );
         });
+        
     };
 
     return (
@@ -74,6 +75,7 @@ export default function HomePage() {
             <CreateCard></CreateCard>
             <p>HELLO {cards.length} HEllO</p>
             <div className="footer">a</div>
+
 
         </div>
     );

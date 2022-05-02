@@ -1,3 +1,4 @@
+const { Int32 } = require("mongodb");
 const mongoose = require("mongoose");
 
 //Card with name and view count
@@ -13,6 +14,10 @@ const CardSchema = new mongoose.Schema({
   count: {
     type: String,
     required: [true, "A number"],
+  },
+  hit: {
+    type: Number,
+    required: [false, "view number"],
   },
 });
 

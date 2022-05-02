@@ -74,6 +74,7 @@ export default function Boss() {
 
     return (
         <>
+            <h1>Abyssal Dungeon Boss Guide</h1>
             <Tabs
                 children={[
                     {
@@ -89,7 +90,6 @@ export default function Boss() {
             />
 
             <div className="cards">
-                <h1>Abyssal Dungeon Boss Guide</h1>
                 <h2>Ancient Elveria</h2>
                 <div className="cards__container">
                     <div className="cards__wrapper">

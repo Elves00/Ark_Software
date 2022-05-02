@@ -18,8 +18,7 @@ const Forums = () => {
 
       try {
         const { data } = await axios.get("/forumPage", config);
-        // setData(data.data);
-        setData(<p>Forum Page</p>);
+        setData(data.data);
       } catch (error) {
         console.log(error);
         localStorage.removeItem("authToken");
@@ -30,7 +29,14 @@ const Forums = () => {
     fetchPrivateData();
   });
 
-  return error ? error : <div>{data}</div>;
+  return error ? (
+    error
+  ) : (
+    <div>
+      <p>Forum Page</p>
+      {data}
+    </div>
+  );
 };
 
 export default Forums;

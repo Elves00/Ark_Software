@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/forumPage", protect, users.getAccess);
+app.get("/accountPage", protect, users.getOne);
 
 app.post("/register", users.createOne);
 app.post("/login", users.findOne);

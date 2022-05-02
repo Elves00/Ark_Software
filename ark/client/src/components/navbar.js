@@ -75,6 +75,9 @@ export default function Navbar() {
               Register
             </NavLink>
           </li>
+          <NavLink className="nav-link" to="/logout">
+            Logout
+          </NavLink>
         </ul>
         {/*This is so the Account Link is on the right*/}
         <ul class="navbar-nav ms-auto">

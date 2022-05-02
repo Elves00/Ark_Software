@@ -49,7 +49,13 @@ module.exports = {
     }
   },
 
+  //API for forum
   getAccess: (req, res, next) => {
-    res.status(200).json({ success: true, data: "Successfully access route" });
+    res.status(200).json({ success: true, data: "Hello" });
+  },
+
+  //Account page
+  getOne: (req, res, next) => {
+    res.status(200).json({ success: true, data: req.user });
   },
 };

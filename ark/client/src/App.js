@@ -20,6 +20,8 @@ import HomePage from "./components/homePage";
 import Login from "./components/login";
 import Register from "./components/register";
 import Private from "./components/routing/auth";
+import EditProfile from "./components/editProfile";
+import Logout from "./components/logout";
 
 const App = () => {
   return (
@@ -44,7 +46,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/createUser" element={<CreateUser />} />
-
+          <Route path="/editProfile" element={<EditProfile />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/editUser/:id" element={<EditUser />} />
         </Routes>
       </div>

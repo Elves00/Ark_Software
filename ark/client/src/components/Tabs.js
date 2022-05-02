@@ -1,11 +1,9 @@
 import React from 'react';
 import styles from './Tabs.module.css';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 const Tabs = ({ children }) => {
     const [activeTab, setActiveTab] = useState(children[0].props.label);
-    const router = useRouter();
     const handleClick = (e, newActiveTab) => {
         e.preventDefault();
         setActiveTab(newActiveTab);

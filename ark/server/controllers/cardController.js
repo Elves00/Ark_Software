@@ -20,7 +20,7 @@ module.exports = {
   //Gets data from mongo db on cards
   get: ((req, res) => {
 
-    // Card.sort({ count: 'asc', test: -1 });
+   
     //Finds all cards
     Card.find((error, data) => {
       if (error) {
@@ -30,7 +30,7 @@ module.exports = {
         res.json(data)
       }
       //Sort by count in descending order with a limit of 8
-    }).sort({count: -1}).limit(8)
+    }).sort({count: -1}).limit(4)
   }),
 
 };

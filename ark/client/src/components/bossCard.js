@@ -1,23 +1,27 @@
 import React from "react";
-import './bossCard.css'
+import { Link } from 'react-router-dom';
 
-import card from '../logo192.png'
-
- function BossCard(props) {
+ function BossCard({ path, label, text, src}) {
     return (
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src={card} alt="Avatar" />
-                    <h1 class="flip-card-front-text">Ark style</h1>
-                </div>
-                <div class="flip-card-back">
-                    <h1>{props.name}</h1>
-                    <h1>{props.email}</h1>
-                    <h1>{props.password}</h1>
-                </div>
-            </div>
-        </div>
+        <>
+            <li className="cards__item">
+                <Link className="cards__item__link" to={path}>
+                    <figure
+                        className="cards__item__pic-wrap"
+                        data-category={label}
+                    >
+                        <img
+                            src={src}
+                            alt="Lost Ark"
+                            className="cards__item__img"
+                        />
+                    </figure>
+                    <div className="cards__item__info">
+                        <h5 className="cards__item__text">{text}</h5>
+                    </div>
+                </Link>
+            </li>
+        </>
     );
 }
 

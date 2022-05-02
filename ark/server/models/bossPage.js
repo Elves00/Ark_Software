@@ -1,14 +1,18 @@
 const mongoose = require("mongoose");
 
 //Card with name and view count
-const CardSchema = new mongoose.Schema({
-  name: {
+const bossPageSchema = new mongoose.Schema({
+  title: {
     type: String,
     required: [true, "Please provide a Cardname"],
   },
   content: {
     type: String,
-    required: [false, "A number"],
+    required: [true, "A number"],
+  },
+  mechanics: {
+    type: String,
+    required: [true, "A number"],
   },
   count: {
     type: String,
@@ -16,4 +20,4 @@ const CardSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Card", CardSchema);
+module.exports = mongoose.model("bossPage", bossPageSchema);

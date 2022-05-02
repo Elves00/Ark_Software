@@ -16,6 +16,7 @@ app.get("/accountPage", protect, users.getOne);
 
 app.post("/register", users.createOne);
 app.post("/login", users.findOne);
+app.patch("/editProfile", protect, users.updateOne);
 
 // perform a database connection when server starts
 connectDB();

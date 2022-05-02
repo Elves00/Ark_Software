@@ -12,11 +12,7 @@ exports.protect = async (req, res, next) => {
   }
 
   if (!token) {
-    return next(
-      res
-        .status(401)
-        .json({ success: false, error: "Not authorized to access this route" })
-    );
+    return next(res.status(401).json({ success: false, error: "No Token" }));
   }
 
   try {

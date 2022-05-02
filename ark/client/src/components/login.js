@@ -19,17 +19,13 @@ const Login = () => {
     e.preventDefault();
 
     const config = {
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
     };
 
     try {
-      const { data } = await axios.post(
-        "http://localhost:5000/login",
-        { email, password },
-        config
-      );
+      const { data } = await axios.post("/login", { email, password }, config);
       localStorage.setItem("authToken", data.token);
       alert("Login successful!");
       navigate("/");
@@ -44,7 +40,7 @@ const Login = () => {
   return (
     <div className="form">
       <h3>Login</h3>
-      {error && <span>{error}</span>}
+      {error && <span className="error-message">{error}</span>}
       <form onSubmit={loginHandler}>
         <input
           type="email"

@@ -7,18 +7,48 @@ const sendToken = (user, statusCode, res) => {
 };
 
 module.exports = {
-  createOne: (req, res) => {
-    let newUserDetails = req.body;
-    newUserDetails._id = new mongoose.Types.ObjectId();
+  createOne: async (req, res) => {
+    const { email, password, confirmpassword } = req.body;
 
-    let user = new User(newUserDetails);
-    user.save((err) => {
-      if (err) {
-        return res.status(400).json(err);
+    try {
+      const foundUser = await User.findOne({ email });
+      if (!foundUser) {
+        const details = {
+          username: req.body.username,
+          email: req.body.email,
+          password: req.body.password,
+        };
+        let newUserDetails = details;
+        newUserDetails._id = new mongoose.Types.ObjectId();
+
+        let user = new User(newUserDetails);
+        user.save((err) => {
+          if (err) {
+            return res.status(400).json(err);
+          }
+          // res.json(user);
+          sendToken(user, 201, res);
+        });
+      } else {
+        if (password.length < 6) {
+          res.status(500).json({
+            success: false,
+            error: "Password must be more than 6 characters!",
+          });
+        }
+        if (password !== confirmpassword) {
+          res.status(500).json({
+            success: false,
+            error: "Confirm password did not match!",
+          });
+        }
+        res
+          .status(409)
+          .json({ success: false, error: "Email or username already exist!" });
       }
-      // res.json(user);
-      sendToken(user, 201, res);
-    });
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   findOne: async (req, res) => {
@@ -57,5 +87,13 @@ module.exports = {
   //Account page
   getOne: (req, res, next) => {
     res.status(200).json({ success: true, data: req.user });
+  },
+
+  updateOne: async (req, res) => {
+    let user = req.user;
+    user = await User.findByIdAndUpdate(user._id, req.body, {
+      new: true,
+    });
+    res.status(200).json({ success: true, data: user });
   },
 };

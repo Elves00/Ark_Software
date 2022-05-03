@@ -58,6 +58,25 @@ export default function Navbar() {
               Chat
             </NavLink>
           </li>
+          {/*Here for testing purposes, will comment out later*/}
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/404">
+              BrokenTest
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/login">
+              Login
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/register">
+              Register
+            </NavLink>
+          </li>
+          <NavLink className="nav-link" to="/logout">
+            Logout
+          </NavLink>
         </ul>
         {/*This is so the Account Link is on the right*/}
         <ul class="navbar-nav ml-auto">

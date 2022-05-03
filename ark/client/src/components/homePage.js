@@ -1,66 +1,32 @@
 import "./homePage.css"
 import React, { useEffect, useState } from "react";
 import Card from "./homeCard";
-import CreateCard from "./createCard";
 import axios from "axios";
+import './homeCard.css';
 
 
 
 export default function HomePage() {
 
-    //The state width and how to set it plus intial condition
-    const [width, setWidth] = useState(window.innerWidth);
-
     //useState sets the function state
     const [cards, setCards] = useState([]);
 
-
-
-    //Use effect re-sets the width state every time there is a window event
+    //My attempt of understanding use effect to constantly update
     useEffect(() => {
-        function handleResize() {
-            setWidth(window.innerWidth);
-        }
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-
+        //calls get using the fetchcard path
+        axios.get('http://localhost:5000/fetchCard')
+            //Response is used to set the cards dat
+            .then((res) => {
+                setCards(res.data);
+            });
     }, []);
 
 
-    //  getCards = () => {
-    //      axios.get(   "http://localhost:5000/fetchCard")
-    //      .then(()=>{
-    //          const data = response.data;
-    //          this.setCards({cards: data});
-    //          console.log('Data has arriver');
-    //      })
-    //      .catch(()=>{
-    //          console.log('OOps');
-    //      });
-    //  }
-
-    // useEffect(()=>{
-    // axios
-    //     .get("http://localhost:5000/fetchCard", {
-    //         responseType: "json",
-    //     })
-    //     .then(function (response) {
-    //         console.log(response.data);
-
-    //         alert("Login successful!");
-    //     });
-
-
-    // } , [response.length])
-
-
-    function displayhomeCard(response) {
-        if (!response.length) return null;
-
-        return cards.map((response) => {
+    function displayhomeCard() {
+        //Map all response to new Cards
+        return cards.map((res) => {
             return (
-                <Card name={response.name} date="7/04/2022" ></Card>
-
+                <Card path="bossPage" src={res.image} name={res.name} tag={res.tag} date="7/04/2022" ></Card>
             );
         });
     };
@@ -68,28 +34,29 @@ export default function HomePage() {
     return (
 
         <div className="container">
-
-            {/*Display popular raid cards here */}
-            <h2 className="Title" >Popular Raids</h2>
-            <div className="grid-container-raids">
-                <Card name="Guardian Raid" date="7/04/2022" />
+            <div className="top">
+                <div className="trial">
+                    <h1 className="header">Welcome to Ark</h1>
+                </div>
             </div>
-            <h2 className="Title" >Popular Pages</h2>
+            {/*A featured raid display near the top of the home page*/}
+            <h2 className="title" >Featured Page</h2>
             <div className="grid-container-raids">
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
-                <Card name="Guardian Raid" date="7/04/2022" />
-                {/*Trying to get this to use a get command to search databse and return lots of cards */}
-                {displayhomeCard(["rabbit"])}
+                <Card src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid" date="7/04/2022" />
             </div>
 
-            {/*Width is the state*/}
-            <p>Screen width:{width} </p>
-            {/*Temporary create card*/}
-            <CreateCard></CreateCard>
+            {/*A section containing some of the most popular raids on the page as cards with links to the appropriate pages */}
+            <h2 className="title" >Popular Pages</h2>
+            <div className="cards__container">
+                <div className="cards__wrapper">
+                    <ul className="cards__items">
+                        {displayhomeCard()}
+                    </ul>
+                </div>
+            </div>
+
+            <div className="footer">This website was created by the Ark Project team please enjoy</div>
+
         </div>
     );
 }

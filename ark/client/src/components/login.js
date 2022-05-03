@@ -1,30 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./user.css";
 
 const Login = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (localStorage.getItem("authToken")) {
+      navigate("/");
+    }
+  });
+
   const loginHandler = async (e) => {
     e.preventDefault();
 
     const config = {
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
     };
 
-    try{
-      await axios.post(
-        "http://localhost:5000/login",
-        {email, password}, 
-        config
-        );
+    try {
+      const { data } = await axios.post("/login", { email, password }, config);
+      localStorage.setItem("authToken", data.token);
       alert("Login successful!");
       navigate("/");
     } catch (error) {
@@ -35,11 +37,10 @@ const Login = () => {
     }
   };
 
-
   return (
     <div className="form">
       <h3>Login</h3>
-      {error && <span>{error}</span>}
+      {error && <span className="error-message">{error}</span>}
       <form onSubmit={loginHandler}>
         <input
           type="email"

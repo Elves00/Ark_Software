@@ -1,23 +1,53 @@
-import React from "react";
-import card from '../logo192.png'
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
+
+    //Copy Brecon
+    const [data, setData] = useState("");
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchPrivateData = async () => {
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            },
+          };
+    
+          try {
+            const { data } = await axios.get("/accountPage", config);
+            setData(data.data);
+          } catch (error) {
+            localStorage.removeItem("authToken");
+            alert("Please login to view your profile, redirecting to login page");
+            setTimeout(() => {
+              navigate("/login");
+            }, 0);
+          }
+        };
+    
+        fetchPrivateData();
+      });
+
     return (
 
-        
-      <div className="FullProfile">
+<div className="FullProfile">
           <div class="row">
             <div class="col-md-10">
                 <div class="row">
-                <div class="col-md-4"><h2>Reebecca</h2><p><img src={card} class="float-left" alt="Avatar" /></p></div>
-                <div class="col-md-8"><h2>Stats</h2><p>I'm some stats</p>
-                <p>I'm some more stats</p>
-                <p>I'm some other stats</p></div>
+                <div class="col-md-4"><h2>{data.username}</h2><p><img 
+                    src= {data.profilePhoto}
+                    alt="new"
+                    /></p></div>
+                <div class="col-md-8"><h2>Character Information</h2><p>Class: {data.characterClass}</p>
+                <p>Skills: {data.skills}</p>
+                <p>Builds: {data.builds}</p></div>
                 </div>
                 <div class="row">
-                <div class="col-md-10"><h2>About Me</h2><p>Hi, I have to make this real long so that it shows how far this goes, like all the way to where it says friends and 
-                    then like makes a new line hopefully, I think next I learn how to outline this box. Or maybe that'll come when I learn how to make an editable box.</p></div>
+                <div class="col-md-10"><h2>About Me</h2><p>{data.aboutMe}</p></div>
             </div> 
             </div>
             <div class="col-md-2">
@@ -30,15 +60,7 @@ export default function Profile() {
             <p class="text-center">Friends</p>
             <p class="text-center">Friends</p>
             </div>
-            </div>
-
-             
-
-
-            
-
-        
+            </div>    
       </div>
-      
     );
-  }
+}

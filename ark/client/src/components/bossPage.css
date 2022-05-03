@@ -3,12 +3,12 @@
     background: #fff;
 }
 
-h1 {
+.h1 {
     text-align: center;
     margin-bottom: 3cm;
 }
 
-h2 {
+.h2 {
     text-align: center;
     margin-bottom: 2em;
 }
@@ -222,7 +222,6 @@ h2 {
     line-height: 22px;
     align-items: center;
     white-space: prewrap;
-
 }
 
 @media only screen and (min-width: 1200px) {

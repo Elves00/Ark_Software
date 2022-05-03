@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './bossPage.css';
 import BossCard from './bossCard';
+import RefactoredBossCard from './refactored-boss-card/BossCard';
 import Tabs from './Tabs';
 
 //The record
@@ -93,30 +94,42 @@ export default function Boss() {
                 <h2>Ancient Elveria</h2>
                 <div className="cards__container">
                     <div className="cards__wrapper">
-                        <ul className="cards__items">
-                            <BossCard
+                        <div className="cards__items">
+                            <RefactoredBossCard
                                 src="Lost-Ark-Images/img1.jpg"
                                 text="Demon Beast Canyon"
                                 label="Dungeon"
                                 path="/services"
                             />
-                            <BossCard
+                            <RefactoredBossCard
                                 src="Lost-Ark-Images/laimage1.jpg"
                                 text="Necromancer's Origin"
                                 label="Dungeon"
                                 path="/services"
                             />
-                        </ul>
+                            <RefactoredBossCard
+                                src="Lost-Ark-Images/laimage1.jpg"
+                                text="Necromancer's Origin"
+                                label="Dungeon"
+                                path="/services"
+                            />
+                            <RefactoredBossCard
+                                src="Lost-Ark-Images/laimage1.jpg"
+                                text="Necromancer's Origin"
+                                label="Dungeon"
+                                path="/services"
+                            />
+                        </div>
                         <div class="break"></div>
                         <h2>Phantom Palace</h2>
-                        <ul className="cards__items">
-                            <BossCard
+                        <div className="cards__items">
+                            <RefactoredBossCard
                                 src="Lost-Ark-Images/img1.jpg"
                                 text="Hall of the Twisted Warlord"
                                 label="Dungeon"
                                 path="/services"
                             />
-                            <BossCard
+                            <RefactoredBossCard
                                 src="Lost-Ark-Images/laimage1.jpg"
                                 text="Hildebrandt Palace"
                                 label="Dungeon"
@@ -128,7 +141,7 @@ export default function Boss() {
                     label='Dungeon'
                     path='/services'
                     /> */}
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>

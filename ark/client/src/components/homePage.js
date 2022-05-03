@@ -1,9 +1,8 @@
 import "./homePage.css"
 import React, { useEffect, useState } from "react";
-import Card from "./homeCard2";
-import CreateCard from "./createCard";
+import Card from "./homeCard";
 import axios from "axios";
-import './homeCard2.css';
+import './homeCard.css';
 
 
 

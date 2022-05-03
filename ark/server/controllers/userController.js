@@ -86,7 +86,7 @@ module.exports = {
     
    //Gets user data from mongodb
    get: ((req, res) => {
-    //Finds single user
+    //Finds user
     User.find((error, data) => {
       if (error) {
         return next(error)
@@ -97,6 +97,11 @@ module.exports = {
 
     })
   }),
+
+  //API for forum
+  getAccess: (req, res, next) => {
+    res.status(200).json({ success: true, data: "Hello" });
+  },
 
   //Account page
   getOne: (req, res, next) => {

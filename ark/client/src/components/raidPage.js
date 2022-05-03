@@ -10,9 +10,8 @@ export default function Raid() {
   //Sets the name
   const [name, setView] = useState("MILO");
 
-  //async function to update screen has been viewed
-  const bang = async () => {
-    
+
+  useEffect(() => {
     console.log('MAX')
     const config = {
       header: {
@@ -24,15 +23,39 @@ export default function Raid() {
     try {
       axios.post("http://localhost:5000/hit",
         //The name is used to identify the page to increment
-        {name},
+        { name },
         config
       )
       alert("Account successfully made!");
     } catch (error) {
 
     }
-    setView("Set")
-  }
+    console.log("MOTHA FLICKER")
+
+  }, []);
+
+  // //async function to update screen has been viewed
+  // const bang = async () => {
+
+  //   console.log('MAX')
+  //   const config = {
+  //     header: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
+
+  //   try {
+  //     axios.post("http://localhost:5000/hit",
+  //       //The name is used to identify the page to increment
+  //       { name },
+  //       config
+  //     )
+  //     alert("Account successfully made!");
+  //   } catch (error) {
+
+  //   }
+  //   setView("Set")
+  // }
 
   return (
     <div className="App" >
@@ -40,7 +63,7 @@ export default function Raid() {
         <p >
           RAIDS Page {name}
         </p>
-        <button onClick={bang}>Bang</button>
+        <button >Bang</button>
 
       </header>
     </div>

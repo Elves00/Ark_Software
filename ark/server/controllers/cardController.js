@@ -41,7 +41,7 @@ module.exports = {
     const update = { $inc: { hit: +1 } };
 
     //Updates hit counter
-    Card.findOneAndUpdate(id, update);
+    Card.findOneAndUpdate(id, update).exec();
   },
 
 };

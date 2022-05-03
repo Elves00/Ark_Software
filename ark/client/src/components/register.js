@@ -15,41 +15,33 @@ const Register = () => {
     e.preventDefault();
 
     const config = {
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
     };
 
-    if (password !== confirmpassword) {
-      //if confirm pass and pass do not match, reset both fields
-      setPassword("");
-      setConfirmpassword("");
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-      return alert("Confirm password did not match!");
-    }
-
     try {
-      await axios.post(
+      const { data } = await axios.post(
         "http://localhost:5000/register",
-        { username, email, password },
+        { username, email, password, confirmpassword },
         config
       );
       alert("Account successfully made!");
+      localStorage.setItem("authToken", data.token);
       navigate("/");
     } catch (error) {
+      // console.log(error.response.data);
       setError(error.response.data.error);
       setTimeout(() => {
         setError("");
-      }, 5000);
+      }, 1000);
     }
   };
 
   return (
     <div className="form">
       <h3>Register</h3>
-      {error && <span>{error}</span>}
+      {error && <span className="error-message">{error}</span>}
       <form onSubmit={registerHandler}>
         <input
           type="text"

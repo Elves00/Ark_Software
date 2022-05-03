@@ -16,6 +16,9 @@ import HomePage from "./components/homePage";
 import Profile from "./components/profilePage";
 import Login from "./components/login";
 import Register from "./components/register";
+import Private from "./components/routing/auth";
+import EditProfile from "./components/editProfile";
+import Logout from "./components/logout";
 
 const App = () => {
   return (
@@ -28,7 +31,9 @@ const App = () => {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/bossPage" element={<Boss />} />
           <Route path="/raidPage" element={<Raid />} />
-          <Route path="/forumPage" element={<Forums />} />
+          <Route exact path="/forumPage" element={<Private />}>
+            <Route exact path="/forumPage" element={<Forums />} />
+          </Route>
           <Route path="/chatPage" element={<Chat />} />
           <Route path="/accountPage" element={<Account />} />
           <Route path="/profilePage" element={<Profile />} />
@@ -36,10 +41,12 @@ const App = () => {
           <Route path="/register" element={<Register />} />
 
           <Route path="/createUser" element={<CreateUser />} />
-
-        </Routes >
-      </div >
-    </div >
+          <Route path="/editProfile" element={<EditProfile />} />
+          <Route path="/logout" element={<Logout />} />
+          {/* <Route path="/editUser/:id" element={<EditUser />} /> */}
+        </Routes>
+      </div>
+    </div>
   );
 };
 

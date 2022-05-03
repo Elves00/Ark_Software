@@ -7,11 +7,25 @@ const sendToken = (user, statusCode, res) => {
 };
 
 module.exports = {
-  createOne: async (req, res) => {
+  createOne: async (req, res, next) => {
     const { email, password, confirmpassword } = req.body;
 
     try {
       const foundUser = await User.findOne({ email });
+      if (password.length < 6) {
+        res.status(500).json({
+          success: false,
+          error: "Password must be more than 6 characters!",
+        });
+        next();
+      }
+      if (password !== confirmpassword) {
+        res.status(504).json({
+          success: false,
+          error: "Confirm password did not match!",
+        });
+        next();
+      }
       if (!foundUser) {
         const details = {
           username: req.body.username,
@@ -30,24 +44,14 @@ module.exports = {
           sendToken(user, 201, res);
         });
       } else {
-        if (password.length < 6) {
-          res.status(500).json({
-            success: false,
-            error: "Password must be more than 6 characters!",
-          });
-        }
-        if (password !== confirmpassword) {
-          res.status(500).json({
-            success: false,
-            error: "Confirm password did not match!",
-          });
-        }
         res
           .status(409)
           .json({ success: false, error: "Email or username already exist!" });
+          next();
       }
     } catch (error) {
-      console.log(error);
+      res.status(500);
+      next();
     }
   },
 
@@ -74,8 +78,7 @@ module.exports = {
 
       sendToken(user, 200, res);
     } catch (err) {
-      console.log(err);
-      // res.status(500).json({success:false, error: err.message});
+      res.status(500);
     }
   },
 
@@ -86,7 +89,7 @@ module.exports = {
     
    //Gets user data from mongodb
    get: ((req, res) => {
-    //Finds single user
+    //Finds user
     User.find((error, data) => {
       if (error) {
         return next(error)
@@ -97,6 +100,11 @@ module.exports = {
 
     })
   }),
+
+  //API for forum
+  getAccess: (req, res, next) => {
+    res.status(200).json({ success: true, data: "Hello" });
+  },
 
   //Account page
   getOne: (req, res, next) => {

@@ -1,80 +1,36 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-const currentUser = 'reebecca'; //Later this will become a check with database if someone is signed in
-
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
 
     //Copy Brecon
-    const[user, setUser] = useState();
+    const [data, setData] = useState("");
+    const navigate = useNavigate();
 
-    //Copy Brecon
     useEffect(() => {
-        axios.get('http://localhost:5000/fetchUser')
-            //Response is used to set the cards dat
-            .then((response) => {
-                setUser(response.data);
-            });
-    }, []);
-
-    //These functions aren't great as they actually go through every user, but maybe if I make the get only get the current user.
-    function displayUsername() {
-        return user?.map((res) => {
-            if (res.username === currentUser) {
-                return res.username
-            }
-            return ''              
-        });
-    };
-
-    function displayClass() {
-        return user?.map((res) => {
-            if (res.username === currentUser) {
-                return res.characterClass
-            }
-            return ''
-        });
-    };
-
-    function displaySkills() {
-        return user?.map((res) => {
-            if (res.username === currentUser) {
-                return res.skills
-            }
-            return ''
-        });
-    };
-
-    function displayBuilds() {
-        return user?.map((res) => {
-            if (res.username === currentUser) {
-                return res.builds
-            }
-            return ''
-        });
-    };
-
-    function displayProfilePhoto() {
-        return user?.map((res) => {
-            if (res.username === currentUser) {
-                return (<img 
-                    src= {res.profilePhoto}
-                    alt="new"
-                    />)
-            }
-            return ''
-        });
-    };
-
-    function displayAboutMe() {
-        return user?.map((res) => {
-            if (res.username === currentUser) {
-                return res.aboutMe
-            }
-            return ''
-        });
-    };
+        const fetchPrivateData = async () => {
+          const config = {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            },
+          };
+    
+          try {
+            const { data } = await axios.get("/accountPage", config);
+            setData(data.data);
+          } catch (error) {
+            localStorage.removeItem("authToken");
+            alert("Please login to view your profile, redirecting to login page");
+            setTimeout(() => {
+              navigate("/login");
+            }, 0);
+          }
+        };
+    
+        fetchPrivateData();
+      });
 
     return (
 
@@ -82,13 +38,16 @@ export default function Profile() {
           <div class="row">
             <div class="col-md-10">
                 <div class="row">
-                <div class="col-md-4"><h2>{displayUsername()}</h2><p>{displayProfilePhoto()}</p></div>
-                <div class="col-md-8"><h2>Character Information</h2><p>Class: {displayClass()}</p>
-                <p>Skills: {displaySkills()}</p>
-                <p>Builds: {displayBuilds()}</p></div>
+                <div class="col-md-4"><h2>{data.username}</h2><p><img 
+                    src= {data.profilePhoto}
+                    alt="new"
+                    /></p></div>
+                <div class="col-md-8"><h2>Character Information</h2><p>Class: {data.characterClass}</p>
+                <p>Skills: {data.skills}</p>
+                <p>Builds: {data.builds}</p></div>
                 </div>
                 <div class="row">
-                <div class="col-md-10"><h2>About Me</h2><p>{displayAboutMe()}</p></div>
+                <div class="col-md-10"><h2>About Me</h2><p>{data.aboutMe}</p></div>
             </div> 
             </div>
             <div class="col-md-2">

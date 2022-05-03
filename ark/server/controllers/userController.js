@@ -77,11 +77,6 @@ module.exports = {
       res.status(500);
     }
   },
-
-  //API for forum
-  getAccess: (req, res, next) => {
-    res.status(200).json({ success: true, data: "Hello" });
-  },
     
    //Gets user data from mongodb
    get: ((req, res) => {

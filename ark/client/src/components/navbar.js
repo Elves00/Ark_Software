@@ -95,3 +95,6 @@ export default function Navbar() {
     </nav>
   );
 }
+
+// The below code can be used if we want the navbar to collapse once a link it clicked, but makes full screen navbar 'blink'
+// <NavLink className="nav-link" data-toggle="collapse" data-target="#navbarText" to="/raidPage">Raids</NavLink>

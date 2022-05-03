@@ -1,5 +1,8 @@
 import React from "react";
+import './bossCard.css';
 import { Link } from 'react-router-dom';
+
+import card from '../logo192.png'
 
  function BossCard({ path, label, text, src}) {
     return (

@@ -5,10 +5,7 @@ import { Route, Routes } from "react-router-dom";
 
 // We import all the components we need in our app
 import Navbar from "./components/navbar";
-import Edit from "./components/edit";
-import Create from "./components/create";
 import CreateUser from "./components/createUser";
-import EditUser from "./components/editUser";
 import Boss from "./components/bossPage";
 import Raid from "./components/raidPage";
 import Forums from "./components/forumPage";
@@ -29,21 +26,17 @@ const App = () => {
           {/*First as Not found*/}
           <Route path='*' element={<NotFound />} />
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/edit/:id" element={<Edit />} />
-          <Route path="/create" element={<Create />} />
           <Route path="/bossPage" element={<Boss />} />
           <Route path="/raidPage" element={<Raid />} />
           <Route path="/forumPage" element={<Forums />} />
           <Route path="/chatPage" element={<Chat />} />
           <Route path="/accountPage" element={<Account />} />
-          <Route path="/accountPage/profilePage" element={<Profile />} />
+          <Route path="/profilePage" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
           <Route path="/createUser" element={<CreateUser />} />
-  
-          <Route path="/editUser/:id" element={<EditUser />} />
-       
+
         </Routes >
       </div >
     </div >

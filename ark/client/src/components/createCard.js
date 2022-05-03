@@ -6,13 +6,14 @@ import "./user.css";
 const CreateCard = ({ history }) => {
   const [name, setname] = useState("");
   const [count, setcount] = useState(0);
+  const [content, setcontent] = useState(0);
 
   const [error, setError] = useState("");
 
-  
+
   const registerHandler = async (e) => {
     e.preventDefault();
-    
+
 
     const config = {
       header: {
@@ -23,7 +24,7 @@ const CreateCard = ({ history }) => {
     try {
       await axios.post(
         "http://localhost:5000/createCard",
-        {name, count},
+        { name, content, count },
         config
       );
     } catch (error) {
@@ -32,14 +33,14 @@ const CreateCard = ({ history }) => {
         setError("");
       }, 5000);
     }
-    
+
   };
 
   return (
     <div className="form">
       <h3>Register</h3>
       {error && <span>{error}</span>}
-      <form onSubmit={registerHandler}>
+      <form id="pageForm" onSubmit={registerHandler}>
         <input
           type="text"
           id="name"
@@ -48,6 +49,11 @@ const CreateCard = ({ history }) => {
           value={name}
           onChange={(e) => setname(e.target.value)}
         />
+        <textarea
+          form="pageForm"
+          onChange={(e) => setcontent(e.target.value)}
+        >
+          Please enter text?</textarea>
 
         <input
           type="number"
@@ -58,11 +64,11 @@ const CreateCard = ({ history }) => {
           onChange={(e) => setcount(e.target.value)}
         />
 
-    
+
 
         <button type="submit">New Card</button>
         <br />
-    
+
       </form>
     </div>
   );

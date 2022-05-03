@@ -16,25 +16,21 @@ module.exports = {
       res.json(card);
     });
   },
-  // This section will help you get a list of all the records.
 
-  get: (req, res) => {
-    Card.find()
-      .select('name count')
-      .then((allCard) => {
+  //Gets data from mongo db on cards
+  get: ((req, res) => {
 
-        return res.status(200).json({
-          success: true,
-          message: 'A list of all causes',
-          Cause: allCause,
-        });
-      })
-      .catch((err) => {
-        res.status(500).json({
-          success: false,
-          message: 'Server error. Please try again.',
-          error: err.message,
-        });
-      });
-  },
+   
+    //Finds all cards
+    Card.find((error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        //Transform card data into json and set as res
+        res.json(data)
+      }
+      //Sort by count in descending order with a limit of 8
+    }).sort({count: -1}).limit(4)
+  }),
+
 };

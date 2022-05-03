@@ -18,6 +18,12 @@ app.post("/register", users.createOne);
 app.post("/createCard", cards.createOne);
 app.post("/login", users.findOne);
 
+//Fetch a card 
+app.get("/fetchCard",cards.get);
+
+//Fetch a User
+app.get("/fetchUser",users.get);
+
 // perform a database connection when server starts
 connectDB();
 

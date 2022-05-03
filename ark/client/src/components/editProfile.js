@@ -23,11 +23,11 @@ const Profile = () => {
       };
 
       try {
-        const { data } = await axios.get("/profilePage", config);
+        const { data } = await axios.get("/accountPage", config);
         setData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");
-        alert("Please login to view your profile, redirecting to login page");
+        alert("Please login to edit your profile, redirecting to login page");
         setTimeout(() => {
           navigate("/login");
         }, 0);
@@ -64,7 +64,7 @@ const Profile = () => {
         await axios.patch("/editProfile", { username, aboutMe, characterClass }, config);
       }
       alert("Changes saved!");
-      navigate("/accountPage");
+      navigate("/profilePage");
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {

@@ -43,14 +43,10 @@ const App = () => {
           <Route path="/createUser" element={<CreateUser />} />
           <Route path="/editProfile" element={<EditProfile />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/editUser/:id" element={<EditUser />} />
+          {/* <Route path="/editUser/:id" element={<EditUser />} /> */}
         </Routes>
       </div>
     </div>
-
-
-        </Routes >
-      </div >
   );
 };
 

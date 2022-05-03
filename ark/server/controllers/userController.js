@@ -47,7 +47,7 @@ module.exports = {
           .json({ success: false, error: "Email or username already exist!" });
       }
     } catch (error) {
-      console.log(error);
+      res.status(500);
     }
   },
 

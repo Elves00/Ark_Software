@@ -30,7 +30,7 @@ const Register = () => {
       localStorage.setItem("authToken", data.token);
       navigate("/");
     } catch (error) {
-      // console.log(error.response.data);
+      console.log(error.response.data);
       setError(error.response.data.error);
       setTimeout(() => {
         setError("");

@@ -83,6 +83,20 @@ module.exports = {
   getAccess: (req, res, next) => {
     res.status(200).json({ success: true, data: "Hello" });
   },
+    
+   //Gets user data from mongodb
+   get: ((req, res) => {
+    //Finds single user
+    User.find((error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        //Transform card data into json and set as res
+        res.json(data)
+      }
+
+    })
+  }),
 
   //Account page
   getOne: (req, res, next) => {

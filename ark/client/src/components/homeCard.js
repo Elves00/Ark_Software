@@ -1,23 +1,28 @@
 import React from "react";
+import './homeCard.css'
 import { Link } from 'react-router-dom';
 
- function BossCard({ path, label, text, src}) {
+/*Card which is used to display popular pages */
+function Card(props) {
+
+    /*Not sure if this is the best way but this will cast the passed attribute to allow it to be used in the to pathing for link */
+    const a = props.path + "";
     return (
         <>
             <li className="cards__item">
-                <Link className="cards__item__link" to={path}>
+                <Link className="cards__item__link" to={a}>
                     <figure
                         className="cards__item__pic-wrap"
-                        data-category={label}
+                        data-category={props.tag}
                     >
                         <img
-                            src={src}
+                            src={props.src}
                             alt="Lost Ark"
                             className="cards__item__img"
                         />
                     </figure>
                     <div className="cards__item__info">
-                        <h5 className="cards__item__text">{text}</h5>
+                        <h5 className="cards__item__text">{props.name}</h5>
                     </div>
                 </Link>
             </li>
@@ -25,4 +30,4 @@ import { Link } from 'react-router-dom';
     );
 }
 
-export default BossCard
+export default Card

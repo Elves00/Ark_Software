@@ -2,7 +2,9 @@ require("dotenv").config({ path: "./config.env" });
 const express = require("express");
 const app = express();
 const cors = require("cors");
+//Creates links to model controllers
 const users = require("./controllers/userController");
+const cards = require("./controllers/cardController");
 const connectDB = require("./db/conn");
 const { protect } = require("./middleware/auth");
 
@@ -14,9 +16,17 @@ app.use(express.json());
 app.get("/forumPage", protect, users.getAccess);
 app.get("/accountPage", protect, users.getOne);
 
+//Allow post method for these paths?? using model schemas?
 app.post("/register", users.createOne);
+app.post("/createCard", cards.createOne);
 app.post("/login", users.findOne);
 app.patch("/editProfile", protect, users.updateOne);
+
+//Fetch a card 
+app.get("/fetchCard",cards.get);
+
+//Fetch a User
+app.get("/fetchUser",users.get);
 
 // perform a database connection when server starts
 connectDB();

@@ -3,12 +3,12 @@
     background: #fff;
 }
 
-.h1 {
+.header {
     text-align: center;
     margin-bottom: 3cm;
 }
 
-.h2 {
+.title {
     text-align: center;
     margin-bottom: 2em;
 }
@@ -21,15 +21,18 @@
     max-width: 1120px;
     width: 90%;
     margin: 0 auto;
+
 }
 
 .cards__wrapper {
     position: relative;
     margin: 50px 0 45px;
+
 }
 
 .cards__items {
     margin-bottom: 100px;
+
 }
 
 .cards__item {
@@ -37,18 +40,22 @@
     flex: 1;
     margin: 0 1rem;
     border-radius: 10px;
+
 }
 
 .cards__item__link {
     display: flex;
     flex-flow: column;
     width: 100%;
-    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+    box-shadow: 0 6px 20px rgba(255, 195, 56, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     border-radius: 10px;
     overflow: hidden;
     text-decoration: none;
+    /*different from main page background*/
+    background-color: #2b262a;
+
 }
 
 .cards__item__pic-wrap {
@@ -57,11 +64,13 @@
     padding-top: 50%;
     overflow: hidden;
     margin: 0;
+
 }
 
 .fade-img {
     animation-name: fade-img;
     animation-duration: 2s;
+
 }
 
 .cards__item__pic-wrap::after {
@@ -103,11 +112,12 @@
 }
 
 .cards__item__text {
-    color: #252e48;
+    color: #e6b31e;
     font-size: 18px;
     line-height: 22px;
     align-items: center;
-    white-space: prewrap;
+    white-space: pre;
+
 }
 
 @media only screen and (min-width: 1200px) {

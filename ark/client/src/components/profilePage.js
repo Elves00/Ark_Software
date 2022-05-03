@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Profile() {
 
     //Copy Brecon
     const [data, setData] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,21 +19,23 @@ export default function Profile() {
           };
     
           try {
-            const { data } = await axios.get("/accountPage", config);
+            const { data } = await axios.get("/profilePage", config);
             setData(data.data);
           } catch (error) {
             localStorage.removeItem("authToken");
-            alert("Please login to view your profile, redirecting to login page");
+            setError("Not authorized, please login, redirecting to login page...");
             setTimeout(() => {
               navigate("/login");
-            }, 0);
+            }, 2000);
           }
         };
     
         fetchPrivateData();
       });
 
-    return (
+    return error ? (
+      error
+    ) : (
 
 <div className="FullProfile">
           <div class="row">
@@ -51,6 +54,7 @@ export default function Profile() {
             </div> 
             </div>
             <div class="col-md-2">
+            <NavLink to="/editProfile">Edit Profile</NavLink>
             <h2 class="text-center">Friends</h2>
             <p class="text-center">Friends</p>
             <p class="text-center">Friends</p>

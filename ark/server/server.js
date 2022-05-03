@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/forumPage", protect, users.getAccess);
-app.get("/accountPage", protect, users.getOne);
+app.get("/profilePage", protect, users.getOne);
 
 // //These are to track sessions to follow who is logged in
 // app.use(passport.initialize());

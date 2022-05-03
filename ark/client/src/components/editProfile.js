@@ -78,6 +78,7 @@ const Profile = () => {
       <h3>Edit Details</h3>
       {error && <span className="error-message">{error}</span>}
       <form onSubmit={editHandler}>
+        Username
         <input
           type="text"
           id="username"
@@ -85,14 +86,14 @@ const Profile = () => {
           onChange={(e) => setUsername(e.target.value)}
           
         />
-
+        About Me
         <input
           type="text"
           id="aboutMe"
           defaultValue={data.aboutMe}
           onChange={(e) => setAboutMe(e.target.value)}
         />
-
+        Class
         <input
           type="text"
           id="characterClass"

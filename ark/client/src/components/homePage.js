@@ -9,24 +9,8 @@ import './homeCard2.css';
 
 export default function HomePage() {
 
-    //The state width and how to set it plus intial condition
-    const [width, setWidth] = useState(window.innerWidth);
-
     //useState sets the function state
     const [cards, setCards] = useState([]);
-
-
-
-    //Use effect re-sets the width state every time there is a window event
-    useEffect(() => {
-        function handleResize() {
-            setWidth(window.innerWidth);
-        }
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-
-    }, []);
-
 
     //My attempt of understanding use effect to constantly update
     useEffect(() => {
@@ -46,7 +30,6 @@ export default function HomePage() {
                 <Card path="bossPage" src={res.image} name={res.name} tag={res.tag} date="7/04/2022" ></Card>
             );
         });
-
     };
 
     return (
@@ -57,11 +40,13 @@ export default function HomePage() {
                     <h1 className="header">Welcome to Ark</h1>
                 </div>
             </div>
-            {/*Display popular raid cards here */}
+            {/*A featured raid display near the top of the home page*/}
             <h2 className="title" >Featured Page</h2>
             <div className="grid-container-raids">
-                <Card src="Lost-Ark-Images/laimage1.jpg"tag= "Dungeon"name="Guardian Raid" date="7/04/2022" />
+                <Card src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid" date="7/04/2022" />
             </div>
+
+            {/*A section containing some of the most popular raids on the page as cards with links to the appropriate pages */}
             <h2 className="title" >Popular Pages</h2>
             <div className="cards__container">
                 <div className="cards__wrapper">
@@ -71,15 +56,7 @@ export default function HomePage() {
                 </div>
             </div>
 
-            {/*Width is the state*/}
-            <p>Screen width:{width} </p>
-            {/*Temporary create card*/}
-            <CreateCard></CreateCard>
-            <p>HELLO {cards.length} HEllO</p>
-            <div className="footer">a</div>
-
-        
-
+            <div className="footer">This website was created by the Ark Project team please enjoy</div>
 
         </div>
     );

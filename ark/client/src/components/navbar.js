@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 //Import image
-import card from "../logo192.png";
+import card from "../ArkLogoNoLinemum.png";
 // Here, we display our Navbar
 
 export default function Navbar() {

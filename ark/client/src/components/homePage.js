@@ -41,17 +41,22 @@ export default function HomePage() {
             </div>
             {/*A featured raid display near the top of the home page*/}
             <h2 className="title" >Featured Page</h2>
-            <div className="grid-container-raids">
-                <Card src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid" date="7/04/2022" />
+            <div className="cards__container">
+                <div className="cards__wrapper">
+                    <div className="cards__items">
+                        <Card src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid" date="7/04/2022" />
+                    </div>
+                </div>
             </div>
 
             {/*A section containing some of the most popular raids on the page as cards with links to the appropriate pages */}
+
             <h2 className="title" >Popular Pages</h2>
             <div className="cards__container">
                 <div className="cards__wrapper">
-                    <ul className="cards__items">
+                    <div className="cards__items">
                         {displayhomeCard()}
-                    </ul>
+                    </div>
                 </div>
             </div>
 

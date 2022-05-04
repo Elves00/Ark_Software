@@ -6,26 +6,17 @@ import { Link } from 'react-router-dom';
 function Card(props) {
 
     /*Not sure if this is the best way but this will cast the passed attribute to allow it to be used in the to pathing for link */
-    const a = props.path + "";
+    const path = props.path + "";
     return (
         <>
-            <li className="cards__item">
-                <Link className="cards__item__link" to={a}>
-                    <figure
-                        className="cards__item__pic-wrap"
-                        data-category={props.tag}
-                    >
-                        <img
-                            src={props.src}
-                            alt="Lost Ark"
-                            className="cards__item__img"
-                        />
-                    </figure>
-                    <div className="cards__item__info">
-                        <h5 className="cards__item__text">{props.name}</h5>
-                    </div>
-                </Link>
-            </li>
+
+            <Link to={path} className="boss-card">
+                <div className="picture-wrap" data-category={props.tag}>
+                    <img src={props.src} />
+                </div>
+                <h1>{props.name}</h1>
+            </Link>
+
         </>
 
 

@@ -6,6 +6,7 @@ export default function Profile() {
 
     //Copy Brecon
     const [data, setData] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,17 +23,19 @@ export default function Profile() {
             setData(data.data);
           } catch (error) {
             localStorage.removeItem("authToken");
-            alert("Please login to view your profile, redirecting to login page");
+            setError("Not authorized, please login, redirecting to login page...");
             setTimeout(() => {
               navigate("/login");
-            }, 0);
+            }, 3000);
           }
         };
     
         fetchPrivateData();
       });
 
-    return (
+    return error ? (
+      error
+    ) : (
 
 <div className="FullProfile">
           <div class="row">

@@ -27,10 +27,10 @@ const Profile = () => {
         setData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");
-        alert("Please login to edit your profile, redirecting to login page");
+        setError("Not authorized, please login, redirecting to login page...");
         setTimeout(() => {
           navigate("/login");
-        }, 0);
+        }, 3000);
       }
     };
 
@@ -73,7 +73,8 @@ const Profile = () => {
     }
   };
 
-  return (
+  return  error ? ( error
+  ) :(
     <div className="form">
       <h3>Edit Details</h3>
       {error && <span className="error-message">{error}</span>}

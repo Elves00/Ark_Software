@@ -2,10 +2,12 @@
 //Forums as I think Forum might already be a react function.
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Forums = () => {
   const [data, setData] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPrivateData = async () => {
@@ -20,9 +22,11 @@ const Forums = () => {
         const { data } = await axios.get("/forumPage", config);
         setData(data.data);
       } catch (error) {
-        console.log(error);
         localStorage.removeItem("authToken");
-        setError("Not authorized, please login");
+        setError("Not authorized, please login, redirecting to login page...");
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
       }
     };
 

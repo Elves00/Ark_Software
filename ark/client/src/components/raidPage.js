@@ -8,11 +8,10 @@ import axios from "axios";
 export default function Raid() {
 
   //Sets the name
-  const [name, setView] = useState("MILO");
+  const [name, setView] = useState("RAID");
 
 
   useEffect(() => {
-    console.log('MAX')
     const config = {
       header: {
         "Content-Type": "application/json",

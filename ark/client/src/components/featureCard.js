@@ -1,16 +1,16 @@
 import React from "react";
-
+import "./featureCard.css"
 import { Link } from 'react-router-dom';
 
 /*Card which is used to display popular pages */
-function Card(props) {
+function FeatureCard(props) {
 
     /*Not sure if this is the best way but this will cast the passed attribute to allow it to be used in the to pathing for link */
     const path = props.path + "";
     return (
         <>
-            <Link to={path} className="boss-card">
-                <div className="picture-wrap" data-category={props.tag}>
+            <Link to={path} className="boss-card-feature">
+                <div className="picture-wrap-feature" data-category={props.tag}>
                     <img src={props.src} />
                 </div>
                 <h1>{props.name}</h1>
@@ -19,4 +19,4 @@ function Card(props) {
     );
 }
 
-export default Card
+export default FeatureCard

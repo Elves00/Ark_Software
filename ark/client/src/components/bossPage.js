@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './bossPage.css';
-import BossCard from './bossCard';
 import RefactoredBossCard from './refactored-boss-card/BossCard';
 import Tabs from './Tabs';
 

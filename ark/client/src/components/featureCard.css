@@ -1,3 +1,6 @@
+.h1{
+    text-align: center;
+}
 
 @media (max-width: 800px) {
     .cards__items .boss-card-feature {
@@ -20,7 +23,7 @@
 
 .boss-card-feature:hover h1 {
     text-decoration: none;
-    color: yellow;
+    color: #e6b31e;;
 }
 
 .boss-card-feature img {

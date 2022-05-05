@@ -13,7 +13,7 @@ function Card(props) {
                 <div className="picture-wrap" data-category={props.tag}>
                     <img src={props.src} />
                 </div>
-                <h1>{props.name}</h1>
+                <h1 className="h1">{props.name}</h1>
             </Link>
         </>
     );

@@ -12,7 +12,6 @@ export default function Raid() {
 
 
   useEffect(() => {
-    console.log('MAX')
     const config = {
       header: {
         "Content-Type": "application/json",
@@ -26,44 +25,20 @@ export default function Raid() {
         { name },
         config
       )
-      alert("Account successfully made!");
     } catch (error) {
 
     }
-    console.log("MOTHA FLICKER")
 
   }, []);
 
-  // //async function to update screen has been viewed
-  // const bang = async () => {
-
-  //   console.log('MAX')
-  //   const config = {
-  //     header: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-
-  //   try {
-  //     axios.post("http://localhost:5000/hit",
-  //       //The name is used to identify the page to increment
-  //       { name },
-  //       config
-  //     )
-  //     alert("Account successfully made!");
-  //   } catch (error) {
-
-  //   }
-  //   setView("Set")
-  // }
 
   return (
     <div className="App" >
       <header className="App-header">
         <p >
-          RAIDS Page {name}
+          RAIDS Page
         </p>
-        <button >Bang</button>
+       
 
       </header>
     </div>

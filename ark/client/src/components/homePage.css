@@ -3,12 +3,12 @@
     background: #fff;
 }
 
-.h1 {
+h1 {
     text-align: center;
     margin-bottom: 3cm;
 }
 
-.h2 {
+h2 {
     text-align: center;
     margin-bottom: 2em;
 }
@@ -91,7 +91,7 @@
 
 .boss-card:hover h1 {
     text-decoration: none;
-    color: yellow;
+    color: cyan;
 }
 
 .boss-card img {

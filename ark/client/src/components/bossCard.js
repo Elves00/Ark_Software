@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function BossCard({ path, label, text, src }) {
     return (
         <>
-            {/* <li className="cards__item">
+            { <li className="cards__item">
                 <Link className="cards__item__link" to={path}>
                     <figure
                         className="cards__item__pic-wrap"
@@ -21,7 +21,7 @@ function BossCard({ path, label, text, src }) {
                         <h5 className="cards__item__text">{text}</h5>
                     </div>
                 </Link>
-            </li> */}
+            </li> }
         </>
     );
 }

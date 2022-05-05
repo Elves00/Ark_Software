@@ -8,37 +8,6 @@ export default function Profile() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-<<<<<<< HEAD
-    //Copy Brecon
-    const [data, setData] = useState("");
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const fetchPrivateData = async () => {
-          const config = {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-            },
-          };
-    
-          try {
-            const { data } = await axios.get("/accountPage", config);
-            setData(data.data);
-          } catch (error) {
-            localStorage.removeItem("authToken");
-            alert("Please login to view your profile, redirecting to login page");
-            setTimeout(() => {
-              navigate("/login");
-            }, 0);
-          }
-        };
-    
-        fetchPrivateData();
-      });
-
-    return (
-=======
   useEffect(() => {
     const fetchPrivateData = async () => {
       const config = {
@@ -62,7 +31,6 @@ export default function Profile() {
 
     fetchPrivateData();
   });
->>>>>>> Brecon
 
   return error ? (
     error
@@ -77,18 +45,7 @@ export default function Profile() {
                 <img 
                     src= {data.profilePhoto}
                     alt="new"
-<<<<<<< HEAD
-                    /></p></div>
-                <div class="col-md-8"><h2>Character Information</h2><p>Class: {data.characterClass}</p>
-                <p>Skills: {data.skills}</p>
-                <p>Builds: {data.builds}</p></div>
-                </div>
-                <div class="row">
-                <div class="col-md-10"><h2>About Me</h2><p>{data.aboutMe}</p></div>
-            </div> 
-=======
                     /></p> */}
->>>>>>> Brecon
             </div>
             <div class="col-md-8">
               <h2>Character Information</h2>

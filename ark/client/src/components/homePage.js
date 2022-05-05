@@ -1,8 +1,8 @@
 import "./front-page/homePage.css"
 import React, { useEffect, useState } from "react";
-import FeatureCard from "./front-page/featureCard";
-import Card from "./front-page/homeCard";
+import Card from "./homeCard";
 import axios from "axios";
+import './homeCard.css';
 
 
 
@@ -26,7 +26,7 @@ export default function HomePage() {
         //Map all response to new Cards
         return cards.map((res) => {
             return (
-                <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
+                <Card path="bossPage" src={res.image} name={res.name} tag={res.tag} date="7/04/2022" ></Card>
             );
         });
     };
@@ -41,24 +41,21 @@ export default function HomePage() {
             </div>
             {/*A featured raid display near the top of the home page*/}
             <h2 className="title" >Featured Page</h2>
-            <div className="cards__container">
-                <div className="cards__wrapper__feature">
-                    <div className="cards__items__feature">
-                        <FeatureCard path="bossPage" src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid"  />
-                    </div>
-                </div>
+            <div className="grid-container-raids">
+                <Card src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid" date="7/04/2022" />
             </div>
 
             {/*A section containing some of the most popular raids on the page as cards with links to the appropriate pages */}
-
             <h2 className="title" >Popular Pages</h2>
             <div className="cards__container">
                 <div className="cards__wrapper">
-                    <div className="cards__items">
+                    <ul className="cards__items">
                         {displayhomeCard()}
-                    </div>
+                    </ul>
                 </div>
             </div>
+
+            <div className="footer">This website was created by the Ark Project team please enjoy</div>
 
         </div>
     );

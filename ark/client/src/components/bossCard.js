@@ -21,7 +21,11 @@ function BossCard({ path, label, text, src }) {
                         <h5 className="cards__item__text">{text}</h5>
                     </div>
                 </Link>
+<<<<<<< HEAD
     </li> */}
+=======
+            </li> */}
+>>>>>>> f59a00e32abd760004f6cb6918f705be63a67ce0
         </>
     );
 }

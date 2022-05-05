@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
 
     //Copy Brecon
     const [data, setData] = useState("");
-    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,19 +22,17 @@ export default function Profile() {
             setData(data.data);
           } catch (error) {
             localStorage.removeItem("authToken");
-            setError("Not authorized, please login, redirecting to login page...");
+            alert("Please login to view your profile, redirecting to login page");
             setTimeout(() => {
               navigate("/login");
-            }, 3000);
+            }, 0);
           }
         };
     
         fetchPrivateData();
       });
 
-    return error ? (
-      error
-    ) : (
+    return (
 
 <div className="FullProfile">
           <div class="row">
@@ -46,9 +43,8 @@ export default function Profile() {
                     alt="new"
                     /></p></div>
                 <div class="col-md-8"><h2>Character Information</h2><p>Class: {data.characterClass}</p>
-                {/* <p>Skills: {data.skills}</p>
-                <p>Builds: {data.builds}</p> */}
-                </div>
+                <p>Skills: {data.skills}</p>
+                <p>Builds: {data.builds}</p></div>
                 </div>
                 <div class="row">
                 <div class="col-md-10"><h2>About Me</h2><p>{data.aboutMe}</p></div>

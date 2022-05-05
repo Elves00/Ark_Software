@@ -1,41 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./user.css";
 
 const Profile = () => {
   const [username, setUsername] = useState("");
-  const [aboutMe, setAboutMe] = useState("");
-  const [characterClass, setCharacterClass] = useState("");
-  const [data, setData] = useState("");
   // const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchPrivateData = async () => {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      };
-
-      try {
-        const { data } = await axios.get("/accountPage", config);
-        setData(data.data);
-      } catch (error) {
-        localStorage.removeItem("authToken");
-        setError("Not authorized, please login, redirecting to login page...");
-        setTimeout(() => {
-          navigate("/login");
-        }, 3000);
-      }
-    };
-
-    fetchPrivateData();
-  });
 
   const editHandler = async (e) => {
     e.preventDefault();
@@ -48,23 +21,9 @@ const Profile = () => {
     };
 
     try {
-      if(username === "" && aboutMe === ""){
-        await axios.patch("/editProfile", { characterClass }, config);
-      } else if (username === "" && characterClass === ""){
-        await axios.patch("/editProfile", { aboutMe }, config);
-      } else if (aboutMe === "" && characterClass === ""){
-        await axios.patch("/editProfile", { username }, config);
-      } else if (username === ""){
-        await axios.patch("/editProfile", { aboutMe, characterClass }, config);
-      } else if (aboutMe === ""){
-        await axios.patch("/editProfile", { username, characterClass }, config);
-      } else if (characterClass === ""){
-        await axios.patch("/editProfile", { username, aboutMe}, config);
-      } else {
-        await axios.patch("/editProfile", { username, aboutMe, characterClass }, config);
-      }
+      await axios.patch("/editProfile", { username }, config);
       alert("Changes saved!");
-      navigate("/profilePage");
+      navigate("/accountPage");
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {
@@ -73,34 +32,28 @@ const Profile = () => {
     }
   };
 
-  return  error ? ( error
-  ) :(
+  return (
     <div className="form">
       <h3>Edit Details</h3>
       {error && <span className="error-message">{error}</span>}
       <form onSubmit={editHandler}>
-        Username
         <input
           type="text"
           id="username"
-          defaultValue={data.username}
+          placeholder="Username"
+          required
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
-          
         />
-        About Me
-        <input
-          type="text"
-          id="aboutMe"
-          defaultValue={data.aboutMe}
-          onChange={(e) => setAboutMe(e.target.value)}
-        />
-        Class
-        <input
-          type="text"
-          id="characterClass"
-          defaultValue={data.characterClass}
-          onChange={(e) => setCharacterClass(e.target.value)}
-        />
+
+        {/* <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        /> */}
 
         <button type="submit">Save Changes</button>
         <br />

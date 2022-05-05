@@ -1,8 +1,7 @@
-import "./front-page/homePage.css"
+import "./homePage.css"
 import React, { useEffect, useState } from "react";
 import Card from "./front-page/homeCard";
 import axios from "axios";
-import FeatureCard from "./front-page/featureCard"
 
 
 
@@ -41,7 +40,6 @@ export default function HomePage() {
             </div>
             {/*A featured raid display near the top of the home page*/}
             <h2 className="title" >Featured Page</h2>
-<<<<<<< HEAD
                 <div className="cards__container">
                 <div className="cards__wrapper">
                     <ul className="cards__items">

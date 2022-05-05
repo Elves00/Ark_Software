@@ -91,7 +91,11 @@ h2 {
 
 .boss-card:hover h1 {
     text-decoration: none;
+<<<<<<< HEAD:ark/client/src/components/homePage.css
     color: cyan;
+=======
+    color: #e6b31e;;
+>>>>>>> 94ac0afd84b96d6622dad05315e12002e4e562ec:ark/client/src/components/front-page/homePage.css
 }
 
 .boss-card img {

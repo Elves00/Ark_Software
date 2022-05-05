@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import './bossPage.css';
+import React from 'react';
 import RefactoredBossCard from './refactored-boss-card/BossCard';
 import Tabs from './Tabs';
+import './bossPage.css';
 
 export default function Boss() {
     return (

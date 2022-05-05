@@ -8,7 +8,7 @@ import axios from "axios";
 export default function Raid() {
 
   //Sets the name
-  const [name, setView] = useState("MILO");
+  const [name] = useState("MILO");
 
 
   useEffect(() => {
@@ -21,15 +21,15 @@ export default function Raid() {
 
     try {
       axios.post("http://localhost:5000/hit",
-        //The name is used to identify the page to increment
+        //The name is used to identify the page to increments
         { name },
         config
       )
     } catch (error) {
-
+      console.log(error)
     }
 
-  }, []);
+  });
 
 
   return (
@@ -38,7 +38,7 @@ export default function Raid() {
         <p >
           RAIDS Page
         </p>
-       
+
 
       </header>
     </div>

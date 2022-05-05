@@ -42,6 +42,11 @@ module.exports = {
 
     //Updates hit counter
     Card.findOneAndUpdate(id, update).exec();
+    if (error) {
+      res.status(500);
+    } else {
+      res.status(200).json({ success: true, data: user })
+    }
   },
 
 };

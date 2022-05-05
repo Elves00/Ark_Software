@@ -41,11 +41,19 @@ export default function HomePage() {
             </div>
             {/*A featured raid display near the top of the home page*/}
             <h2 className="title" >Featured Page</h2>
+<<<<<<< HEAD
                 <div className="cards__container">
                 <div className="cards__wrapper">
                     <ul className="cards__items">
                         <FeatureCard src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid" date="7/04/2022"></FeatureCard>
                     </ul>
+=======
+            <div className="cards__container">
+                <div className="cards__wrapper">
+                    <div className="cards__items">
+                        <FeatureCard path="bossPage" src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid"  />
+                    </div>
+>>>>>>> Brecon
                 </div>
             </div>
 

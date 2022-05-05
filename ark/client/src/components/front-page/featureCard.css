@@ -64,16 +64,16 @@
 }
 
 
-.cardsitems .boss-card-feature img {
+.cards__items .boss-card-feature img {
     transition: 0.3s ease;
     position: relative;
 }
 
-.cardsitems .boss-card-feature img:hover {
+.cards__items .boss-card-feature img:hover {
     transform: scale(1.1);
 }
 
-.cardsitems .boss-card-feature {
+.cards__items .boss-card-feature {
 
     width: calc(100% - 3em);
     margin-right: 3em;
@@ -84,3 +84,4 @@
 .cards__items .boss-card-feature:nth-child(1n) {
     margin-right: 0;
 }
+

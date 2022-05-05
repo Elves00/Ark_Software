@@ -62,3 +62,26 @@
     font-size: 1.3em;
     z-index: 2;
 }
+
+
+.cards__items .boss-card-feature img {
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.cards__items .boss-card-feature img:hover {
+    transform: scale(1.1);
+}
+
+.cards__items .boss-card-feature {
+
+    width: calc(100% - 3em);
+    margin-right: 3em;
+    margin-bottom: 2em;
+    overflow: hidden;
+}
+
+.cards__items .boss-card-feature:nth-child(1n) {
+    margin-right: 0;
+}
+

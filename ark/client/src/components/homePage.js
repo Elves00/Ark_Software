@@ -42,8 +42,8 @@ export default function HomePage() {
             {/*A featured raid display near the top of the home page*/}
             <h2 className="title" >Featured Page</h2>
             <div className="cards__container">
-                <div className="cards__wrapper__feature">
-                    <div className="cards__items__feature">
+                <div className="cards__wrapper">
+                    <div className="cards__items">
                         <FeatureCard path="bossPage" src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid"  />
                     </div>
                 </div>

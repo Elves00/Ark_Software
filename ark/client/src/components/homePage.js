@@ -26,7 +26,7 @@ export default function HomePage() {
         //Map all response to new Cards
         return cards.map((res) => {
             return (
-                <Card path="bossPage" src={res.image} name={res.name} tag={res.tag} date="7/04/2022" ></Card>
+                <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
             );
         });
     };
@@ -44,7 +44,7 @@ export default function HomePage() {
             <div className="cards__container">
                 <div className="cards__wrapper__feature">
                     <div className="cards__items__feature">
-                        <FeatureCard src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid" date="7/04/2022" />
+                        <FeatureCard path="bossPage" src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid"  />
                     </div>
                 </div>
             </div>

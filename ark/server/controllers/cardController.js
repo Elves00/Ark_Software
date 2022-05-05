@@ -27,8 +27,8 @@ module.exports = {
         //Transform card data into json and set as res
         res.json(data)
       }
-      //Sort by count in descending order with a limit of 8
-    }).sort({ count: -1 }).limit(4)
+      //Sort by count in descending order with a limit of 4 cards
+    }).sort({ hit: -1 }).limit(4)
   }),
 
 

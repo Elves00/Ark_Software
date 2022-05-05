@@ -48,20 +48,24 @@ const Profile = () => {
     };
 
     try {
-      if(username === "" && aboutMe === ""){
+      if (username === "" && aboutMe === "") {
         await axios.patch("/editProfile", { characterClass }, config);
-      } else if (username === "" && characterClass === ""){
+      } else if (username === "" && characterClass === "") {
         await axios.patch("/editProfile", { aboutMe }, config);
-      } else if (aboutMe === "" && characterClass === ""){
+      } else if (aboutMe === "" && characterClass === "") {
         await axios.patch("/editProfile", { username }, config);
-      } else if (username === ""){
+      } else if (username === "") {
         await axios.patch("/editProfile", { aboutMe, characterClass }, config);
-      } else if (aboutMe === ""){
+      } else if (aboutMe === "") {
         await axios.patch("/editProfile", { username, characterClass }, config);
-      } else if (characterClass === ""){
-        await axios.patch("/editProfile", { username, aboutMe}, config);
+      } else if (characterClass === "") {
+        await axios.patch("/editProfile", { username, aboutMe }, config);
       } else {
-        await axios.patch("/editProfile", { username, aboutMe, characterClass }, config);
+        await axios.patch(
+          "/editProfile",
+          { username, aboutMe, characterClass },
+          config
+        );
       }
       alert("Changes saved!");
       navigate("/profilePage");
@@ -73,8 +77,9 @@ const Profile = () => {
     }
   };
 
-  return  error ? ( error
-  ) :(
+  return error ? (
+    error
+  ) : (
     <div className="form">
       <h3>Edit Details</h3>
       {error && <span className="error-message">{error}</span>}
@@ -83,25 +88,23 @@ const Profile = () => {
         <input
           type="text"
           id="username"
-          defaultValue={data.username}
+          defaultValue={username}
           onChange={(e) => setUsername(e.target.value)}
-          
         />
         About Me
         <input
           type="text"
           id="aboutMe"
-          defaultValue={data.aboutMe}
+          defaultValue={aboutMe}
           onChange={(e) => setAboutMe(e.target.value)}
         />
         Class
         <input
           type="text"
           id="characterClass"
-          defaultValue={data.characterClass}
+          defaultValue={characterClass}
           onChange={(e) => setCharacterClass(e.target.value)}
         />
-
         <button type="submit">Save Changes</button>
         <br />
       </form>

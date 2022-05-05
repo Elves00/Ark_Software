@@ -8,7 +8,7 @@ import axios from "axios";
 
 export default function HomePage() {
 
-    //useState sets the function state
+    //useState sets the function state s
     const [cards, setCards] = useState([]);
 
     //My attempt of understanding use effect to constantly update

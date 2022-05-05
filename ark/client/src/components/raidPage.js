@@ -25,7 +25,6 @@ export default function Raid() {
         { name },
         config
       )
-      alert("Account successfully made!");
     } catch (error) {
 
     }
@@ -34,13 +33,11 @@ export default function Raid() {
 
   return (
     <div className="App" >
-      <header className="App-header">
+      <div className="App-header">
         <p >
           RAIDS Page {name}
         </p>
-        <button >Bang</button>
-
-      </header>
+      </div>
     </div>
   );
 }

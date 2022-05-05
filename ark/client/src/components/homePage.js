@@ -60,8 +60,6 @@ export default function HomePage() {
                 </div>
             </div>
 
-            <div className="footer">This website was created by the Ark Project team please enjoy</div>
-
         </div>
     );
 }

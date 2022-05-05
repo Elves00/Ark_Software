@@ -40,7 +40,42 @@ export default function bossInfo() {
                     </span>
                 </h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                /*** add coloured text and insert youtube video. May add drop
+                down bar to change which pattern to view***/
+                <div class="break"></div>
+                <h2>Guide Video</h2>
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="rick_roll"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            <div className="pageWrapper">
+                <h2>Second Boss: Hideous Scarkril</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                /* add coloured text for names */
+                <h3 className="attackpatterns">
+                    <span class="blue-sub-title">
+                        Special Attack Patterns and Mechanics
+                    </span>
+                </h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 /*** add coloured text and insert youtube video ***/
+                <div class="break"></div>
+                <h2>Guide Video</h2>
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="rick_roll"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
             </div>
         </div>
     );

@@ -2,19 +2,26 @@
     flex: 9;
 }
 
+.infoPage {
+    justify-content: center;
+}
+
 .pageWrapper {
-    padding: 20px;
+    padding: 0;
     padding-right: 0;
+    padding-bottom: 20px;
     border-bottom: 2px solid grey;
+    margin-bottom: 2em;
+    align-items: center;
 }
 
 .first_banner_img {
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+    border-radius: 10px;
     object-fit: cover;
     padding-top: 2em;
-    padding-bottom: 2em;
+    padding-bottom: 30px;
 }
 .dungeonTitle {
     margin: 10px;
@@ -28,6 +35,7 @@
 
 h2 {
     color: blue;
+    padding-top: 0px;
 }
 
 .blue-sub-title {

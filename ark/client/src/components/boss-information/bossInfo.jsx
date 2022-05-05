@@ -22,7 +22,7 @@ export default function bossInfo() {
                     </span>
                 </div>
                 <img
-                    src="/Demoncanyon1.jpg"
+                    src="/Lost-Ark-Images/Demoncanyon1.jpg"
                     alt="firstbanner"
                     className="first_banner_img"
                 />

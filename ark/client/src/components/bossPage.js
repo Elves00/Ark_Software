@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './bossPage.css';
 import RefactoredBossCard from './refactored-boss-card/BossCard';
 import Tabs from './Tabs';
+import PostContainer from "./post-container/PostContainer"
 
 export default function Boss() {
     return (
@@ -76,6 +77,7 @@ export default function Boss() {
                     </div>
                 </div>
             </div>
+            <PostContainer />
         </>
     );
 }

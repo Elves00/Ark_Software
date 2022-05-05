@@ -1,8 +1,8 @@
 import "./front-page/homePage.css"
 import React, { useEffect, useState } from "react";
-import Card from "./homeCard";
+import Card from "./front-page/homeCard";
 import axios from "axios";
-import './homeCard.css';
+import FeatureCard from "./front-page/featureCard"
 
 
 
@@ -41,8 +41,12 @@ export default function HomePage() {
             </div>
             {/*A featured raid display near the top of the home page*/}
             <h2 className="title" >Featured Page</h2>
-            <div className="grid-container-raids">
-                <Card src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid" date="7/04/2022" />
+                <div className="cards__container">
+                <div className="cards__wrapper">
+                    <ul className="cards__items">
+                        <FeatureCard src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid" date="7/04/2022"></FeatureCard>
+                    </ul>
+                </div>
             </div>
 
             {/*A section containing some of the most popular raids on the page as cards with links to the appropriate pages */}

@@ -1,0 +1,36 @@
+.dungeonTitle {
+    flex: 9;
+}
+
+.pageWrapper {
+    padding: 20px;
+    padding-right: 0;
+    border-bottom: 2px solid grey;
+}
+
+.first_banner_img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+.dungeonTitle {
+    margin: 10px;
+    font-size: large;
+    text-align: center;
+}
+
+.poster {
+    padding: 2px;
+}
+
+h2 {
+    color: blue;
+}
+
+.blue-sub-title {
+    font-size: larger;
+    color: blue;
+}

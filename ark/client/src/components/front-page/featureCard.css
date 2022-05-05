@@ -3,7 +3,7 @@
 }
 
 @media (max-width: 800px) {
-    .cards__items .boss-card-feature {
+    .cardsitems .boss-card-feature {
         width: calc(100%);
         margin-right: 0;
     }
@@ -61,4 +61,26 @@
     border-bottom-right-radius: 4px;
     font-size: 1.3em;
     z-index: 2;
+}
+
+
+.cardsitems .boss-card-feature img {
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.cardsitems .boss-card-feature img:hover {
+    transform: scale(1.1);
+}
+
+.cardsitems .boss-card-feature {
+
+    width: calc(100% - 3em);
+    margin-right: 3em;
+    margin-bottom: 2em;
+    overflow: hidden;
+}
+
+.cards__items .boss-card-feature:nth-child(1n) {
+    margin-right: 0;
 }

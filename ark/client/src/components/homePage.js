@@ -1,7 +1,7 @@
-import "./homePage.css"
+import "./front-page/homePage.css"
 import React, { useEffect, useState } from "react";
-import FeatureCard from "./featureCard"
-import Card from "./homeCard";
+import FeatureCard from "./front-page/featureCard";
+import Card from "./front-page/homeCard";
 import axios from "axios";
 
 

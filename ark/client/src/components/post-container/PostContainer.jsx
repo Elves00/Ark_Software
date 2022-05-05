@@ -4,7 +4,7 @@ import BossInfo from '../boss-information/bossInfo';
 
 export default function PostContainer() {
     return (
-        <div className="container">
+        <div className="containers">
             <BossInfo />
         </div>
     );

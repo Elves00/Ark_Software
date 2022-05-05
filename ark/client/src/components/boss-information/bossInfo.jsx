@@ -34,11 +34,7 @@ export default function bossInfo() {
                 <h2>First Boss: Corrupted Vazuela</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 /* add coloured text for names */
-                <h3 className="attackpatterns">
-                    <span class="blue-sub-title">
-                        Special Attack Patterns and Mechanics
-                    </span>
-                </h3>
+                <h2>Special Attack Patterns and Mechanics</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 /*** add coloured text and insert youtube video. May add drop
                 down bar to change which pattern to view***/
@@ -58,11 +54,7 @@ export default function bossInfo() {
                 <h2>Second Boss: Hideous Scarkril</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 /* add coloured text for names */
-                <h3 className="attackpatterns">
-                    <span class="blue-sub-title">
-                        Special Attack Patterns and Mechanics
-                    </span>
-                </h3>
+                <h2>Special Attack Patterns and Mechanics</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 /*** add coloured text and insert youtube video ***/
                 <div class="break"></div>

@@ -19,6 +19,7 @@ import Register from "./components/register";
 import Private from "./components/routing/auth";
 import EditProfile from "./components/editProfile";
 import Logout from "./components/logout";
+import PostContainer from "./components/post-container/PostContainer"
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/profilePage" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/demon-beast-canyon" element={<PostContainer />} />
 
           <Route path="/createUser" element={<CreateUser />} />
           <Route path="/editProfile" element={<EditProfile />} />

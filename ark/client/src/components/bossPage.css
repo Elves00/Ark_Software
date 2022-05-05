@@ -1,5 +1,5 @@
 .cards {
-    padding: 4rem;
+    padding: 2rem;
     background: #fff;
 }
 
@@ -47,7 +47,7 @@
 .cards__items .boss-card {
     width: calc(100%/2 - 3em/2);
     margin-right: 3em;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
     overflow: hidden;
 }
 

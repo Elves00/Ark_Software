@@ -15,7 +15,7 @@ const Tabs = ({ children }) => {
                 {children.map((tab) => {
                     const label = tab.props.label;
                     return (
-                        <li
+                        <li id='list'
                             className={label == activeTab ? styles.current : ''}
                             key={label}
                         >

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import './bossPage.css';
+import React from 'react';
 import RefactoredBossCard from './refactored-boss-card/BossCard';
 import Tabs from './Tabs';
-import Footer from "./footer/footer"
+import './bossPage.css';
 
 export default function Boss() {
     return (
@@ -77,7 +76,7 @@ export default function Boss() {
                     </div>
                 </div>
             </div>
-            <Footer />
+          
         </>
     );
 }

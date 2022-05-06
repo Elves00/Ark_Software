@@ -8,11 +8,10 @@ import axios from "axios";
 export default function Raid() {
 
   //Sets the name
-  const [name, setView] = useState("MILO");
+  const [name] = useState("MILO");
 
 
   useEffect(() => {
-    console.log('MAX')
     const config = {
       header: {
         "Content-Type": "application/json",
@@ -22,48 +21,25 @@ export default function Raid() {
 
     try {
       axios.post("http://localhost:5000/hit",
-        //The name is used to identify the page to increment
+        //The name is used to identify the page to increments
         { name },
         config
       )
       // alert("Click!");
     } catch (error) {
-
+      console.log(error)
     }
-    console.log("MOTHA FLICKER")
 
-  }, []);
+  });
 
-  // //async function to update screen has been viewed
-  // const bang = async () => {
-
-  //   console.log('MAX')
-  //   const config = {
-  //     header: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-
-  //   try {
-  //     axios.post("http://localhost:5000/hit",
-  //       //The name is used to identify the page to increment
-  //       { name },
-  //       config
-  //     )
-  //     alert("Account successfully made!");
-  //   } catch (error) {
-
-  //   }
-  //   setView("Set")
-  // }
 
   return (
     <div className="App" >
       <header className="App-header">
         <p >
-          RAIDS Page {name}
+          RAIDS Page
         </p>
-        <button >Bang</button>
+
 
       </header>
     </div>

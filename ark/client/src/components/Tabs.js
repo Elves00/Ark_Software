@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Tabs.module.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Tabs = ({ children }) => {
     const [activeTab, setActiveTab] = useState(children[0].props.label);

@@ -11,7 +11,7 @@ function Card(props) {
         <>
             <Link to={path} className="boss-card">
                 <div className="picture-wrap" data-category={props.tag}>
-                    <img src={props.src} />
+                    <img src={props.src} alt=""/>
                 </div>
                 <h1 className="h1">{props.name}</h1>
             </Link>

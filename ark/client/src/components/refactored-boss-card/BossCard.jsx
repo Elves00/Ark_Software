@@ -6,7 +6,7 @@ const BossCard = ({ path, label, text: dungeonName, src }) => {
   return (
     <Link to={path} className="boss-card">
       <div className="picture-wrap" data-category={label}>
-        <img src={src} />
+        <img src={src} alt=""/>
       </div>
       <h1>{dungeonName}</h1>
     </Link>

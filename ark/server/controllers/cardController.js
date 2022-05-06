@@ -33,15 +33,19 @@ module.exports = {
 
 
   //Updates the number of views on a page
-  hit: (req, res) => {
+  hit: async (req, res) => {
 
     //The search term
     const id = req.body;
     //What is being updated
     const update = { $inc: { hit: +1 } };
 
-    //Updates hit counter
-    Card.findOneAndUpdate(id, update).exec();
+    try {
+      //Updates hit counter
+      await Card.findOneAndUpdate(id, update).exec();
+    } catch (err) {
+      console.log(err)
+    }
   },
 
 };

@@ -26,7 +26,7 @@ export default function Raid() {
         { name },
         config
       )
-      alert("Account successfully made!");
+      // alert("Click!");
     } catch (error) {
 
     }

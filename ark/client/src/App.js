@@ -19,8 +19,9 @@ import Register from "./components/register";
 import Private from "./components/routing/auth";
 import EditProfile from "./components/editProfile";
 import Logout from "./components/logout";
-import PostContainer from "./components/post-container/PostContainer"
 import Footer from "./components/footer/footer";
+import BossInfo from "./components/boss-information/demon-beast-canyon";
+import NecromancersOrigin from "./components/boss-information/necromancer's-origin";
 
 import "./App.css";
 
@@ -45,7 +46,8 @@ const App = () => {
             <Route path="/profilePage" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/demon-beast-canyon" element={<PostContainer />} />
+            <Route path="/demon-beast-canyon" element={<BossInfo />} />
+            <Route path="/necromancer's-origin" element={<NecromancersOrigin />} />
             <Route path="/createUser" element={<CreateUser />} />
             <Route path="/editProfile" element={<EditProfile />} />
             <Route path="/logout" element={<Logout />} />

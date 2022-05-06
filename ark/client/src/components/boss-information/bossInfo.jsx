@@ -65,16 +65,19 @@ export default function bossInfo() {
           this boss fight.
         </p>
         <div class="break"></div>
+        <br />
         <h2>Guide Video</h2>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="rick_roll"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+        <div className="video">
+          <iframe
+            width="698"
+            height="392"
+            src="https://www.youtube.com/embed/EwphDRmtx94"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
       <div className="pageWrapper">
         <h2>Second Boss: Hideous Scarkril</h2>
@@ -103,16 +106,19 @@ export default function bossInfo() {
           next orb as soon as the boss teleports to the orb next to you.
         </p>
         <div class="break"></div>
+        <br />
         <h2>Guide Video</h2>
-        <iframe
-          width="698"
-          height="392"
-          src="https://www.youtube.com/embed/EOT3ZIOwth4"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+        <div className="video">
+          <iframe
+            width="698"
+            height="392"
+            src="https://www.youtube.com/embed/EOT3ZIOwth4"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </div>
   );

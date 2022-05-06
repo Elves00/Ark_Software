@@ -41,11 +41,8 @@ const App = () => {
           <Route path="/profilePage" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-<<<<<<< HEAD
-=======
           <Route path="/demon-beast-canyon" element={<PostContainer />} />
 
->>>>>>> Test
           <Route path="/createUser" element={<CreateUser />} />
           <Route path="/editProfile" element={<EditProfile />} />
           <Route path="/logout" element={<Logout />} />

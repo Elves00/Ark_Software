@@ -1,0 +1,52 @@
+.dungeonTitle {
+  flex: 9;
+}
+
+.infoPage {
+  justify-content: center;
+}
+
+.pageWrapper {
+  padding: 0;
+  padding-right: 0;
+  padding-bottom: 20px;
+  border-bottom: 2px solid grey;
+  margin-bottom: 2em;
+  align-items: center;
+}
+
+.first_banner_img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  padding-top: 2em;
+  padding-bottom: 30px;
+}
+.dungeonTitle {
+  margin: 10px;
+  font-size: large;
+  text-align: center;
+}
+
+.poster {
+  padding: 2px;
+}
+
+.h2 {
+  padding-top: 0px;
+}
+
+/* do not do this */
+h4 {
+  color: #e6b31e;
+}
+
+.special-skill-title {
+  font-size: medium;
+}
+
+.video {
+  display: flex;
+  justify-content: center;
+}

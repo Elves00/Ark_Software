@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 //Import image
-import card from "../logo192.png";
+import card from "../ArkLogoNoLinemum.png";
 // Here, we display our Navbar
 
 export default function Navbar() {
@@ -31,7 +31,7 @@ export default function Navbar() {
         <span class="navbar-toggler-icon custom-toggler"></span>
       </button>
       {/*Everything that goes in this div, will collaspe into the navbar menu */}
-      <div class="collapse navbar-collapse" id="navbarText">
+      <div class="navbar-collapse collapse" id="navbarText">
         <ul class="navbar-nav ms-auto">
           {/*Makes current page nav-link highlighted/white text*/}
           <li class="nav-item.active">
@@ -63,10 +63,10 @@ export default function Navbar() {
         <ul class="navbar-nav ml-auto">
           <li className="nav-item dropdown">
             {/* Link goes nowhere, so works like a button, but is NavLink to look like the others */}
-            <button className="btn dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button className="btn btn-dark dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
             </button>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
             <li className="nav-item">
             <NavLink className="nav-link" to="/profilePage">
                 Profile
@@ -82,6 +82,11 @@ export default function Navbar() {
                 Register
               </NavLink>
               </li>
+              <li className="nav-item">
+              <NavLink className="nav-link" to="/logout">
+            Logout
+          </NavLink>
+          </li>
             </div>
           </li>
         </ul>
@@ -90,3 +95,6 @@ export default function Navbar() {
     </nav>
   );
 }
+
+// The below code can be used if we want the navbar to collapse once a link it clicked, but makes full screen navbar 'blink'
+// <NavLink className="nav-link" data-toggle="collapse" data-target="#navbarText" to="/raidPage">Raids</NavLink>

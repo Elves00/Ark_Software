@@ -19,8 +19,6 @@ module.exports = {
 
   //Gets data from mongo db on cards
   get: ((req, res) => {
-
-   
     //Finds all cards
     Card.find((error, data) => {
       if (error) {
@@ -30,7 +28,24 @@ module.exports = {
         res.json(data)
       }
       //Sort by count in descending order with a limit of 8
-    }).sort({count: -1}).limit(4)
+    }).sort({ count: -1 }).limit(4)
   }),
+
+
+  //Updates the number of views on a page
+  hit: async (req, res) => {
+
+    //The search term
+    const id = req.body;
+    //What is being updated
+    const update = { $inc: { hit: +1 } };
+
+    try {
+      //Updates hit counter
+      await Card.findOneAndUpdate(id, update).exec();
+    } catch (err) {
+      console.log(err)
+    }
+  },
 
 };

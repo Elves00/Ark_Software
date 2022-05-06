@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: [true, "Please provide a username"],
+    unique: true,
   },
   email: {
     type: String,
@@ -23,9 +25,10 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-//This function runs before a user is saved in the database using the mongoose pre functionality 
-UserSchema.pre("save", async function(next) {
-  if(!this.isModified("password")){ //checks if the password has been hashed or not, if hashed then ignore the function
+//This function runs before a user is saved in the database using the mongoose pre functionality
+UserSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    //checks if the password has been hashed or not, if hashed then ignore the function
     next();
   }
 
@@ -35,8 +38,15 @@ UserSchema.pre("save", async function(next) {
 });
 
 //Function to check passwords for login
-UserSchema.methods.matchPassword = async function(password){
+UserSchema.methods.matchPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
+};
+
+//Function to generate a token
+UserSchema.methods.getToken = function () {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRE,
+  });
 };
 
 module.exports = mongoose.model("User", UserSchema);

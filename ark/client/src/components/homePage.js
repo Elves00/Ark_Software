@@ -44,7 +44,7 @@ export default function HomePage() {
             <div className="cards__container">
                 <div className="cards__wrapper">
                     <div className="cards__items">
-                        <FeatureCard path="bossPage" src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid"  />
+                        <FeatureCard path="demon-beast-canyon" src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="Guardian Raid"  />
                     </div>
                 </div>
             </div>

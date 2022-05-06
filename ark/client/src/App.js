@@ -46,7 +46,6 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/demon-beast-canyon" element={<PostContainer />} />
-
             <Route path="/createUser" element={<CreateUser />} />
             <Route path="/editProfile" element={<EditProfile />} />
             <Route path="/logout" element={<Logout />} />

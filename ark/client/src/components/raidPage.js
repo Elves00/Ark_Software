@@ -9,7 +9,7 @@ export default function Raid() {
 
   return (
     <>
-    <h1>Abyssal Dungeon Boss Guide</h1>
+    <h1>Raids</h1>
     <Tabs
         children={[
             {

@@ -30,25 +30,25 @@ export default function Boss() {
                                 src="Lost-Ark-Images/img1.jpg"
                                 text="Demon Beast Canyon"
                                 label="Dungeon"
-                                path="/services"
+                                path="/demon-beast-canyon"
                             />
                             <RefactoredBossCard
                                 src="Lost-Ark-Images/laimage1.jpg"
                                 text="Necromancer's Origin"
                                 label="Dungeon"
-                                path="/services"
+                                path="/demon-beast-canyon"
                             />
                             <RefactoredBossCard
                                 src="Lost-Ark-Images/laimage1.jpg"
                                 text="Necromancer's Origin"
                                 label="Dungeon"
-                                path="/services"
+                                path="/demon-beast-canyon"
                             />
                             <RefactoredBossCard
                                 src="Lost-Ark-Images/laimage1.jpg"
                                 text="Necromancer's Origin"
                                 label="Dungeon"
-                                path="/services"
+                                path="/demon-beast-canyon"
                             />
                         </div>
                         <div class="break"></div>
@@ -58,13 +58,13 @@ export default function Boss() {
                                 src="Lost-Ark-Images/img1.jpg"
                                 text="Hall of the Twisted Warlord"
                                 label="Dungeon"
-                                path="/services"
+                                path="/demon-beast-canyon"
                             />
                             <RefactoredBossCard
                                 src="Lost-Ark-Images/laimage1.jpg"
                                 text="Hildebrandt Palace"
                                 label="Dungeon"
-                                path="/services"
+                                path="/demon-beast-canyon"
                             />
                             {/* <CardItem
                     src='Lost-Ark-Images/laimage1.jpg'
@@ -76,6 +76,7 @@ export default function Boss() {
                     </div>
                 </div>
             </div>
+          
         </>
     );
 }

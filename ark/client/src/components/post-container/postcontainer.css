@@ -1,3 +1,5 @@
-.container {
+.containers {
     display: flex;
+    padding: 2em;
+    justify-content: center;
 }

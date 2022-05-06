@@ -33,7 +33,7 @@ export default function HomePage() {
 
     return (
 
-        <div className="container">
+        <div>
             <div className="top">
                 <div className="trial">
                     <h1 className="header">Welcome to Ark</h1>

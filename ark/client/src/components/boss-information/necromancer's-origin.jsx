@@ -56,94 +56,63 @@ export default function BossInfo() {
           />
           <h2>Introduction</h2>
           <p>
-            Demon Beast Canyon is the first TIER 1 Abyssal Dungeon and you need to
-            be at least 340 Item Level to enter this Abyssal Dungeon. This dungeon
-            drops Tier 1 Accessories, Ability Stones, Engraving Books, Cards and
-            materials to craft the sets Rugged Valley Launcher and Seraphic Oath
-            Launcher. After clearing the dungeon, you can pay gold to get
-            additional loot. The recommended Combat Items are HP Potion and
-            Splendid Whirlwind Grenade. This dungeon isn’t that difficult but you
-            will be introduced to a few new co-op mechanics.
+            Necromancers Origin is the second TIER 1 Abyssal Dungeon and you need to be at least 340 Item Level to enter this Abyssal Dungeon. This dungeon drops Tier 1 Accessories, Ability Stones, Engraving Books, Cards and materials to craft the sets Rugged Valley Launcher and
+            Seraphic Oath Launcher. After clearing the dungeon, you can pay gold to get additional loot. The recommended Combat Items are
+            HP Potion,
+            Splendid Whirlwind Grenade and
+            Time Stop Potion.
+
+            Compared to the first Abyssal Dungeon, this one is way more difficult. It requires a high level of cooperation between the party members and is the first dungeon to introduce the team wipe mechanic. Lack of coordination can prolong the fight or lead to a team wipe. Make sure to assign orders and positions before you enter the boss stages.
+
+            This guide assumes that you are familiar with the recommended Raid Build for your class.
           </p>
         </div>
         <div className="pageWrapper">
-          <h2>First Boss: Corrupted Vazuela</h2>
+          <h2>First Boss: Reanimated Garum</h2>
           <p>
-            Corrupted Vazuela has slow attack animations making it an easy boss
-            battle. Vazuela spawns Blood Puddles on the ground reducing the amount
-            of safe space you can stand in without taking damage. The longer this
-            fight takes the more difficult it becomes. To prevent this from
-            happening, it is recommended to use skills and Combat Items which
-            reduce the purple Stagger bar below the Guardian's HP. Once you
-            deplete the purple bar and stagger the boss, all Blood Puddles are
-            removed from the battleground.
+            Reanimated Garum is a boss with slow but huge area of effect attacks. These attacks are easy to avoid, but the tricky part of this boss fight is to not lose track of the Death Marks above each player's head. One moment of carelessness can lead to an instant team wipe.
           </p>
           <h2>Special Attack Patterns and Mechanics</h2>
-          <h4>Blood Puddle</h4>
+          <h4>Death Mark</h4>
           <p>
-            Corrupted Vazuela locks onto a player and marks that player with a
-            blue crosshair. After a short delay, the boss spits a blood puddle on
-            the targeted player. Everyone standing on that puddle takes a decent
-            amount of damage every second. The placement of the puddle is
-            important. If you are the marked player, you need to place the blood
-            puddle at the edge of the battleground. Try to overlap new puddles
-            with the existing ones at the edge. These blood puddles last until the
-            boss gets staggered. Misplacing the puddles and not having enough
-            stagger related skills and combat items can increase the difficulty of
-            this boss fight.
+            Reanimated Garum frequently applies a death mark to each player. The amount of death marks applied can be seen on each players head. If any of the players get a 5th mark, the boss will wipe the entire party.
+
+            Everytime a death mark is applied, the boss also spawns one light orb at a random location. This orb is also marked as a yellow dot on the minimap. Interacting with the orb removes all death marks on that player, but only one player can interact with each orb.
+
+            The key to prevent the wipe is to assign a fixed order for players to interact with the yellow orbs. The easiest way to do that is to go with the preassigned numbers in the party which can be seen on the party UI at the left side of your screen. Player with number one is the first one to interact with the first yellow orb etc. After the first rotation, you start with player number one again.
+
+            Make sure to ping the location of the light orb as soon as it spawns. Those are also easier to locate if you use the "Tab" key to open the minimap.
+
+            Tip: After the first successful rotation, you just need to pay attention to the marks above your head. Everytime it reaches four marks, it is your turn to interact with the light orb.
+
+            In the clip below my Wardancer had the number "3" assigned to her as you can see on the party UI to the left. That is why, during the first rotation, I interacted with the light orb as soon as I got the 3rd death mark. After that I interacted with the light orb every time I got the 4th death mark.
           </p>
           <div class="break"></div>
           <h2>Guide Video</h2>
           <div className="video">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="rick_roll"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <iframe width="697" height="392" src="https://www.youtube.com/embed/7K3FuoWhVMg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
         <div className="pageWrapper">
-          <h2>Second Boss: Hideous Scarkril</h2>
+          <h2>Second Boss: Sigmund the Immortal</h2>
           <p>
-            Hideous Scarkrill is the second boss of Demon Beast Canyon. It's more
-            agile than the first boss and enters a stealth mode a few minutes
-            after the initial encounter. To remove the stealth you need to work as
-            a team and force the boss to teleport to specific locations.
-          </p>
+            Sigmund the Immortal is the second boss of this abyssal dungeon. Don't worry he is not really immortal but as you can guess he will revive multiple times after death. How many times he revives and the duration of the fight depend on your execution of the co-op mechanic during the boss fig  </p>
           <h2>Special Attack Patterns and Mechanics</h2>
-          <h4 classname="special-skill-title">Stealth Mode</h4>
+          <h4 classname="special-skill-title">Death and Revive</h4>
           <p>
-            Scarkrill enters stealth around 1-2 minutes after the start of the
-            boss fight. While in this mode the boss takes reduced damage and only
-            does teleport and spin attacks. At the same time, one orb spawns at
-            the edge of the battleground in each cardinal direction. The only way
-            to force the boss back to normal mode is to make him teleport close to
-            each of the orbs and do the spin attack. When successful, the boss
-            will destroy the orb with a spin attack and make it explode. This
-            explosion staggers the boss for a few seconds. Use this opportunity to
-            run as a team either clockwise or counterclockwise to the next orb.
-            Scarkrill returns to normal mode once all 4 orb explosions hit the
-            boss. Be aware that the spin attack of the boss and the orb explosion
-            combined deal a decent amount of damage to the player on hit. To
-            prevent this from happening, move or dodge immediately towards the
-            next orb as soon as the boss teleports to the orb next to you.
-          </p>
+            The moment Sigmund hits 0 HP, he sends out a white or red shockwave. At the same time Sigmund spawns two orbs, one red and one white, at each cardinal direction (12 o'clock, 3 o'clock, 6 o'clock and 9 o'clock). For this particular mechanic, you need to assign one party member for each of the cardinal directions in order to be successful.
+
+            As soon as the boss hits 0 HP, each member needs to move to their assigned position and take the red or white orb based on the color of the shockwave. If everyone manages to pick up the correct orb in time before the boss revives, you will only need to repeat this process one more time before he dies permanently.
+
+            Now for the tricky part. Every time Sigmund revives, he gets stronger and his attacks will be enhanced. In addition to that, for every wrongly picked orb the boss revives with more HP. On top of that, you have to go through an additional cycle if a player interacts with the wrong orb.
+
+            Tip: Don't blink at the moment of death or you might miss the color of the shockwave. Write in the party chat "w" or "r" depending on the color of the shockwave to help your party members to interact with the correct orb.
+
+            Before entering the boss battleground make sure that everyone knows the core mechanics of Sigmund, this will help your party save a lot time and Combat Items. </p>
           <div class="break"></div>
           <h2>Guide Video</h2>
           <div className="video">
-            <iframe
-              width="698"
-              height="392"
-              src="https://www.youtube.com/embed/EOT3ZIOwth4"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <iframe width="697" height="392" src="https://www.youtube.com/embed/p8Gmc--hJ4E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>

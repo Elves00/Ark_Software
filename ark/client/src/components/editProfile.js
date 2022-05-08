@@ -96,6 +96,7 @@ const Profile = () => {
       <h3>Edit Details</h3>
       {error && <span className="error-message">{error}</span>}
       <form onSubmit={editHandler}>
+        Username
         <input
           type="text"
           id="username"

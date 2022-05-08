@@ -26,7 +26,6 @@ import HallOfTheTwist from "./components/boss-information/hall-of-the-twisted";
 
 import "./App.css";
 
-
 const App = () => {
   return (
     <div>
@@ -35,13 +34,13 @@ const App = () => {
         <div style={{ margin: 20 }}>
           <Routes>
             {/*First as Not found*/}
-            <Route path='*' element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
             <Route exact path="/" element={<HomePage />} />
             <Route path="/bossPage" element={<Boss />} />
             <Route path="/raidPage" element={<Raid />} />
-            <Route exact path="/forumPage" element={<Private />}>
-              <Route exact path="/forumPage" element={<Forums />} />
-            </Route>
+            {/* <Route exact path="/forumPage" element={<Private />}> */}
+            <Route exact path="/forumPage" element={<Forums />} />
+            {/* </Route> */}
             <Route path="/chatPage" element={<Chat />} />
             <Route path="/accountPage" element={<Account />} />
             <Route path="/profilePage" element={<Profile />} />
@@ -49,7 +48,10 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/demon-beast-canyon" element={<BossInfo />} />
             <Route path="/hall-of-the-twisted" element={<HallOfTheTwist />} />
-            <Route path="/necromancer's-origin" element={<NecromancersOrigin />} />
+            <Route
+              path="/necromancer's-origin"
+              element={<NecromancersOrigin />}
+            />
             <Route path="/createUser" element={<CreateUser />} />
             <Route path="/editProfile" element={<EditProfile />} />
             <Route path="/logout" element={<Logout />} />

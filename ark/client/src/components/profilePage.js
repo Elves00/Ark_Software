@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 import { useNavigate, NavLink } from "react-router-dom";
 import "./profilePage.css"
+
 export default function Profile() {
   //Copy Brecon
   const [data, setData] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
 
   useEffect(() => {
     const fetchPrivateData = async () => {
@@ -32,6 +35,7 @@ export default function Profile() {
     fetchPrivateData();
   });
 
+
   return error ? (
     error
   ) : (
@@ -47,6 +51,7 @@ export default function Profile() {
                     alt="new"
                     /></p> */}
             </div>
+
             <div class="col-md-8">
               <h2 class="h2">Character Information</h2>
               <p>Class: {data.characterClass}</p>
@@ -64,6 +69,7 @@ export default function Profile() {
         <div class="col-md-2">
           <NavLink to="/editProfile">Edit Profile</NavLink>
           {/* <h2 class="text-center">Friends</h2>
+
             <p class="text-center">Friends</p>
             <p class="text-center">Friends</p>
             <p class="text-center">Friends</p>

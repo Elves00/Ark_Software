@@ -8,6 +8,7 @@ const Profile = () => {
   const [aboutMe, setAboutMe] = useState("");
   const [characterClass, setCharacterClass] = useState("");
   // const [data, setData] = useState("");
+
   // const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
@@ -31,6 +32,7 @@ const Profile = () => {
         setTimeout(() => {
           navigate("/login");
         }, 3000);
+
       }
     };
 
@@ -103,6 +105,7 @@ const Profile = () => {
           Value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+
         About Me
         <input
           type="text"
@@ -117,6 +120,7 @@ const Profile = () => {
           Value={characterClass}
           onChange={(e) => setCharacterClass(e.target.value)}
         />
+
         <button type="submit">Save Changes</button>
         <br />
       </form>

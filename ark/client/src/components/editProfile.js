@@ -7,7 +7,8 @@ const Profile = () => {
   const [username, setUsername] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [characterClass, setCharacterClass] = useState("");
-  const [data, setData] = useState("");
+  // const [data, setData] = useState("");
+
   // const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
@@ -23,14 +24,15 @@ const Profile = () => {
       };
 
       try {
-        const { data } = await axios.get("/profilePage", config);
-        setData(data.data);
+        await axios.get("/accountPage", config);
+        // setData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");
-        alert("Please login to view your profile, redirecting to login page");
+        setError("Not authorized, please login, redirecting to login page...");
         setTimeout(() => {
           navigate("/login");
-        }, 0);
+        }, 3000);
+
       }
     };
 
@@ -48,16 +50,38 @@ const Profile = () => {
     };
 
     try {
-      if(username === ""){
-        await axios.patch("/editProfile", { aboutMe, characterClass }, config);
-      } else if (aboutMe === ""){
-        await axios.patch("/editProfile", { username, characterClass }, config);
-      } else if (characterClass === ""){
-        await axios.patch("/editProfile", { username, aboutMe}, config);
+      if (username === "" && aboutMe === "" && characterClass === "") {
+        alert("No changes!");
       } else {
-        await axios.patch("/editProfile", { username, aboutMe, characterClass }, config);
+        if (username === "" && aboutMe === "") {
+          await axios.patch("/editProfile", { characterClass }, config);
+        } else if (username === "" && characterClass === "") {
+          await axios.patch("/editProfile", { aboutMe }, config);
+        } else if (aboutMe === "" && characterClass === "") {
+          await axios.patch("/editProfile", { username }, config);
+        } else if (username === "") {
+          await axios.patch(
+            "/editProfile",
+            { aboutMe, characterClass },
+            config
+          );
+        } else if (aboutMe === "") {
+          await axios.patch(
+            "/editProfile",
+            { username, characterClass },
+            config
+          );
+        } else if (characterClass === "") {
+          await axios.patch("/editProfile", { username, aboutMe }, config);
+        } else {
+          await axios.patch(
+            "/editProfile",
+            { username, aboutMe, characterClass },
+            config
+          );
+        }
+        alert("Changes saved!");
       }
-      alert("Changes saved!");
       navigate("/profilePage");
     } catch (error) {
       setError(error.response.data.error);
@@ -67,33 +91,33 @@ const Profile = () => {
     }
   };
 
-  return (
+  return error ? (
+    error
+  ) : (
     <div className="form">
       <h3>Edit Details</h3>
       {error && <span className="error-message">{error}</span>}
       <form onSubmit={editHandler}>
+        Username
         <input
           type="text"
           id="username"
-          placeholder="Username"
-          required
-          value={username}
+          Value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
 
+        About Me
         <input
           type="text"
           id="aboutMe"
-          placeholder="About Me"
-          value={aboutMe}
+          Value={aboutMe}
           onChange={(e) => setAboutMe(e.target.value)}
         />
-
+        Class
         <input
           type="text"
           id="characterClass"
-          placeholder="Class"
-          value={characterClass}
+          Value={characterClass}
           onChange={(e) => setCharacterClass(e.target.value)}
         />
 

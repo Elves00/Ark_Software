@@ -17,14 +17,14 @@ module.exports = {
           success: false,
           error: "Password must be more than 6 characters!",
         });
-        next();
+        return;
       }
       if (password !== confirmpassword) {
         res.status(504).json({
           success: false,
           error: "Confirm password did not match!",
         });
-        next();
+        return;
       }
       if (!foundUser) {
         const details = {
@@ -47,7 +47,7 @@ module.exports = {
         res
           .status(409)
           .json({ success: false, error: "Email or username already exist!" });
-          next();
+        return;
       }
     } catch (error) {
       res.status(500);
@@ -68,17 +68,20 @@ module.exports = {
       const user = await User.findOne({ email }).select("+password");
       if (!user) {
         res.status(404).json({ success: false, error: "Invalid credentials!" });
+        return;
       }
 
       const isMatch = await user.matchPassword(password);
 
       if (!isMatch) {
         res.status(404).json({ success: false, error: "Invalid password!" });
+        return;
       }
 
       sendToken(user, 200, res);
     } catch (err) {
-      res.status(500);
+      console.log(err);
+      // res.status(500).json({success:false, error: err.message});
     }
   },
 
@@ -86,20 +89,19 @@ module.exports = {
   getAccess: (req, res, next) => {
     res.status(200).json({ success: true, data: "Hello" });
   },
-    
-   //Gets user data from mongodb
-   get: ((req, res) => {
+
+  //Gets user data from mongodb
+  get: (req, res) => {
     //Finds user
     User.find((error, data) => {
       if (error) {
-        return next(error)
+        return next(error);
       } else {
         //Transform card data into json and set as res
-        res.json(data)
+        res.json(data);
       }
-
-    })
-  }),
+    });
+  },
 
   //API for forum
   getAccess: (req, res, next) => {

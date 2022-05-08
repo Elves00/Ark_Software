@@ -1,14 +1,14 @@
-import "./homePage.css"
+import "./front-page/homePage.css"
 import React, { useEffect, useState } from "react";
-import Card from "./homeCard";
+import FeatureCard from "./front-page/featureCard";
+import Card from "./front-page/homeCard";
 import axios from "axios";
-import './homeCard.css';
 
 
 
 export default function HomePage() {
 
-    //useState sets the function state
+    //useState sets the function state s
     const [cards, setCards] = useState([]);
 
     //My attempt of understanding use effect to constantly update
@@ -26,34 +26,39 @@ export default function HomePage() {
         //Map all response to new Cards
         return cards.map((res) => {
             return (
-                <Card path="bossPage" src={res.image} name={res.name} tag={res.tag} date="7/04/2022" ></Card>
+                <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
             );
         });
-
     };
 
     return (
 
-        <div className="container">
+        <div>
             <div className="top">
                 <div className="trial">
                     <h1 className="header">Welcome to Ark</h1>
                 </div>
             </div>
-            {/*Display popular raid cards here */}
+            {/*A featured raid display near the top of the home page*/}
             <h2 className="title" >Featured Page</h2>
-            <div className="grid-container-raids">
-                <Card src="Lost-Ark-Images/laimage1.jpg"tag= "Dungeon"name="Guardian Raid" date="7/04/2022" />
+            <div className="cards__container">
+                <div className="cards__wrapper">
+                    <div className="cards__items">
+                        <FeatureCard path="demon-beast-canyon" src="Lost-Ark-Images/laimage1.jpg" tag="Dungeon" name="demon-beast-canyon"  />
+                    </div>
+                </div>
             </div>
+
+            {/*A section containing some of the most popular raids on the page as cards with links to the appropriate pages */}
+
             <h2 className="title" >Popular Pages</h2>
             <div className="cards__container">
                 <div className="cards__wrapper">
-                    <ul className="cards__items">
+                    <div className="cards__items">
                         {displayhomeCard()}
-                    </ul>
+                    </div>
                 </div>
-            </div>   
-            <div className="footer"></div>
+            </div>
 
         </div>
     );

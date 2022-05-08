@@ -38,21 +38,21 @@ export default function Raid() {
             <div className="cards__wrapper">
                 <div className="cards__items">
                     <RefactoredBossCard
-                        src="Lost-Ark-Images/img1.jpg"
-                        text="Demon Beast Canyon"
-                        label="Dungeon"
+                        src="Lost-Ark-Images/icy_legoros.jpg"
+                        text="Icy Legoros"
+                        label="Raid"
                         path="/demon-beast-canyon"
                     />
                     <RefactoredBossCard
-                        src="Lost-Ark-Images/laimage1.jpg"
-                        text="Necromancer's Origin"
-                        label="Dungeon"
+                        src="Lost-Ark-Images/urnil.jpg"
+                        text="Ur'nil"
+                        label="Raid"
                         path="/demon-beast-canyon"
                     />
                     <RefactoredBossCard
-                        src="Lost-Ark-Images/laimage1.jpg"
-                        text="Necromancer's Origin"
-                        label="Dungeon"
+                        src="Lost-Ark-Images/vertus.jpg"
+                        text="Vertus"
+                        label="Raid"
                         path="/demon-beast-canyon"
                     />
                     <RefactoredBossCard

@@ -46,7 +46,9 @@ h4 {
   font-size: medium;
 }
 
-.video {
+.containers {
   display: flex;
+  padding: 2em;
   justify-content: center;
 }
+

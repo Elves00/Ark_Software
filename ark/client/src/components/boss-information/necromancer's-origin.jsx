@@ -4,30 +4,30 @@ import "./bossInfo.css";
 
 export default function BossInfo() {
 
-   //Sets the name
-   const [name] = useState("necromancer's-origin");
+  //Sets the name
+  const [name] = useState("necromancer's-origin");
 
 
-   useEffect(() => {
-     const config = {
-       header: {
-         "Content-Type": "application/json",
-       },
-     };
- 
- 
-     try {
-       axios.post("http://localhost:5000/hit",
-         //The name is used to identify the page to increments
-         { name },
-         config
-       )
-       // alert("Click!");
-     } catch (error) {
-       console.log(error)
-     }
- 
-   });
+  useEffect(() => {
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+
+
+    try {
+      axios.post("http://localhost:5000/hit",
+        //The name is used to identify the page to increments
+        { name },
+        config
+      )
+      // alert("Click!");
+    } catch (error) {
+      console.log(error)
+    }
+
+  });
 
   return (
     <div className="containers">
@@ -94,15 +94,17 @@ export default function BossInfo() {
           </p>
           <div class="break"></div>
           <h2>Guide Video</h2>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="rick_roll"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <div className="video">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="rick_roll"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
         <div className="pageWrapper">
           <h2>Second Boss: Hideous Scarkril</h2>
@@ -132,15 +134,17 @@ export default function BossInfo() {
           </p>
           <div class="break"></div>
           <h2>Guide Video</h2>
-          <iframe
-            width="698"
-            height="392"
-            src="https://www.youtube.com/embed/EOT3ZIOwth4"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <div className="video">
+            <iframe
+              width="698"
+              height="392"
+              src="https://www.youtube.com/embed/EOT3ZIOwth4"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>

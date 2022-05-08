@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, NavLink } from "react-router-dom";
-
+import "./profilePage.css"
 export default function Profile() {
   //Copy Brecon
   const [data, setData] = useState("");
@@ -40,7 +40,7 @@ export default function Profile() {
         <div class="col-md-10">
           <div class="row">
             <div class="col-md-4">
-              <h2>{data.username}</h2>
+              <h2 class="h2">{data.username}</h2>
               {/* <p>
                 <img 
                     src= {data.profilePhoto}
@@ -48,7 +48,7 @@ export default function Profile() {
                     /></p> */}
             </div>
             <div class="col-md-8">
-              <h2>Character Information</h2>
+              <h2 class="h2">Character Information</h2>
               <p>Class: {data.characterClass}</p>
               {/* <p>Skills: {data.skills}</p>
                 <p>Builds: {data.builds}</p> */}
@@ -56,7 +56,7 @@ export default function Profile() {
           </div>
           <div class="row">
             <div class="col-md-10">
-              <h2>About Me</h2>
+              <h2 class="h2">About Me</h2>
               <p>{data.aboutMe}</p>
             </div>
           </div>

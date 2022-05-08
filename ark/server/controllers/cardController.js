@@ -30,8 +30,7 @@ module.exports = {
       //Sort by count in descending order with a limit of 8
     }).sort({ count: -1 }).limit(4)
   }),
-
-
+  
   //Updates the number of views on a page
   hit: async (req, res) => {
 

@@ -43,7 +43,7 @@ module.exports = {
       //Updates hit counter
       await Card.findOneAndUpdate(id, update).exec();
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   },
 

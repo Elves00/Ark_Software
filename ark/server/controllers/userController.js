@@ -17,14 +17,14 @@ module.exports = {
           success: false,
           error: "Password must be more than 6 characters!",
         });
-        return;
+        return next();
       }
       if (password !== confirmpassword) {
         res.status(504).json({
           success: false,
           error: "Confirm password did not match!",
         });
-        return;
+        return next();
       }
       if (!foundUser) {
         const details = {
@@ -80,14 +80,9 @@ module.exports = {
 
       sendToken(user, 200, res);
     } catch (err) {
-      console.log(err);
-      // res.status(500).json({success:false, error: err.message});
+      // console.log(err);
+      res.status(500).json({success:false, error: err});
     }
-  },
-
-  //API for forum
-  getAccess: (req, res, next) => {
-    res.status(200).json({ success: true, data: "Hello" });
   },
 
   //Gets user data from mongodb

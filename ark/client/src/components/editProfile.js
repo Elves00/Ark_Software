@@ -24,7 +24,7 @@ const Profile = () => {
       };
 
       try {
-        await axios.get("/accountPage", config);
+        await axios.get("/profilePage", config);
         // setData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");

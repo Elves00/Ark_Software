@@ -22,7 +22,7 @@ import Footer from "./components/footer/footer";
 import BossInfo from "./components/boss-information/demon-beast-canyon";
 import NecromancersOrigin from "./components/boss-information/necromancer's-origin";
 import HallOfTheTwist from "./components/boss-information/hall-of-the-twisted";
-import blockPage from "./components/boss-information/blockPage";
+import BlockPage from "./components/boss-information/blockPage";
 import "./App.css";
 
 const App = () => {
@@ -46,7 +46,7 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/demon-beast-canyon" element={<BossInfo />} />
             <Route path="/hall-of-the-twisted" element={<HallOfTheTwist />} />
-            <Route path="/blockPage" element={<blockPage />} />
+            <Route path="/blockPage" element={<BlockPage />} />
             <Route
               path="/necromancer's-origin"
               element={<NecromancersOrigin />}

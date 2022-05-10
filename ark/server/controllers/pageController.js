@@ -1,26 +1,26 @@
 const mongoose = require("mongoose");
-const Card = require("../models/Card");
+const Page = require("../models/Page");
 
 
 //Card creation
 module.exports = {
   createOne: (req, res) => {
-    let newCardDetails = req.body;
-    newCardDetails._id = new mongoose.Types.ObjectId();
+    let newPageDetails = req.body;
+    newPageDetails._id = new mongoose.Types.ObjectId();
 
-    let card = new Card(newCardDetails);
+    let page = new Page(newPageDetails);
     card.save((err) => {
       if (err) {
         return res.status(400).json(err);
       }
-      res.json(card);
+      res.json(page);
     });
   },
 
   //Gets data from mongo db on cards
   get: ((req, res) => {
     //Finds all cards
-    Card.find((error, data) => {
+    Page.find((error, data) => {
       if (error) {
         return next(error)
       } else {
@@ -41,7 +41,7 @@ module.exports = {
 
     try {
       //Updates hit counter
-      await Card.findOneAndUpdate(id, update).exec();
+      await Page.findOneAndUpdate(id, update).exec();
       console.log(id);
     } catch (err) {
       console.log(err);

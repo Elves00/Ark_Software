@@ -2,9 +2,12 @@ require("dotenv").config({ path: "./config.env" });
 const express = require("express");
 const app = express();
 const cors = require("cors");
+
 //Creates links to model controllers
 const users = require("./controllers/userController");
 const cards = require("./controllers/cardController");
+const pages = require("./controllers/pageController");
+
 const connectDB = require("./db/conn");
 const { protect } = require("./middleware/auth");
 
@@ -26,6 +29,9 @@ app.post("/hit" , cards.hit);
 
 //Fetch a card 
 app.get("/fetchCard",cards.get);
+
+//Fetch a card 
+app.get("/fetchPage",pages.get);
 
 //Fetch a User
 app.get("/fetchUser",users.get);

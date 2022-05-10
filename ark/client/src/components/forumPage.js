@@ -16,6 +16,7 @@ const Forums = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
+        
       };
 
       try {
@@ -23,7 +24,7 @@ const Forums = () => {
         setData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");
-        setError("Not authorized, please login, redirecting to home page...");
+        setError("Not authorized, please login, redirecting to login page...");
         setTimeout(() => {
           navigate("/login");
         }, 2000);

@@ -5,7 +5,6 @@ import { useNavigate, NavLink } from "react-router-dom";
 import "./profilePage.css"
 
 export default function Profile() {
-  //Copy Brecon
   const [data, setData] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -21,7 +20,7 @@ export default function Profile() {
       };
 
       try {
-        const { data } = await axios.get("/accountPage", config);
+        const { data } = await axios.get("/profilePage", config);
         setData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");

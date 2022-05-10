@@ -7,7 +7,6 @@ function Card(props) {
 
     /*Not sure if this is the best way but this will cast the passed attribute to allow it to be used in the to pathing for link */
     const path = props.path + "";
-    console.log(path)
     return (
         <>
             <Link to={path} className="boss-card">

@@ -10,13 +10,12 @@ import Boss from "./components/bossPage";
 import Raid from "./components/raidPage";
 import Forums from "./components/forumPage";
 import Chat from "./components/chatPage";
-import Account from "./components/accountPage";
 import NotFound from "./components/notFoundPage";
 import HomePage from "./components/homePage";
 import Profile from "./components/profilePage";
 import Login from "./components/login";
 import Register from "./components/register";
-import Private from "./components/routing/auth";
+// import Private from "./components/routing/auth";
 import EditProfile from "./components/editProfile";
 import Logout from "./components/logout";
 import Footer from "./components/footer/footer";
@@ -42,7 +41,6 @@ const App = () => {
             <Route exact path="/forumPage" element={<Forums />} />
             {/* </Route> */}
             <Route path="/chatPage" element={<Chat />} />
-            <Route path="/accountPage" element={<Account />} />
             <Route path="/profilePage" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
@@ -55,7 +53,6 @@ const App = () => {
             <Route path="/createUser" element={<CreateUser />} />
             <Route path="/editProfile" element={<EditProfile />} />
             <Route path="/logout" element={<Logout />} />
-            {/* <Route path="/editUser/:id" element={<EditUser />} /> */}
           </Routes>
         </div>
       </div>

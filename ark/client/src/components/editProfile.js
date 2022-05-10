@@ -24,7 +24,7 @@ const Profile = () => {
       };
 
       try {
-        await axios.get("/accountPage", config);
+        await axios.get("/profilePage", config);
         // setData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");
@@ -95,7 +95,7 @@ const Profile = () => {
     error
   ) : (
     <div className="form">
-      <h3>Edit Details</h3>
+      <h3 className="account-form-h3">Edit Details</h3>
       {error && <span className="error-message">{error}</span>}
       <form onSubmit={editHandler}>
         Username
@@ -121,7 +121,7 @@ const Profile = () => {
           onChange={(e) => setCharacterClass(e.target.value)}
         />
 
-        <button type="submit">Save Changes</button>
+        <button type="submit" className="account-form-button">Save Changes</button>
         <br />
       </form>
     </div>

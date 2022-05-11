@@ -1,4 +1,42 @@
 .h2 {
-    text-align: left;
-    color: #e6b31e;
+  text-align: left;
+  color: #e6b31e;
+}
+
+.editprofile-button {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 12px 31px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+}
+
+.editprofile-button:hover,
+.delete-button:hover {
+  background-color: #e6b31e;
+  color: white;
+}
+
+.edit-link:any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.delete-button {
+  background-color: white;
+  border: none;
+  color: black;
+  margin-top: 20px;
+  padding: 12px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  border-radius: 4px;
+  transition-duration: 0.4s;
 }

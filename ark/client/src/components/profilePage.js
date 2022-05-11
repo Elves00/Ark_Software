@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { useNavigate, NavLink } from "react-router-dom";
-import "./profilePage.css"
+import "./profilePage.css";
 
 export default function Profile() {
   const [data, setData] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
 
   useEffect(() => {
     const fetchPrivateData = async () => {
@@ -27,13 +26,16 @@ export default function Profile() {
         setError("Not authorized, please login, redirecting to login page...");
         setTimeout(() => {
           navigate("/login");
-        }, 3000);
+        }, 2000);
       }
     };
 
     fetchPrivateData();
   });
 
+  async function handleDelete() {
+    alert("Deleted");
+  }
 
   return error ? (
     error
@@ -66,7 +68,19 @@ export default function Profile() {
           </div>
         </div>
         <div class="col-md-2">
-          <NavLink to="/editProfile">Edit Profile</NavLink>
+          <div className="editprofile-button">
+            <NavLink className="edit-link" to="/editProfile">
+              Edit Profile
+            </NavLink>
+          </div>
+          <button
+            type="submit"
+            onClick={handleDelete}
+            className="delete-button"
+          >
+            Delete Account
+          </button>
+
           {/* <h2 class="text-center">Friends</h2>
 
             <p class="text-center">Friends</p>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import axios from "axios";
-import "./user.css";
+import "./editProfile.css";
 
 const Profile = () => {
   const [username, setUsername] = useState("");
@@ -32,7 +32,6 @@ const Profile = () => {
         setTimeout(() => {
           navigate("/login");
         }, 3000);
-
       }
     };
 
@@ -94,36 +93,42 @@ const Profile = () => {
   return error ? (
     error
   ) : (
-    <div className="form">
-      <h3 className="account-form-h3">Edit Details</h3>
+    <div>
+      <h3 className="editprofile-heading">Edit Details</h3>
       {error && <span className="error-message">{error}</span>}
-      <form onSubmit={editHandler}>
-        Username
-        <input
-          type="text"
-          id="username"
-          Value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-
-        About Me
-        <input
-          type="text"
-          id="aboutMe"
-          Value={aboutMe}
-          onChange={(e) => setAboutMe(e.target.value)}
-        />
-        Class
-        <input
-          type="text"
-          id="characterClass"
-          Value={characterClass}
-          onChange={(e) => setCharacterClass(e.target.value)}
-        />
-
-        <button type="submit" className="account-form-button">Save Changes</button>
-        <br />
-      </form>
+      <div className="edit-form">
+        <form onSubmit={editHandler}>
+          <label>Username</label>
+          <input
+            type="text"
+            id="username"
+            Value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label>About Me</label>
+          <div className="aboutme">
+            <textarea
+              type="text"
+              id="aboutMe"
+              Value={aboutMe}
+              onChange={(e) => setAboutMe(e.target.value)}
+            ></textarea>
+          </div>
+          <label>Class</label>
+          <input
+            type="text"
+            id="characterClass"
+            Value={characterClass}
+            onChange={(e) => setCharacterClass(e.target.value)}
+          />
+          <br />
+          <button type="submit">Save Changes</button>
+          <div className="redirect">
+            <NavLink to="/profilePage">Back to Profile</NavLink>
+          </div>
+          <br />
+        </form>
+      </div>
     </div>
   );
 };

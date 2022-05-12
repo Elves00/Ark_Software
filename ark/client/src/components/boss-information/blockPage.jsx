@@ -2,6 +2,7 @@ import "../front-page/homePage.css"
 import React, { useEffect, useState } from "react";
 import Block from "./block";
 import Block2 from "./block2";
+import Block3 from "./block3";
 import axios from "axios";
 
 export default function BlockPage() {
@@ -9,7 +10,7 @@ export default function BlockPage() {
 
     // //useState sets the function state s
     const [blocks, setBlocks] = useState([]);
-    const [pages, setPages] = useState([]);
+   
  
 
     //My attempt of understanding use effect to constantly update
@@ -20,7 +21,6 @@ export default function BlockPage() {
             .then((res) => {
                 setBlocks(res.data);
                 console.log(res.data)      
-         
             });
     }, []);
 
@@ -31,12 +31,15 @@ export default function BlockPage() {
         return blocks.map((res) => {
             if (res.tag == "Dungeon") {
                 return (
-                    <Block path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Block>
+                    <Block path={res.path} src={res.image} name={res.name} tag={res.tag}  >Block 1</Block>
                 )
             }
-            else if (res.random) {
-                return (<Block2 props={res.random}></Block2>);
+            else if (res.content) {
+                return (<div><Block3 props={res.content}></Block3><h1>OPTION 2</h1></div>);
             }
+            // else if (res.content) {
+            //     return (<div><Block3 props={res}></Block3><h1>OPTION 3</h1></div>);
+            // }
             else {
                 return <h1>error</h1>
             }
@@ -45,12 +48,8 @@ export default function BlockPage() {
 
 
     return (
-
         <div>
             {displayBlocks()}
-   
-            <p></p>
-
         </div>
     );
 }

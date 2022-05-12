@@ -32,6 +32,8 @@ app.get("/fetchCard",cards.get);
 
 //Fetch a card 
 app.get("/fetchPage",pages.get);
+//
+app.get("fetchPageBlock",pages.getBlock);
 
 //Fetch a User
 app.get("/fetchUser",users.get);

@@ -17,6 +17,21 @@ module.exports = {
     });
   },
 
+  getBlock: ((req, res) => {
+    //Finds all cards
+    Page.find((error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        //Transform card data into json and set as res
+        res.json(data)
+      }
+      //Sort by count in descending order with a limit of 8
+    })
+  }),
+
+
+
   //Gets data from mongo db on cards
   get: ((req, res) => {
     //Finds all cards
@@ -30,7 +45,7 @@ module.exports = {
       //Sort by count in descending order with a limit of 8
     }).sort({ count: -1 }).limit(4)
   }),
-  
+
   //Updates the number of views on a page
   hit: async (req, res) => {
 

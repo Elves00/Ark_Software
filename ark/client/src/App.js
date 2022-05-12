@@ -22,8 +22,8 @@ import Footer from "./components/footer/footer";
 import BossInfo from "./components/boss-information/demon-beast-canyon";
 import NecromancersOrigin from "./components/boss-information/necromancer's-origin";
 import HallOfTheTwist from "./components/boss-information/hall-of-the-twisted";
-import BlockPage from "./components/boss-information/blockPage";
-import MiniBlock from "./components/boss-information/block3";
+import BlockPage from "./components/boss-information/page";
+import MiniBlock from "./components/boss-information/blockLayout";
 
 import "./App.css";
 

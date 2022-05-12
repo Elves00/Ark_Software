@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Block4 from "./block4";
+import Block4 from "./block";
 import axios from "axios";
 
 export default function BlockPage(props) {
@@ -27,21 +27,14 @@ export default function BlockPage(props) {
         const listItems = newObj.map((content) =>
             <Block4 props={content}></Block4>
         );
-        return (<h1>{listItems}</h1>);
+        return (<div>{listItems}</div>);
     };
 
-    let a = "" + props.props.block.h1;
-
-    let b = "" + props.props.block.h1;
 
 
     return (
         <div>
             {displayBlocks()}
-            {a}
-            {b}
-            : {Object.keys(props.props)}
-            a a{props.props.block.h1}
         </div>
     );
 }

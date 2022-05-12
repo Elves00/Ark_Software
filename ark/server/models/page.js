@@ -1,27 +1,27 @@
 const { Int32 } = require("mongodb");
 const mongoose = require("mongoose");
 
+
+const block = new mongoose.Schema({
+  h1: {
+    type: String,
+    required: [true, "Please provide a title"],
+  },
+  content: {
+    type: String,
+    required: [true, "Please provide some content"],
+  },
+});
+
 //Card with name and view count
 const pageSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please provide a Cardname"],
+    required: [true, "Please provide a page name"],
   },
-  content: {
-    type: String,
-    required: [false, "A number"],
-  },
-  count: {
-    type: String,
-    required: [true, "A number"],
-  },
-  image: {
-    type: Number,
-    required: [false, "view number"],
-  },
-  tag:{
-      type: String,
-      required: [true,"Tag"]
+  content:{
+    type: block,
+    required: [true,"The page must have content"]
   }
 });
 

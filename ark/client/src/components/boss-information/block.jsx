@@ -20,19 +20,23 @@ function Block(props) {
                 <div className="block">
                     <h1 className="block-header">{props.props.h1}</h1>
                     {/* <p className="block-content">{props.props.content}</p> */}
-                    <iframe width="697" height="392" src={props.props.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+                    <div className="video">
+                        <iframe width="697" height="392" src={props.props.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
             )
         }
         else if (props.props.tag == "image") {
             return (
                 <div className="block">
-                    < img
-                        src={props.props.image}
-                        alt="firstbanner"
-                        className="first_banner_img"
-                    />
+                    <div>
+                        < img
+                            src={props.props.image}
+                            alt="firstbanner"
+                            className="image"
+                        />
+                    </div>
+
                 </div>
             )
         }

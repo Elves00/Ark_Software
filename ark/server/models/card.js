@@ -7,17 +7,21 @@ const CardSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a Cardname"],
   },
-  content: {
+  image: {
     type: String,
-    required: [false, "A number"],
+    required: [false, "Please provide some"],
   },
-  count: {
+  tag: {
     type: String,
     required: [true, "A number"],
   },
   hit: {
     type: Number,
     required: [false, "view number"],
+  },
+  path: {
+    type: String,
+    required: [true, "Path to image must be specified"]
   },
 });
 

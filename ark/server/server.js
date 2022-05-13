@@ -21,22 +21,27 @@ app.get("/profilePage", protect, users.getOne);
 
 app.post("/register", users.createOne);
 app.post("/createCard", cards.createOne);
+//Find a raid
+app.post("/findRaid", cards.findOne)
+
 app.post("/login", users.findOne);
 app.patch("/editProfile", protect, users.updateOne);
 
+
+
+
 //Increments page views by 1
-app.post("/hit" , cards.hit);
+app.post("/hit", cards.hit);
 
 //Fetch a card 
-app.get("/fetchCard",cards.get);
+app.get("/fetchCard", cards.get);
 
 //Fetch a card 
-app.get("/fetchPage",pages.get);
-//
-app.get("fetchPageBlock",pages.getBlock);
+app.get("/fetchPage", pages.get);
+
 
 //Fetch a User
-app.get("/fetchUser",users.get);
+app.get("/fetchUser", users.get);
 
 
 // perform a database connection when server starts

@@ -31,7 +31,20 @@ module.exports = {
       //Sort by count in descending order with a limit of 8
     }).sort({ count: -1 }).limit(4)
   }),
-  
+
+  findOne: async (req, res) => {
+    //the content of the search bar
+    const { name } = req.body;
+    try {
+      const card = await Card.find({ name })
+      res.json(card)
+    } catch (err) {
+      // console.log(err);
+      res.status(500).json({ success: false, error: err });
+    }
+  },
+
+
   //Updates the number of views on a page
   hit: async (req, res) => {
 

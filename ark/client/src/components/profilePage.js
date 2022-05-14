@@ -73,11 +73,11 @@ export default function Profile() {
           <div class="row">
             <div class="col-md-4">
               <h2 class="h2">{data.username}</h2>
-              {/* <p>
+              <p>
                 <img 
-                    src= {data.profilePhoto}
-                    alt="new"
-                    /></p> */}
+                    src= {`data:image/jpg;base64,${data.photo}`}
+                    alt="ProfilePhoto"
+                    /></p>
             </div>
 
             <div class="col-md-8">

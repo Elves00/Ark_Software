@@ -8,7 +8,8 @@ const Profile = () => {
   const [username, setUsername] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [characterClass, setCharacterClass] = useState("");
-  // const [data, setData] = useState("");
+  const [postImage, setPostImage] = useState({myFile: "", });
+  const [photo, setPhoto] = useState("");
 
   // const [password, setPassword] = useState("");
 
@@ -92,6 +93,51 @@ const Profile = () => {
     }
   };
 
+  //For images
+  const url = "http://localhost:5000/uploads";
+const createImage = (newImage) => axios.post(url, newImage);
+
+  const createPost = async (post) => {
+    try {
+      await createImage(post);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    };
+    e.preventDefault();
+    createPost(postImage);
+    axios.patch("/editProfile", { photo }, config);
+  };
+
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    setPostImage({ ...postImage, myFile: base64 });
+    setPhoto({ ...postImage, myFile: base64 })
+    alert({postImage});
+  };
+
+
   return error ? (
     error
   ) : (
@@ -131,8 +177,22 @@ const Profile = () => {
           <br />
         </form>
       </div>
+      <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="file"
+          label="Image"
+          name="myFile"
+          accept=".jpeg, .png, .jpg"
+          onChange={(e) => handleFileUpload(e)}
+        />
+
+        <button>Submit</button>
+      </form>
+    </div>
     </div>
 
+    
     
   );
 };

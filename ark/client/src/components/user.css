@@ -16,7 +16,7 @@
   position: relative;
   text-align: center;
 }
-form input {
+.form input {
   border: 1px solid #cacaca;
   background-color: #fcfaf1;
   width: 250px;
@@ -32,6 +32,7 @@ form input {
 }
 
 .account-form-button {
+  font-family: "Source Sans Pro", sans-serif;
   appearance: none;
   outline: 0;
   background-color: white;
@@ -42,6 +43,7 @@ form input {
   width: 250px;
   font-size: 18px;
   text-align: center;
+  transition-duration: 0.4s;
 }
 
 form button:hover {
@@ -54,7 +56,7 @@ form button:hover {
 }
 
 .form-link {
-  text-decoration: none;
+  color: #0aa1dd;
 }
 
 .error-message {

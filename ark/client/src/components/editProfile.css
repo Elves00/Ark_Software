@@ -1,0 +1,74 @@
+.editprofile-heading {
+  text-align: left;
+  color: #e6b31e;
+  font-size: 50px;
+}
+
+.edit-form {
+  padding: 20px 0;
+  font-family: "Helvetica now", sans-serif;
+}
+
+.edit-form input {
+  border: 1px solid #cacaca;
+  background-color: #fcfaf1;
+  width: 250px;
+  border-radius: 3px;
+  /* font-family: "Source Sans Pro", sans-serif; */
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  font-size: 18px;
+  color: black;
+  font-weight: 300;
+}
+
+.edit-form label {
+  display: block;
+  align-items: left;
+  text-align: left;
+}
+
+.edit-form button {
+  appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: black;
+  border-radius: 3px;
+  width: 250px;
+  font-size: 18px;
+  transition-duration: 0.4s;
+}
+
+.aboutme textarea {
+  width: 50%;
+  height: 200px;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.redirect {
+  display: inline-block;
+  text-align: center;
+  appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: black;
+  border-radius: 3px;
+  width: 250px;
+  font-size: 18px;
+  transition-duration: 0.4s;
+  margin-left: 20px;
+}
+
+.redirect a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.redirect:hover {
+  background-color: #e6b31e;
+}

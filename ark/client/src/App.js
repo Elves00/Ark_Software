@@ -15,7 +15,7 @@ import HomePage from "./components/homePage";
 import Profile from "./components/profilePage";
 import Login from "./components/login";
 import Register from "./components/register";
-// import Private from "./components/routing/auth";
+import Private from "./components/routing/auth";
 import EditProfile from "./components/editProfile";
 import Logout from "./components/logout";
 import Footer from "./components/footer/footer";
@@ -39,11 +39,13 @@ const App = () => {
             <Route exact path="/" element={<HomePage />} />
             <Route path="/bossPage" element={<Boss />} />
             <Route path="/raidPage" element={<Raid />} />
-            {/* <Route exact path="/forumPage" element={<Private />}> */}
-            <Route exact path="/forumPage" element={<Forums />} />
-            {/* </Route> */}
+            <Route exact path="/forumPage" element={<Private />}>
+              <Route exact path="/forumPage" element={<Forums />} />
+            </Route>
             <Route path="/chatPage" element={<Chat />} />
-            <Route path="/profilePage" element={<Profile />} />
+            <Route exact path="/profilePage" element={<Private />}>
+              <Route path="/profilePage" element={<Profile />} />
+            </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/demon-beast-canyon" element={<BossInfo />} />
@@ -56,7 +58,9 @@ const App = () => {
               element={<NecromancersOrigin />}
             />
             <Route path="/createUser" element={<CreateUser />} />
-            <Route path="/editProfile" element={<EditProfile />} />
+            <Route exact path="/editProfile" element={<Private />}>
+              <Route path="/editProfile" element={<EditProfile />} />
+            </Route>
             <Route path="/logout" element={<Logout />} />
           </Routes>
         </div>

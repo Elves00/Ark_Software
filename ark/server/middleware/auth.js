@@ -12,7 +12,7 @@ exports.protect = async (req, res, next) => {
   }
 
   if (!token) {
-    res.status(401).json({ success: false});
+    res.status(401).json({ success: false });
   }
 
   try {
@@ -30,10 +30,6 @@ exports.protect = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    return next(
-      res
-        .status(401)
-        .json({ success: false })
-    );
+    res.status(401).json({ success: false });
   }
 };

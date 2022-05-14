@@ -4,7 +4,9 @@ const Private = () => {
   return localStorage.getItem("authToken") ? (
     <Outlet />
   ) : (
-    <Navigate replace to="/login" />
+    <div>
+      <Navigate replace to="/login" />
+    </div>
   );
 };
 

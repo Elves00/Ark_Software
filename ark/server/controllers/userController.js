@@ -81,7 +81,7 @@ module.exports = {
       sendToken(user, 200, res);
     } catch (err) {
       // console.log(err);
-      res.status(500).json({success:false, error: err});
+      res.status(500).json({ success: false, error: err });
     }
   },
 
@@ -109,11 +109,16 @@ module.exports = {
   },
 
   updateOne: async (req, res) => {
-    const {username, aboutMe, characterClass} = req.body;
+    const { username, aboutMe, characterClass } = req.body;
     let user = req.user;
     user = await User.findByIdAndUpdate(user._id, req.body, {
       new: true,
     });
     res.status(200).json({ success: true, data: user });
+  },
+
+  deleteOne: async (req, res, next) => {
+    let user = req.user;
+    await User.deleteOne(user);
   },
 };

@@ -23,12 +23,13 @@ app.post("/register", users.createOne);
 app.post("/createCard", cards.createOne);
 app.post("/login", users.findOne);
 app.patch("/editProfile", protect, users.updateOne);
+app.delete("/deleteProfile", protect, users.deleteOne);
 
 //Increments page views by 1
-app.post("/hit" , cards.hit);
+app.post("/hit", cards.hit);
 
-//Fetch a card 
-app.get("/fetchCard",cards.get);
+//Fetch a card
+app.get("/fetchCard", cards.get);
 
 //Fetch a card 
 app.get("/fetchPage",pages.get);
@@ -36,8 +37,7 @@ app.get("/fetchPage",pages.get);
 app.get("fetchPageBlock",pages.getBlock);
 
 //Fetch a User
-app.get("/fetchUser",users.get);
-
+app.get("/fetchUser", users.get);
 
 // perform a database connection when server starts
 connectDB();

@@ -32,11 +32,13 @@ module.exports = {
     }).sort({ count: -1 }).limit(4)
   }),
 
+
   findOne: async (req, res) => {
     //the content of the search bar
-    const { name } = req.body;
+    const { term } = req.body;
     try {
-      const card = await Card.find({ name })
+      var regexConst = new RegExp(term , 'i');
+      const card = await Card.find({ 'name':regexConst})
       res.json(card)
     } catch (err) {
       // console.log(err);

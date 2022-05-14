@@ -7,13 +7,22 @@ import Card from './front-page/homeCard';
 import './bossPage.css';
 
 
+
 export default function Raid() {
 
-    //useState sets the function state s
-    const [name, setName] = useState("demon-beast-canyon");
+    //What tier of raids to populate the page
+    // const [tier, setTier] = useState(1);
+
     const [card, setCards] = useState([]);
 
+    //Search term
+    const [term, setSearch] = useState();
+
+
+
     useEffect(() => {
+        //Finds all the raids of the current tier
+        console.log(term)
         const config = {
             header: {
                 "Content-Type": "application/json",
@@ -22,7 +31,34 @@ export default function Raid() {
         try {
             axios.post("http://localhost:5000/findRaid",
                 //The name is used to identify the page to increments
-                { name },
+                { term },
+                config
+
+            )
+                .then((res) => {
+                    setCards(res.data);
+                    console.log(res.data)
+                });
+          
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }, [term]);
+
+    function search() {
+
+
+        const config = {
+            header: {
+                "Content-Type": "application/json",
+            },
+        };
+        try {
+            axios.post("http://localhost:5000/findRaid",
+                //The name is used to identify the page to increments
+                { term },
                 config
 
             )
@@ -35,11 +71,11 @@ export default function Raid() {
         } catch (error) {
             console.log(error)
         }
-    }, []);
+    }
 
-    function oneCard(){
-         //Map all response to new Cards
-         return card.map((res) => {
+    function oneCard() {
+        //Map all response to new Cards
+        return card.map((res) => {
             return (
                 <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
             );
@@ -50,9 +86,9 @@ export default function Raid() {
         <>
             <h1 className='h1'>Raids</h1>
             <div className='search__container'>
-                <form className='search__form'>
+                <form className='search__form' >
                     <label for="search" >Search: </label>
-                    <input id="search" className='search' type="text" placeholder="..."></input>
+                    <input id="search" className='search' type="text" placeholder="..." onChange={(e) => setSearch(e.target.value)}></input>
                 </form>
             </div>
             <Tabs
@@ -83,7 +119,7 @@ export default function Raid() {
                     <div className="cards__wrapper">
                         <div className="cards__items">
                             {oneCard()}
-                            <RefactoredBossCard
+                            {/* <RefactoredBossCard
                                 src="Lost-Ark-Images/icy_legoros.jpg"
                                 text="Icy Legoros"
                                 label="Raid"
@@ -106,7 +142,7 @@ export default function Raid() {
                                 text="Necromancer's Origin"
                                 label="Dungeon"
                                 path="/demon-beast-canyon"
-                            />
+                            /> */}
                         </div>
 
                     </div>

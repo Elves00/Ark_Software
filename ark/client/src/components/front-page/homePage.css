@@ -35,6 +35,7 @@ h2 {
 
 .cards__wrapper {
     position: relative;
+    width: 100%;
 }
 
 .cards__items {

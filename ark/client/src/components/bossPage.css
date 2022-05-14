@@ -70,6 +70,7 @@ search__form input {
 
 .cards__wrapper {
     position: relative;
+    width: 100%;
 }
 
 .cards__items {

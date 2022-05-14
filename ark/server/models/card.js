@@ -23,6 +23,10 @@ const CardSchema = new mongoose.Schema({
     type: String,
     required: [true, "Path to image must be specified"]
   },
+  tier:{
+    type: Number,
+    required: [false,"What tier"]
+  }
 });
 
 module.exports = mongoose.model("Card", CardSchema);

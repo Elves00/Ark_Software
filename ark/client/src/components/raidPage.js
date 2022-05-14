@@ -16,40 +16,63 @@ export default function Raid() {
     const [card, setCards] = useState([]);
 
     //Search term
-    const [term, setSearch] = useState();
+    const [term, setSearch] = useState("");
 
-
+    const [tier, setTier] = useState(1);
 
     useEffect(() => {
         //Finds all the raids of the current tier
-        console.log(term)
-        const config = {
-            header: {
-                "Content-Type": "application/json",
-            },
-        };
-        try {
-            axios.post("http://localhost:5000/findRaid",
-                //The name is used to identify the page to increments
-                { term },
-                config
+        console.log("This is the term: " + term)
+        if (term == "") {
+            const config = {
+                header: {
+                    "Content-Type": "application/json",
+                },
+            };
+            try {
+                axios.post("http://localhost:5000/findRaid",
+                    //The name is used to identify the page to increments
+                    { tier },
+                    config
 
-            )
-                .then((res) => {
-                    setCards(res.data);
-                    console.log(res.data)
-                });
-          
+                )
+                    .then((res) => {
+                        setCards(res.data);
+                        console.log(res.data)
+                    });
 
-        } catch (error) {
-            console.log(error)
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        else {
+            const config = {
+                header: {
+                    "Content-Type": "application/json",
+                },
+            };
+            try {
+                axios.post("http://localhost:5000/searchRaid",
+                    //The name is used to identify the page to increments
+                    { term },
+                    config
+
+                )
+                    .then((res) => {
+                        setCards(res.data);
+                        console.log(res.data)
+                    });
+
+
+            } catch (error) {
+                console.log(error)
+            }
         }
 
     }, [term]);
 
     function search() {
-
-
         const config = {
             header: {
                 "Content-Type": "application/json",

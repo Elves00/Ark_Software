@@ -17,7 +17,6 @@ module.exports = {
     });
   },
 
-
   //Gets data from mongo db on cards
   get: ((req, res) => {
     //Finds all cards
@@ -32,13 +31,11 @@ module.exports = {
     }).sort({ count: -1 }).limit(4)
   }),
 
-
-  findOne: async (req, res) => {
+  fineOne: async (req, res) => {
     //the content of the search bar
-    const { term } = req.body;
+    const { tier } = req.body;
     try {
-      var regexConst = new RegExp(term , 'i');
-      const card = await Card.find({ 'name':regexConst})
+      const card = await Card.find({ 'tier': tier })
       res.json(card)
     } catch (err) {
       // console.log(err);
@@ -46,6 +43,18 @@ module.exports = {
     }
   },
 
+  fineOneTier: async (req, res) => {
+    //the content of the search bar
+    const { term } = req.body;
+    try {
+      var regexConst = new RegExp(term, 'i');
+      const card = await Card.find({ 'name': regexConst })
+      res.json(card)
+    } catch (err) {
+      // console.log(err);
+      res.status(500).json({ success: false, error: err });
+    }
+  },
 
   //Updates the number of views on a page
   hit: async (req, res) => {

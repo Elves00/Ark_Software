@@ -22,8 +22,8 @@ app.get("/profilePage", protect, users.getOne);
 app.post("/register", users.createOne);
 app.post("/createCard", cards.createOne);
 //Find a raid
-app.post("/findRaid", cards.findOne)
-
+app.post("/findRaid", cards.fineOne)
+app.post("/searchRaid", cards.fineOneTier)
 app.post("/login", users.findOne);
 app.patch("/editProfile", protect, users.updateOne);
 

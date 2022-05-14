@@ -86,7 +86,7 @@ const Profile = () => {
       setError(error.response.data.error);
       setTimeout(() => {
         setError("");
-      }, 3000);
+      }, 1000);
     }
   };
 

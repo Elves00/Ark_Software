@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { confirmAlert } from "react-confirm-alert";
 import axios from "axios";
 
 import { useNavigate, NavLink } from "react-router-dom";
@@ -9,15 +10,15 @@ export default function Profile() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    },
+  };
+
   useEffect(() => {
     const fetchPrivateData = async () => {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      };
-
       try {
         const { data } = await axios.get("/profilePage", config);
         setData(data.data);
@@ -26,15 +27,41 @@ export default function Profile() {
         setError("Not authorized, please login, redirecting to login page...");
         setTimeout(() => {
           navigate("/login");
-        }, 2000);
+        }, 1000);
       }
     };
 
     fetchPrivateData();
   });
 
-  async function handleDelete() {
-    alert("Deleted");
+  function handleDelete() {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="custom-ui">
+            <h1>Are you sure?</h1>
+            <p>You want to delete this account?</p>
+            <button onClick={onClose}>No</button>
+            <button
+              onClick={() => {
+                handleClickDelete();
+                onClose();
+              }}
+            >
+              Yes, Delete it!
+            </button>
+          </div>
+        );
+      },
+    });
+  }
+
+  async function handleClickDelete() {
+    try {
+      await axios.delete("/deleteProfile", config);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return error ? (
@@ -73,14 +100,9 @@ export default function Profile() {
               Edit Profile
             </NavLink>
           </div>
-          <button
-            type="submit"
-            onClick={handleDelete}
-            className="delete-button"
-          >
+          <button onClick={handleDelete} className="delete-button">
             Delete Account
           </button>
-
           {/* <h2 class="text-center">Friends</h2>
 
             <p class="text-center">Friends</p>

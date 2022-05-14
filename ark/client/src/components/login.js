@@ -33,37 +33,43 @@ const Login = () => {
       setError(error.response.data.error);
       setTimeout(() => {
         setError("");
-      }, 5000);
+      }, 3000);
     }
   };
 
   return (
     <div className="form">
-      <h3>Login</h3>
+      <h3 className="account-form-h3">Login</h3>
       {error && <span className="error-message">{error}</span>}
       <form onSubmit={loginHandler}>
-        <input
-          type="email"
-          id="email"
-          placeholder="Email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <div className="forminput">
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-        <input
-          type="password"
-          id="password"
-          placeholder="Password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button type="submit">Login</button>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="account-form-button">
+          Login
+        </button>
         <br />
-        <span>
-          Don't have an account? <NavLink to="/register">Register</NavLink>
+        <span className="account-form-span">
+          Don't have an account?{" "}
+          <NavLink className="form-link" to="/register">
+            Register
+          </NavLink>
         </span>
       </form>
     </div>

@@ -1,31 +1,22 @@
-body {
-  background-color: #343434;
-  color: #cacaca;
-}
-
-h2 {
-  color: #e6b31e;
-}
-
-h3 {
+.account-form-h3 {
   text-align: center;
   color: #e6b31e;
   font-size: 50px;
 }
 
-span {
+.account-form-span {
   font-size: 0.7rem;
   display: block;
   margin: 0.5rem 0;
   color: #cacaca;
 }
 
-form {
+.form {
   padding: 20px 0;
   position: relative;
   text-align: center;
 }
-form input {
+.form input {
   border: 1px solid #cacaca;
   background-color: #fcfaf1;
   width: 250px;
@@ -40,7 +31,8 @@ form input {
   font-weight: 300;
 }
 
-form button {
+.account-form-button {
+  font-family: "Source Sans Pro", sans-serif;
   appearance: none;
   outline: 0;
   background-color: white;
@@ -51,6 +43,7 @@ form button {
   width: 250px;
   font-size: 18px;
   text-align: center;
+  transition-duration: 0.4s;
 }
 
 form button:hover {
@@ -60,6 +53,10 @@ form button:hover {
 ::placeholder {
   color: #cacaca;
   opacity: 1;
+}
+
+.form-link {
+  color: #0aa1dd;
 }
 
 .error-message {

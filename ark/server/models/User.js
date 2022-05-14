@@ -23,20 +23,10 @@ const UserSchema = new mongoose.Schema({
     minlength: 6,
     select: false,
   },
-
   aboutMe: {
     type: String,
   },
-
-  characterClass: {
-    type: String,
-  },
-
-  skills: {
-    type: String,
-  },
-
-  builds: {
+  characterClass:{
     type: String,
   },
 });

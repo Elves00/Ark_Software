@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 //Import image
-import card from "../logo192.png";
+import card from "../ArkLogoNoLinemum.png";
 // Here, we display our Navbar
 
 export default function Navbar() {
@@ -58,6 +58,11 @@ export default function Navbar() {
               Chat
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/blockPage">
+              Blocks
+            </NavLink>
+          </li>
         </ul>
         {/*This is so the Account Link is on the right*/}
         <ul class="navbar-nav ml-auto">
@@ -95,3 +100,6 @@ export default function Navbar() {
     </nav>
   );
 }
+
+// The below code can be used if we want the navbar to collapse once a link it clicked, but makes full screen navbar 'blink'
+// <NavLink className="nav-link" data-toggle="collapse" data-target="#navbarText" to="/raidPage">Raids</NavLink>

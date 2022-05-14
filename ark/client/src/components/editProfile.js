@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
 import axios from "axios";
-import "./user.css";
+import "./editProfile.css";
 
 const Profile = () => {
   const [data, setData] = useState("");
   const [username, setUsername] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [characterClass, setCharacterClass] = useState("");
-  const [skills, setSkills] = useState("");
-  const [builds, setBuilds] = useState("");
+  // const [data, setData] = useState("");
+
   // const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
@@ -26,14 +26,14 @@ const Profile = () => {
       };
 
       try {
-        const { data } = await axios.get("/accountPage", config);
-        setData(data.data);
+        await axios.get("/profilePage", config);
+        // setData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");
-        alert("Please login to view your profile, redirecting to login page");
+        setError("Not authorized, please login, redirecting to login page...");
         setTimeout(() => {
           navigate("/login");
-        }, 0);
+        }, 3000);
       }
     };
 
@@ -51,78 +51,86 @@ const Profile = () => {
     };
 
     try {
-      await axios.patch("/editProfile", { username }, config);
-      alert("Changes saved!");
-      navigate("/accountPage");
-    } catch (error) {
-      setError(error.response.data.error);
-      setTimeout(() => {
-        setError("");
-      }, 3000);
-    }
-  };
-
-  const editAboutMe = async (e) => {
-    e.preventDefault();
-
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-      },
-    };
-
-    try {
-      await axios.patch("/editProfile", { aboutMe, skills }, config);
-      alert("Changes saved!");
+      if (username === "" && aboutMe === "" && characterClass === "") {
+        alert("No changes!");
+      } else {
+        if (username === "" && aboutMe === "") {
+          await axios.patch("/editProfile", { characterClass }, config);
+        } else if (username === "" && characterClass === "") {
+          await axios.patch("/editProfile", { aboutMe }, config);
+        } else if (aboutMe === "" && characterClass === "") {
+          await axios.patch("/editProfile", { username }, config);
+        } else if (username === "") {
+          await axios.patch(
+            "/editProfile",
+            { aboutMe, characterClass },
+            config
+          );
+        } else if (aboutMe === "") {
+          await axios.patch(
+            "/editProfile",
+            { username, characterClass },
+            config
+          );
+        } else if (characterClass === "") {
+          await axios.patch("/editProfile", { username, aboutMe }, config);
+        } else {
+          await axios.patch(
+            "/editProfile",
+            { username, aboutMe, characterClass },
+            config
+          );
+        }
+        alert("Changes saved!");
+      }
       navigate("/profilePage");
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {
         setError("");
-      }, 3000);
+      }, 1000);
     }
   };
 
-  return (
-    <div className="form">
-      <h3>Edit Details</h3>
+  return error ? (
+    error
+  ) : (
+    <div>
+      <h3 className="editprofile-heading">Edit Details</h3>
       {error && <span className="error-message">{error}</span>}
-      <form onSubmit={editHandler}>
-        <input
-          type="text"
-          id="username"
-          placeholder="Username"
-          required
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-
-        <button type="submit">Save Changes</button>
-        <br />
-      </form>
-
-      <h3>Edit About Me</h3>
-      {error && <span className="error-message">{error}</span>}
-      <form onSubmit={editAboutMe}>
-        <input
-          type="text"
-          id="skills"
-          value={data.skills}
-          required
-          onChange={(e) => setSkills(e.target.value)}
-        />
-        <input
-          type="text"
-          id="aboutme"
-          value={data.aboutMe}
-          required
-          onChange={(e) => setAboutMe(e.target.value)}
-        />
-
-        <button type="submit">Save About</button>
-        <br />
-      </form>
+      <div className="edit-form">
+        <form onSubmit={editHandler}>
+          <label>Username</label>
+          <input
+            type="text"
+            id="username"
+            Value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label>About Me</label>
+          <div className="aboutme">
+            <textarea
+              type="text"
+              id="aboutMe"
+              Value={aboutMe}
+              onChange={(e) => setAboutMe(e.target.value)}
+            ></textarea>
+          </div>
+          <label>Class</label>
+          <input
+            type="text"
+            id="characterClass"
+            Value={characterClass}
+            onChange={(e) => setCharacterClass(e.target.value)}
+          />
+          <br />
+          <button type="submit">Save Changes</button>
+          <div className="redirect">
+            <NavLink to="/profilePage">Back to Profile</NavLink>
+          </div>
+          <br />
+        </form>
+      </div>
     </div>
 
     

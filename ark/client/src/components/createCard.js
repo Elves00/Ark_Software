@@ -33,7 +33,6 @@ const CreateCard = ({ history }) => {
         setError("");
       }, 5000);
     }
-
   };
 
   return (

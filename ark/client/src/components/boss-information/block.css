@@ -1,0 +1,17 @@
+.block-header{
+    color: #e6b31e;
+    text-align: center;
+}
+
+/* .block-content{
+   
+} */
+
+.block{
+    padding: 0;
+    padding-right: 0;
+    padding-bottom: 20px;
+    border-bottom: 2px solid grey;
+    margin-bottom: 2em;
+    align-items: center;
+}

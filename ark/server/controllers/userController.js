@@ -7,11 +7,25 @@ const sendToken = (user, statusCode, res) => {
 };
 
 module.exports = {
-  createOne: async (req, res) => {
+  createOne: async (req, res, next) => {
     const { email, password, confirmpassword } = req.body;
 
     try {
       const foundUser = await User.findOne({ email });
+      if (password.length < 6) {
+        res.status(500).json({
+          success: false,
+          error: "Password must be more than 6 characters!",
+        });
+        return next();
+      }
+      if (password !== confirmpassword) {
+        res.status(504).json({
+          success: false,
+          error: "Confirm password did not match!",
+        });
+        return next();
+      }
       if (!foundUser) {
         const details = {
           username: req.body.username,
@@ -30,24 +44,14 @@ module.exports = {
           sendToken(user, 201, res);
         });
       } else {
-        if (password.length < 6) {
-          res.status(500).json({
-            success: false,
-            error: "Password must be more than 6 characters!",
-          });
-        }
-        if (password !== confirmpassword) {
-          res.status(500).json({
-            success: false,
-            error: "Confirm password did not match!",
-          });
-        }
         res
           .status(409)
           .json({ success: false, error: "Email or username already exist!" });
+        return;
       }
     } catch (error) {
       res.status(500);
+      next();
     }
   },
 
@@ -64,33 +68,35 @@ module.exports = {
       const user = await User.findOne({ email }).select("+password");
       if (!user) {
         res.status(404).json({ success: false, error: "Invalid credentials!" });
+        return;
       }
 
       const isMatch = await user.matchPassword(password);
 
       if (!isMatch) {
         res.status(404).json({ success: false, error: "Invalid password!" });
+        return;
       }
 
       sendToken(user, 200, res);
     } catch (err) {
-      res.status(500);
+      // console.log(err);
+      res.status(500).json({ success: false, error: err });
     }
   },
-    
-   //Gets user data from mongodb
-   get: ((req, res) => {
+
+  //Gets user data from mongodb
+  get: (req, res) => {
     //Finds user
     User.find((error, data) => {
       if (error) {
-        return next(error)
+        return next(error);
       } else {
         //Transform card data into json and set as res
-        res.json(data)
+        res.json(data);
       }
-
-    })
-  }),
+    });
+  },
 
   //API for forum
   getAccess: (req, res, next) => {
@@ -103,10 +109,16 @@ module.exports = {
   },
 
   updateOne: async (req, res) => {
+    const { username, aboutMe, characterClass } = req.body;
     let user = req.user;
     user = await User.findByIdAndUpdate(user._id, req.body, {
       new: true,
     });
     res.status(200).json({ success: true, data: user });
+  },
+
+  deleteOne: async (req, res, next) => {
+    let user = req.user;
+    await User.deleteOne(user);
   },
 };

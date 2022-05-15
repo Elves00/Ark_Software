@@ -1,12 +1,97 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import RefactoredBossCard from './refactored-boss-card/BossCard';
+import axios from 'axios';
 import Tabs from './Tabs';
+import Card from './front-page/homeCard';
 import './bossPage.css';
 
 export default function Boss() {
+
+
+    //What tier of raids to populate the page
+    const [card, setCards] = useState([]);
+
+    //Search term
+    const [term, setSearch] = useState("");
+
+    const [tier, setTier] = useState(1);
+
+
+
+    useEffect(() => {
+        //Finds all the raids of the current tier
+        console.log("This is the term: " + term)
+        console.log("This is the tier: " + tier)
+        if (term === '') {
+            console.log("Trying to post")
+            const config = {
+                header: {
+                    "Content-Type": "application/json",
+                },
+            };
+            try {
+                axios.post("http://localhost:5000/findRaid",
+                    //The name is used to identify the page to increments
+                    { tier },
+                    config
+
+                )
+                    .then((res) => {
+                        setCards(res.data);
+                        console.log(res.data)
+                    });
+
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        else {
+            console.log("The else stament")
+            const config = {
+                header: {
+                    "Content-Type": "application/json",
+                },
+            };
+            try {
+                axios.post("http://localhost:5000/searchRaid",
+                    //The name is used to identify the page to increments
+                    { term },
+                    config
+
+                )
+                    .then((res) => {
+                        setCards(res.data);
+                        console.log(res.data)
+                    });
+
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+    }, [term, tier]);
+
+    function oneCard() {
+        //Map all response to new Cards
+        return card.map((res) => {
+            return (
+                <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
+            );
+        });
+    }
+
+
     return (
         <>
             <h1>Abyssal Dungeon Boss Guide</h1>
+            <div className='search__container'>
+                <form className='search__form' >
+                    <label for="search" >Search: </label>
+                    <input id="search" className='search' type="text" placeholder="..." onChange={(e) => setSearch(e.target.value)}></input>
+                </form>
+            </div>
             <Tabs
                 children={[
                     {
@@ -20,7 +105,6 @@ export default function Boss() {
                     }
                 ]}
             />
-
             <div className="cards">
                 <h2>Ancient Elveria</h2>
                 <div className="cards__container">
@@ -76,7 +160,7 @@ export default function Boss() {
                     </div>
                 </div>
             </div>
-          
+
         </>
     );
 }

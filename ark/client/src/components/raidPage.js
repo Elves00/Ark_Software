@@ -1,5 +1,5 @@
 //This function needs to be called Raid for the navbar to link to it.
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Tabs from './Tabs';
 import axios from 'axios';
 import Card from './front-page/homeCard';
@@ -10,8 +10,6 @@ import './bossPage.css';
 export default function Raid() {
 
     //What tier of raids to populate the page
-    // const [tier, setTier] = useState(1);
-
     const [card, setCards] = useState([]);
 
     //Search term

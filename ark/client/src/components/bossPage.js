@@ -27,9 +27,11 @@ export default function Boss() {
         console.log("tier:" + tier)
         return locations[tier - 1].map((name) => {
             return <div>
+                
                 <h2>{name}</h2>
+                <div className="cards__items">
                 {oneCard({ name })}
-                <br></br>
+                </div>
             </div>;
         })
     }
@@ -96,9 +98,7 @@ export default function Boss() {
             let a = Object.values(name)
             if (a == res.location) {
                 return (
-                    <div className="cards__items">
                         <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
-                    </div>
                 );
             }
             else {
@@ -110,7 +110,6 @@ export default function Boss() {
 
     return (
         <>
-
             <h1>Abyssal Dungeon Boss Guide</h1>
             <div className='search__container'>
                 <form className='search__form' >
@@ -127,7 +126,7 @@ export default function Boss() {
                         props: { label: 'Tier 2', number: 2 }
                     },
                     {
-                        props: { label: 'Tier 3' , number: 3}
+                        props: { label: 'Tier 3', number: 3 }
                     }
                 ]}
             />

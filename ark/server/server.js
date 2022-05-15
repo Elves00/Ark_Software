@@ -19,6 +19,7 @@ app.get("/profilePage", protect, users.getOne);
 app.post("/register", users.createOne);
 app.post("/createCard", cards.createOne);
 app.post("/login", users.findOne);
+app.post("/follow/:username", users.searchOne);
 app.patch("/editProfile", protect, users.updateOne);
 app.delete("/deleteProfile", protect, users.deleteOne);
 

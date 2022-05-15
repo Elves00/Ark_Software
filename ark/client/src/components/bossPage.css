@@ -11,8 +11,52 @@
 .h2 {
     text-align: center;
     margin-bottom: 2em;
-    color:slategray;
+    color: slategray;
 }
+
+.search__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.search__form {
+    position: relative;
+    text-align: center;
+    background-color: #fcfaf1;
+    border: 1px solid #cacaca;
+    border-radius: 3px;
+    padding: 10px 10px 5px 5px;
+
+}
+
+.search__form label {
+    color: #e6b31e;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 18px;
+    margin: 10px 10px;
+
+}
+
+
+search__form input {
+    border: 1px solid #cacaca;
+    background-color: #fcfaf1;
+    width: 250px;
+    border-radius: 3px;
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    font-weight: 300;
+}
+
+
+
 
 .cards__container {
     display: flex;
@@ -26,6 +70,7 @@
 
 .cards__wrapper {
     position: relative;
+    width: 100%;
 }
 
 .cards__items {
@@ -70,7 +115,7 @@
 } */
 @media (max-width: 1500px) {
     .cards__wrapper {
-        max-width: 700px; 
+        max-width: 700px;
     }
 }
 

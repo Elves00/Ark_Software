@@ -28,7 +28,7 @@ export default function BossInfo() {
 
   return (
 
-    <BlockPage props = {"demon-beast-canyon"}></BlockPage>
+    <BlockPage props={"demon-beast-canyon"}></BlockPage>
     // <div className="containers">
     //   <div className="infoPage">
     //     <div className="pageWrapper">
@@ -55,41 +55,41 @@ export default function BossInfo() {
     //       />
     //       <h2>Introduction</h2>
     //       <p>
-    //         Demon Beast Canyon is the first TIER 1 Abyssal Dungeon and you need
-    //         to be at least 340 Item Level to enter this Abyssal Dungeon. This
-    //         dungeon drops Tier 1 Accessories, Ability Stones, Engraving Books,
-    //         Cards and materials to craft the sets Rugged Valley Launcher and
-    //         Seraphic Oath Launcher. After clearing the dungeon, you can pay gold
-    //         to get additional loot. The recommended Combat Items are HP Potion
-    //         and Splendid Whirlwind Grenade. This dungeon isn’t that difficult
-    //         but you will be introduced to a few new co-op mechanics.
-    //       </p>
+          //   Demon Beast Canyon is the first TIER 1 Abyssal Dungeon and you need
+          //   to be at least 340 Item Level to enter this Abyssal Dungeon. This
+          //   dungeon drops Tier 1 Accessories, Ability Stones, Engraving Books,
+          //   Cards and materials to craft the sets Rugged Valley Launcher and
+          //   Seraphic Oath Launcher. After clearing the dungeon, you can pay gold
+          //   to get additional loot. The recommended Combat Items are HP Potion
+          //   and Splendid Whirlwind Grenade. This dungeon isn’t that difficult
+          //   but you will be introduced to a few new co-op mechanics.
+          // </p>
     //     </div>
     //     <div className="pageWrapper">
     //       <h2>First Boss: Corrupted Vazuela</h2>
     //       <p>
-    //         Corrupted Vazuela has slow attack animations making it an easy boss
-    //         battle. Vazuela spawns Blood Puddles on the ground reducing the
-    //         amount of safe space you can stand in without taking damage. The
-    //         longer this fight takes the more difficult it becomes. To prevent
-    //         this from happening, it is recommended to use skills and Combat
-    //         Items which reduce the purple Stagger bar below the Guardian's HP.
-    //         Once you deplete the purple bar and stagger the boss, all Blood
-    //         Puddles are removed from the battleground.
+    // Corrupted Vazuela has slow attack animations making it an easy boss
+    // battle. Vazuela spawns Blood Puddles on the ground reducing the
+    // amount of safe space you can stand in without taking damage. The
+    // longer this fight takes the more difficult it becomes. To prevent
+    // this from happening, it is recommended to use skills and Combat
+    // Items which reduce the purple Stagger bar below the Guardian's HP.
+    // Once you deplete the purple bar and stagger the boss, all Blood
+    // Puddles are removed from the battleground.
     //       </p>
     //       <h2>Special Attack Patterns and Mechanics</h2>
     //       <h4>Blood Puddle</h4>
     //       <p>
-    //         Corrupted Vazuela locks onto a player and marks that player with a
-    //         blue crosshair. After a short delay, the boss spits a blood puddle
-    //         on the targeted player. Everyone standing on that puddle takes a
-    //         decent amount of damage every second. The placement of the puddle is
-    //         important. If you are the marked player, you need to place the blood
-    //         puddle at the edge of the battleground. Try to overlap new puddles
-    //         with the existing ones at the edge. These blood puddles last until
-    //         the boss gets staggered. Misplacing the puddles and not having
-    //         enough stagger related skills and combat items can increase the
-    //         difficulty of this boss fight.
+    // Corrupted Vazuela locks onto a player and marks that player with a
+    // blue crosshair. After a short delay, the boss spits a blood puddle
+    // on the targeted player. Everyone standing on that puddle takes a
+    // decent amount of damage every second. The placement of the puddle is
+    // important. If you are the marked player, you need to place the blood
+    // puddle at the edge of the battleground. Try to overlap new puddles
+    // with the existing ones at the edge. These blood puddles last until
+    // the boss gets staggered. Misplacing the puddles and not having
+    // enough stagger related skills and combat items can increase the
+    // difficulty of this boss fight.
     //       </p>
     //       <div class="break"></div>
     //       <br />

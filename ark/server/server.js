@@ -21,9 +21,19 @@ app.get("/profilePage", protect, users.getOne);
 
 app.post("/register", users.createOne);
 app.post("/createCard", cards.createOne);
+//Find a raid
+app.post("/findRaid", cards.findRaid)
+app.post("/searchRaid", cards.findRaidTier)
+//Find a dungeon
+app.post("/findDungeon", cards.findDungeon)
+app.post("/searchDungeon", cards.findDungeonTier)
+
 app.post("/login", users.findOne);
 app.patch("/editProfile", protect, users.updateOne);
 app.delete("/deleteProfile", protect, users.deleteOne);
+
+
+
 
 //Increments page views by 1
 app.post("/hit", cards.hit);
@@ -32,9 +42,8 @@ app.post("/hit", cards.hit);
 app.get("/fetchCard", cards.get);
 
 //Fetch a card 
-app.get("/fetchPage",pages.get);
-//
-app.get("fetchPageBlock",pages.getBlock);
+app.get("/fetchPage", pages.get);
+
 
 //Fetch a User
 app.get("/fetchUser", users.get);

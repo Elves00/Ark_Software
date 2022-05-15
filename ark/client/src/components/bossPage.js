@@ -27,10 +27,10 @@ export default function Boss() {
         console.log("tier:" + tier)
         return locations[tier - 1].map((name) => {
             return <div>
-                
+
                 <h2>{name}</h2>
                 <div className="cards__items">
-                {oneCard({ name })}
+                    {oneCard({ name })}
                 </div>
             </div>;
         })
@@ -98,7 +98,7 @@ export default function Boss() {
             let a = Object.values(name)
             if (a == res.location) {
                 return (
-                        <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
+                    <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
                 );
             }
             else {

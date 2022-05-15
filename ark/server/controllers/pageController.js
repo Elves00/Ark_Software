@@ -30,8 +30,6 @@ module.exports = {
     })
   }),
 
-
-
   //Gets data from mongo db on cards
   get: ((req, res) => {
     //Finds all cards

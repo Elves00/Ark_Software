@@ -1,6 +1,7 @@
 .cards {
     padding: 2rem;
     background: #fff;
+    min-height: 500px;
 }
 
 .h1 {

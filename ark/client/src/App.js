@@ -22,6 +22,7 @@ import Footer from "./components/footer/footer";
 import BossInfo from "./components/boss-information/demon-beast-canyon";
 import NecromancersOrigin from "./components/boss-information/necromancer's-origin";
 import HallOfTheTwist from "./components/boss-information/hall-of-the-twisted";
+import Follow from "./components/follow";
 
 import "./App.css";
 
@@ -57,6 +58,9 @@ const App = () => {
               <Route path="/editProfile" element={<EditProfile />} />
             </Route>
             <Route path="/logout" element={<Logout />} />
+            <Route exact path="/follow" element={<Private />}>
+              <Route path="/follow" element={<Follow />} />
+            </Route>
           </Routes>
         </div>
       </div>

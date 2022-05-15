@@ -100,6 +100,13 @@ export default function Profile() {
               Edit Profile
             </NavLink>
           </div>
+          <br />
+          <br />
+          <div className="editprofile-button">
+            <NavLink className="edit-link" to="/follow">
+              Follow
+            </NavLink>
+          </div>
           <button onClick={handleDelete} className="delete-button">
             Delete Account
           </button>

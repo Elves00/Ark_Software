@@ -33,10 +33,10 @@ module.exports = {
 
   findRaid: async (req, res) => {
     //the content of the search bar
-    const { tier } = req.body;
+    const { tier,tag } = req.body;
     try {
       console.log(tier)
-      const card = await Card.find({ 'tier': tier })
+      const card = await Card.find({ 'tier': tier ,'tag':tag })
       res.json(card)
 
     } catch (err) {
@@ -50,7 +50,7 @@ module.exports = {
     const { term } = req.body;
     try {
       var regexConst = new RegExp(term, 'i');
-      const card = await Card.find({ 'name': regexConst })
+      const card = await Card.find({ 'name': regexConst ,'tag':'Raid'})
       res.json(card)
     } catch (err) {
       // console.log(err);

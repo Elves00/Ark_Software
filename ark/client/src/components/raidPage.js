@@ -9,6 +9,8 @@ import './bossPage.css';
 
 export default function Raid() {
 
+    const tag = 'Raid';
+
     //What tier of raids to populate the page
     const [card, setCards] = useState([]);
 
@@ -33,7 +35,7 @@ export default function Raid() {
             try {
                 axios.post("http://localhost:5000/findRaid",
                     //The name is used to identify the page to increments
-                    { tier },
+                    { tier, tag },
                     config
 
                 )

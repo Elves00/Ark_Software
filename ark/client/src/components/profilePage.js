@@ -73,11 +73,9 @@ export default function Profile() {
           <div class="row">
             <div class="col-md-4">
               <h2 class="h2">{data.username}</h2>
-              <p>
-                <img 
-                    src= {`data:image/jpg;base64,${data.photo}`}
-                    alt="ProfilePhoto"
-                    /></p>
+                <img class="col-md-10"
+                    src={data.postImage.myFile}
+                    />
             </div>
 
             <div class="col-md-8">

@@ -9,7 +9,6 @@ const Profile = () => {
   const [aboutMe, setAboutMe] = useState("");
   const [characterClass, setCharacterClass] = useState("");
   const [postImage, setPostImage] = useState({myFile: "", });
-  const [photo, setPhoto] = useState("");
 
   // const [password, setPassword] = useState("");
 
@@ -113,8 +112,9 @@ const createImage = (newImage) => axios.post(url, newImage);
       },
     };
     e.preventDefault();
-    createPost(postImage);
-    axios.patch("/editProfile", { photo }, config);
+    // createPost(postImage);
+    axios.patch("/editProfile", { postImage }, config);
+    alert("Changes saved!");
   };
 
   const convertToBase64 = (file) => {
@@ -133,8 +133,6 @@ const createImage = (newImage) => axios.post(url, newImage);
     const file = e.target.files[0];
     const base64 = await convertToBase64(file);
     setPostImage({ ...postImage, myFile: base64 });
-    setPhoto({ ...postImage, myFile: base64 })
-    alert({postImage});
   };
 
 

@@ -29,11 +29,10 @@ const UserSchema = new mongoose.Schema({
   characterClass:{
     type: String,
   },
-  photo:{
-    type: {
-      type: String
-    },
-  },
+
+  postImage: {
+    myFile: String,
+  }
 });
 
 //This function runs before a user is saved in the database using the mongoose pre functionality

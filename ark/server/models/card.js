@@ -23,9 +23,13 @@ const CardSchema = new mongoose.Schema({
     type: String,
     required: [true, "Path to image must be specified"]
   },
-  tier:{
+  tier: {
     type: Number,
-    required: [false,"What tier"]
+    required: [false, "What tier"]
+  },
+  location: {
+    type: String,
+    required: [false, "What location"]
   }
 });
 

@@ -7,18 +7,46 @@ import './bossPage.css';
 
 export default function Boss() {
 
+    const tag = 'Dungeon';
 
-    //What tier of raids to populate the page
+    //The cards from the database
     const [card, setCards] = useState([]);
 
-    //Search term
+    //Term that we use to search the database  
     const [term, setSearch] = useState("");
-
+    //Current tier 
     const [tier, setTier] = useState(1);
 
 
+    //All the possible locations
+    const [locations, setLocations] = useState([['Ancient Elveria', 'Phantom Palace'], ['Ark of Arrogance', 'Gate of Paradise'], ['Orehas Well']])
+
+    function layoutCards() {
+        // console.log(locations[0][0]);
+
+
+        locations.map((e) => {
+            e.map((e) => {
+                console.log("All of them hopefuly")
+            })
+        })
+
+        let a = <h1>Goodbye</h1>;
+
+        //for the current one 
+        return locations[tier - 1].map((name) => {
+            return <div>
+                <h1>{name}</h1>
+                {oneCard({ name })}
+            </div>;
+        })
+
+
+
+    }
 
     useEffect(() => {
+        layoutCards();
         //Finds all the raids of the current tier
         console.log("This is the term: " + term)
         console.log("This is the tier: " + tier)
@@ -30,9 +58,9 @@ export default function Boss() {
                 },
             };
             try {
-                axios.post("http://localhost:5000/findRaid",
+                axios.post("http://localhost:5000/findDungeon",
                     //The name is used to identify the page to increments
-                    { tier },
+                    { tier, tag },
                     config
 
                 )
@@ -73,18 +101,28 @@ export default function Boss() {
 
     }, [term, tier]);
 
-    function oneCard() {
+    function oneCard(name) {
         //Map all response to new Cards
         return card.map((res) => {
-            return (
-                <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
-            );
+            let a = Object.values(name)
+            console.log(a + res.location)
+            console.log(res.path)
+         
+            if (a == res.location) {
+                return (
+                    <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
+                );
+            }
+            else {
+                return;
+            }
         });
     }
 
 
     return (
         <>
+           
             <h1>Abyssal Dungeon Boss Guide</h1>
             <div className='search__container'>
                 <form className='search__form' >

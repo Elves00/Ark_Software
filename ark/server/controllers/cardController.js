@@ -60,10 +60,11 @@ module.exports = {
 
   findDungeon: async (req, res) => {
     //the content of the search bar
-    const { tier } = req.body;
+    const { tier,tag } = req.body;
     try {
       console.log(tier)
-      const card = await Card.find({ 'tier': tier })
+      console.log("Tag"+tag)
+      const card = await Card.find({ 'tier': tier ,'tag':tag})
       res.json(card)
 
     } catch (err) {

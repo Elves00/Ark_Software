@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import RefactoredBossCard from './refactored-boss-card/BossCard';
 import axios from 'axios';
 import Tabs from './Tabs';
 import Card from './front-page/homeCard';
@@ -24,25 +23,15 @@ export default function Boss() {
     function layoutCards() {
         // console.log(locations[0][0]);
 
-
-        locations.map((e) => {
-            e.map((e) => {
-                console.log("All of them hopefuly")
-            })
-        })
-
-        let a = <h1>Goodbye</h1>;
-
         //for the current one 
+        console.log("tier:" + tier)
         return locations[tier - 1].map((name) => {
             return <div>
-                <h1>{name}</h1>
+                <h2>{name}</h2>
                 {oneCard({ name })}
+                <br></br>
             </div>;
         })
-
-
-
     }
 
     useEffect(() => {
@@ -105,12 +94,11 @@ export default function Boss() {
         //Map all response to new Cards
         return card.map((res) => {
             let a = Object.values(name)
-            console.log(a + res.location)
-            console.log(res.path)
-         
             if (a == res.location) {
                 return (
-                    <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
+                    <div className="cards__items">
+                        <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
+                    </div>
                 );
             }
             else {
@@ -122,7 +110,7 @@ export default function Boss() {
 
     return (
         <>
-           
+
             <h1>Abyssal Dungeon Boss Guide</h1>
             <div className='search__container'>
                 <form className='search__form' >
@@ -130,71 +118,24 @@ export default function Boss() {
                     <input id="search" className='search' type="text" placeholder="..." onChange={(e) => setSearch(e.target.value)}></input>
                 </form>
             </div>
-            <Tabs
+            <Tabs tier={setTier}
                 children={[
                     {
-                        props: { label: 'Tier 1' }
+                        props: { label: 'Tier 1', number: 1 }
                     },
                     {
-                        props: { label: 'Tier 2' }
+                        props: { label: 'Tier 2', number: 2 }
                     },
                     {
-                        props: { label: 'Tier 3' }
+                        props: { label: 'Tier 3' , number: 3}
                     }
                 ]}
             />
             <div className="cards">
-                <h2>Ancient Elveria</h2>
+
                 <div className="cards__container">
                     <div className="cards__wrapper">
-                        <div className="cards__items">
-                            <RefactoredBossCard
-                                src="Lost-Ark-Images/img1.jpg"
-                                text="Demon Beast Canyon"
-                                label="Dungeon"
-                                path="/demon-beast-canyon"
-                            />
-                            <RefactoredBossCard
-                                src="Lost-Ark-Images/laimage1.jpg"
-                                text="Necromancer's Origin"
-                                label="Dungeon"
-                                path="/demon-beast-canyon"
-                            />
-                            <RefactoredBossCard
-                                src="Lost-Ark-Images/laimage1.jpg"
-                                text="Necromancer's Origin"
-                                label="Dungeon"
-                                path="/demon-beast-canyon"
-                            />
-                            <RefactoredBossCard
-                                src="Lost-Ark-Images/laimage1.jpg"
-                                text="Necromancer's Origin"
-                                label="Dungeon"
-                                path="/demon-beast-canyon"
-                            />
-                        </div>
-                        <div class="break"></div>
-                        <h2>Phantom Palace</h2>
-                        <div className="cards__items">
-                            <RefactoredBossCard
-                                src="Lost-Ark-Images/img1.jpg"
-                                text="Hall of the Twisted Warlord"
-                                label="Dungeon"
-                                path="/demon-beast-canyon"
-                            />
-                            <RefactoredBossCard
-                                src="Lost-Ark-Images/laimage1.jpg"
-                                text="Hildebrandt Palace"
-                                label="Dungeon"
-                                path="/demon-beast-canyon"
-                            />
-                            {/* <CardItem
-                    src='Lost-Ark-Images/laimage1.jpg'
-                    text='Ark of Arrogance'
-                    label='Dungeon'
-                    path='/services'
-                    /> */}
-                        </div>
+                        {layoutCards()}
                     </div>
                 </div>
             </div>

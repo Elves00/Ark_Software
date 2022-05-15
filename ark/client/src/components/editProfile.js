@@ -93,17 +93,6 @@ const Profile = () => {
   };
 
   //For images
-  const url = "http://localhost:5000/uploads";
-const createImage = (newImage) => axios.post(url, newImage);
-
-  const createPost = async (post) => {
-    try {
-      await createImage(post);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
   const handleSubmit = (e) => {
     const config = {
       headers: {
@@ -112,7 +101,6 @@ const createImage = (newImage) => axios.post(url, newImage);
       },
     };
     e.preventDefault();
-    // createPost(postImage);
     axios.patch("/editProfile", { postImage }, config);
     alert("Changes saved!");
   };

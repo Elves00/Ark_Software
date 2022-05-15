@@ -10,6 +10,8 @@ export default function Profile() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // var photo = data.postImage.myFile.toString();
+
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -73,9 +75,10 @@ export default function Profile() {
           <div class="row">
             <div class="col-md-4">
               <h2 class="h2">{data.username}</h2>
-                <img class="col-md-10"
-                    src={data.postImage.myFile}
-                    />
+                {/* <img class="col-md-10"
+                    src= {photo}
+                    alt = "ProfilePhoto"
+                    /> */}
             </div>
 
             <div class="col-md-8">

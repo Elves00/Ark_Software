@@ -22,8 +22,12 @@ app.get("/profilePage", protect, users.getOne);
 app.post("/register", users.createOne);
 app.post("/createCard", cards.createOne);
 //Find a raid
-app.post("/findRaid", cards.fineOne)
-app.post("/searchRaid", cards.fineOneTier)
+app.post("/findRaid", cards.findRaid)
+app.post("/searchRaid", cards.findRaidTier)
+//Find a dungeon
+app.post("/findDungeon", cards.findDungeon)
+app.post("/searchDungeon", cards.findDungeonTier)
+
 app.post("/login", users.findOne);
 app.patch("/editProfile", protect, users.updateOne);
 app.delete("/deleteProfile", protect, users.deleteOne);

@@ -57,11 +57,7 @@ export default function Navbar() {
             <NavLink className="nav-link" to="/chatPage">
               Chat
             </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/blockPage">
-              Blocks
-            </NavLink>
+      
           </li>
         </ul>
         {/*This is so the Account Link is on the right*/}

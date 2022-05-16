@@ -6,11 +6,12 @@ import { useNavigate, NavLink } from "react-router-dom";
 import "./profilePage.css";
 
 export default function Profile() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState({
+    postImage: { myFile: "" },
+  });
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // var photo = data.postImage.myFile.toString();
 
   const config = {
     headers: {
@@ -66,6 +67,10 @@ export default function Profile() {
     }
   }
 
+  function getPhotoString() {
+    return data.postImage.myFile
+  }
+
   return error ? (
     error
   ) : (
@@ -75,10 +80,11 @@ export default function Profile() {
           <div class="row">
             <div class="col-md-4">
               <h2 class="h2">{data.username}</h2>
-                {/* <img class="col-md-10"
-                    src= {photo}
-                    alt = "ProfilePhoto"
-                    /> */}
+              <img class="col-md-10"
+                src= {getPhotoString()}
+                alt = "ProfilePhoto"
+                />         
+                
             </div>
 
             <div class="col-md-8">

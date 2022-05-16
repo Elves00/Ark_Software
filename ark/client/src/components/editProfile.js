@@ -92,7 +92,7 @@ const Profile = () => {
     }
   };
 
-  //For images
+  //For Profile Picture Uploads
   const handleSubmit = (e) => {
     const config = {
       headers: {
@@ -102,7 +102,8 @@ const Profile = () => {
     };
     e.preventDefault();
     axios.patch("/editProfile", { postImage }, config);
-    alert("Changes saved!");
+    alert("Profile Pictured Updated!");
+    navigate("/profilePage");
   };
 
   const convertToBase64 = (file) => {
@@ -164,6 +165,7 @@ const Profile = () => {
         </form>
       </div>
       <div>
+      <label>Upload New Profile Picture</label>
       <form onSubmit={handleSubmit}>
         <input
           type="file"

@@ -37,7 +37,7 @@ export default function Boss() {
     }
 
     useEffect(() => {
-        layoutCards();
+      
         //Finds all the raids of the current tier
         console.log("This is the term: " + term)
         console.log("This is the tier: " + tier)
@@ -67,13 +67,14 @@ export default function Boss() {
         }
         else {
             console.log("The else stament")
+           
             const config = {
                 header: {
                     "Content-Type": "application/json",
                 },
             };
             try {
-                axios.post("http://localhost:5000/searchRaid",
+                axios.post("http://localhost:5000/searchDungeon",
                     //The name is used to identify the page to increments
                     { term },
                     config
@@ -89,6 +90,8 @@ export default function Boss() {
                 console.log(error)
             }
         }
+
+        layoutCards();
 
     }, [term, tier]);
 
@@ -115,7 +118,7 @@ export default function Boss() {
                 <form className='search__form' >
                     <label for="search" >Search: </label>
                     <input id="search" className='search' type="text" placeholder="..." onChange={(e) => setSearch(e.target.value)}></input>
-                </form>
+                   </form>
             </div>
             <Tabs tier={setTier}
                 children={[

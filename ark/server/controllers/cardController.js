@@ -78,7 +78,7 @@ module.exports = {
     const { term } = req.body;
     try {
       var regexConst = new RegExp(term, 'i');
-      const card = await Card.find({ 'name': regexConst })
+      const card = await Card.find({ 'name': regexConst,'tag':'Dungeon' })
       res.json(card)
     } catch (err) {
       // console.log(err);

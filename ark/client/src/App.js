@@ -40,7 +40,7 @@ const App = () => {
             <Route path="/bossPage" element={<Boss />} />
             <Route path="/raidPage" element={<Raid />} />
             <Route exact path="/forumPage" element={<Private />}>
-              <Route exact path="/forumPage" element={<Forums />} />
+            <Route exact path="/forumPage" element={<Forums />} />
             </Route>
             <Route path="/chatPage" element={<Chat />} />
             <Route exact path="/profilePage" element={<Private />}>

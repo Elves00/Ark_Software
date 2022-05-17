@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Posts from "../components/forum-cards/Posts";
 
 const Forums = () => {
   const [data, setData] = useState("");
@@ -39,6 +40,7 @@ const Forums = () => {
   ) : (
     <div>
       <p>Forum Page</p>
+      <Posts />
       {data}
     </div>
   );

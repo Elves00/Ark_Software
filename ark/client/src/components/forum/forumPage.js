@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Posts from "./post";
 import "./forum.css";
 
 const Forums = () => {
@@ -77,11 +78,8 @@ const Forums = () => {
     console.log(post)
     return post.map((res) => {
       return (
-        <div className="forum__content">
-          <h1>{res.title}</h1>
-          <h2>{res.date}</h2>
-          <p>{res.content}</p>
-        </div>
+          <Posts props={res}/>
+      
       );
     });
   }
@@ -92,7 +90,7 @@ const Forums = () => {
     <div>
       <h1 className="head">Forum</h1>
       <div className="forum">
-        <div className="forum2">
+        <div className="subForum">
           {mapPosts()}
         </div>
       </div>

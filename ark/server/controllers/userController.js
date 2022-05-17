@@ -31,6 +31,7 @@ module.exports = {
           username: req.body.username,
           email: req.body.email,
           password: req.body.password,
+          postImage: req.body.postImage
         };
         let newUserDetails = details;
         newUserDetails._id = new mongoose.Types.ObjectId();

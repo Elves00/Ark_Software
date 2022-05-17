@@ -71,6 +71,15 @@ export default function Profile() {
     return data.postImage.myFile
   }
 
+  // function showFollowing(){
+  //   var followingList = [];
+  //   for (var i = 0; i < 10; i++) {
+  //     var follow = data.following[i];
+  //     followingList.push(<p class="text-center">{follow}</p>);
+  //   }
+  //   return followingList;
+  // }
+
   return error ? (
     error
   ) : (
@@ -117,15 +126,8 @@ export default function Profile() {
           <button onClick={handleDelete} className="delete-button">
             Delete Account
           </button>
-          {/* <h2 class="text-center">Friends</h2>
-
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p> */}
+          <h2 class="text-center">Following</h2>
+              {/* {showFollowing()} */}
         </div>
       </div>
     </div>

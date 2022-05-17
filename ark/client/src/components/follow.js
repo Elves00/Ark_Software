@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useState} from "react";
+import { NavLink} from "react-router-dom";
 import axios from "axios";
 import "./user.css";
 
@@ -10,31 +10,14 @@ const Login = () => {
     postImage: { myFile: "" },
   });
   const [searched, setSearched] = useState("");
+  const [following, setFollow] = useState("");
 
-  // const navigate = useNavigate();
-
-  // const config = {
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-  //   },
-  // };
-
-  //   useEffect(() => {
-  //     const fetchPrivateData = async () => {
-  //       try {
-  //         // setData(data.data);
-  //       } catch (error) {
-  //         localStorage.removeItem("authToken");
-  //         setError("Not authorized, please login, redirecting to login page...");
-  //         setTimeout(() => {
-  //           navigate("/login");
-  //         }, 1000);
-  //       }
-  //     };
-
-  //     fetchPrivateData();
-  //   });
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    },
+  };
 
   async function searchHandler(e) {
     e.preventDefault();
@@ -56,7 +39,25 @@ const Login = () => {
     return retrievedUser.postImage.myFile
   }  
 
-  function showProfile(user){
+  async function handleFollow() {
+    try {
+      setFollow(retrievedUser.username);
+      await axios.patch("/editProfile", { $push: {following} }, config);
+      alert("Following");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function showFollowing(){
+    var followingList = [];
+    for (var i = 0; i < 10; i++) {
+      followingList.push(<p class="text-center">{retrievedUser.following[i]}</p>);
+    }
+    return followingList;       
+  }
+
+  function showProfile(){
 
     if (searched === true){
       return(<div className="FullProfile">
@@ -87,15 +88,11 @@ const Login = () => {
           </div>
         </div>
         <div class="col-md-2">
-          {/* <h2 class="text-center">Friends</h2>
-
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p> */}
+        <button onClick={handleFollow} className="follow-button">
+            Follow {retrievedUser.username}
+          </button>
+          <h2 class="text-center">Following</h2>
+          {showFollowing()}
         </div>
       </div>
     </div>)
@@ -127,7 +124,7 @@ const Login = () => {
         <br />
       </form>
       <div className="result">
-        {showProfile(retrievedUser.username)}
+        {showProfile()}
       </div>
     </div>
   );

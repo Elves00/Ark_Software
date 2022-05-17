@@ -7,14 +7,14 @@ const Login = () => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
   const [retrievedUser, setRetrievedUser] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    },
-  };
+  // const config = {
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+  //   },
+  // };
 
   //   useEffect(() => {
   //     const fetchPrivateData = async () => {

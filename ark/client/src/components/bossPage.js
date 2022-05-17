@@ -27,17 +27,17 @@ export default function Boss() {
         console.log("tier:" + tier)
         return locations[tier - 1].map((name) => {
             return <div>
-                
+
                 <h2>{name}</h2>
                 <div className="cards__items">
-                {oneCard({ name })}
+                    {oneCard({ name })}
                 </div>
             </div>;
         })
     }
 
     useEffect(() => {
-        layoutCards();
+      
         //Finds all the raids of the current tier
         console.log("This is the term: " + term)
         console.log("This is the tier: " + tier)
@@ -67,13 +67,14 @@ export default function Boss() {
         }
         else {
             console.log("The else stament")
+           
             const config = {
                 header: {
                     "Content-Type": "application/json",
                 },
             };
             try {
-                axios.post("http://localhost:5000/searchRaid",
+                axios.post("http://localhost:5000/searchDungeon",
                     //The name is used to identify the page to increments
                     { term },
                     config
@@ -90,6 +91,8 @@ export default function Boss() {
             }
         }
 
+        layoutCards();
+
     }, [term, tier]);
 
     function oneCard(name) {
@@ -98,7 +101,7 @@ export default function Boss() {
             let a = Object.values(name)
             if (a == res.location) {
                 return (
-                        <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
+                    <Card path={res.path} src={res.image} name={res.name} tag={res.tag}  ></Card>
                 );
             }
             else {
@@ -114,8 +117,8 @@ export default function Boss() {
             <div className='search__container'>
                 <form className='search__form' >
                     <label for="search" >Search: </label>
-                    <input id="search" className='search' type="text" placeholder="..." onChange={(e) => setSearch(e.target.value)}></input>
-                </form>
+                    <input id="search" className='search' type="search" placeholder="..." onChange={(e) => setSearch(e.target.value)}></input>
+                   </form>
             </div>
             <Tabs tier={setTier}
                 children={[

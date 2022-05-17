@@ -23,6 +23,7 @@
   padding-top: 2em;
   padding-bottom: 30px;
 }
+
 .dungeonTitle {
   margin: 10px;
   font-size: large;
@@ -52,7 +53,7 @@ h4 {
   justify-content: center;
 }
 
-.video{
+.video {
   display: flex;
   justify-content: center;
 }

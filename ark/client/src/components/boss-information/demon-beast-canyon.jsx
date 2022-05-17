@@ -55,15 +55,15 @@ export default function BossInfo() {
     //       />
     //       <h2>Introduction</h2>
     //       <p>
-          //   Demon Beast Canyon is the first TIER 1 Abyssal Dungeon and you need
-          //   to be at least 340 Item Level to enter this Abyssal Dungeon. This
-          //   dungeon drops Tier 1 Accessories, Ability Stones, Engraving Books,
-          //   Cards and materials to craft the sets Rugged Valley Launcher and
-          //   Seraphic Oath Launcher. After clearing the dungeon, you can pay gold
-          //   to get additional loot. The recommended Combat Items are HP Potion
-          //   and Splendid Whirlwind Grenade. This dungeon isn’t that difficult
-          //   but you will be introduced to a few new co-op mechanics.
-          // </p>
+    //   Demon Beast Canyon is the first TIER 1 Abyssal Dungeon and you need
+    //   to be at least 340 Item Level to enter this Abyssal Dungeon. This
+    //   dungeon drops Tier 1 Accessories, Ability Stones, Engraving Books,
+    //   Cards and materials to craft the sets Rugged Valley Launcher and
+    //   Seraphic Oath Launcher. After clearing the dungeon, you can pay gold
+    //   to get additional loot. The recommended Combat Items are HP Potion
+    //   and Splendid Whirlwind Grenade. This dungeon isn’t that difficult
+    //   but you will be introduced to a few new co-op mechanics.
+    // </p>
     //     </div>
     //     <div className="pageWrapper">
     //       <h2>First Boss: Corrupted Vazuela</h2>

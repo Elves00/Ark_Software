@@ -6,9 +6,12 @@ import { useNavigate, NavLink } from "react-router-dom";
 import "./profilePage.css";
 
 export default function Profile() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState({
+    postImage: { myFile: "" },
+  });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
 
   const config = {
     headers: {
@@ -64,6 +67,19 @@ export default function Profile() {
     }
   }
 
+  function getPhotoString() {
+    return data.postImage.myFile
+  }
+
+  // function showFollowing(){
+  //   var followingList = [];
+  //   for (var i = 0; i < 10; i++) {
+  //     var follow = data.following[i];
+  //     followingList.push(<p class="text-center">{follow}</p>);
+  //   }
+  //   return followingList;
+  // }
+
   return error ? (
     error
   ) : (
@@ -73,11 +89,11 @@ export default function Profile() {
           <div class="row">
             <div class="col-md-4">
               <h2 class="h2">{data.username}</h2>
-              {/* <p>
-                <img 
-                    src= {data.profilePhoto}
-                    alt="new"
-                    /></p> */}
+              <img class="col-md-10"
+                src= {getPhotoString()}
+                alt = "ProfilePhoto"
+                />         
+                
             </div>
 
             <div class="col-md-8">
@@ -100,18 +116,18 @@ export default function Profile() {
               Edit Profile
             </NavLink>
           </div>
+          <br />
+          <br />
+          <div className="editprofile-button">
+            <NavLink className="edit-link" to="/follow">
+              Follow
+            </NavLink>
+          </div>
           <button onClick={handleDelete} className="delete-button">
             Delete Account
           </button>
-          {/* <h2 class="text-center">Friends</h2>
-
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p>
-            <p class="text-center">Friends</p> */}
+          <h2 class="text-center">Following</h2>
+              {/* {showFollowing()} */}
         </div>
       </div>
     </div>

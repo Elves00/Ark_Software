@@ -29,6 +29,7 @@ app.post("/findDungeon", cards.findDungeon)
 app.post("/searchDungeon", cards.findDungeonTier)
 
 app.post("/login", users.findOne);
+app.post("/follow/:username", users.searchOne);
 app.patch("/editProfile", protect, users.updateOne);
 app.delete("/deleteProfile", protect, users.deleteOne);
 

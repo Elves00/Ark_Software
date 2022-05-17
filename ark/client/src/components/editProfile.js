@@ -4,25 +4,25 @@ import axios from "axios";
 import "./editProfile.css";
 
 const Profile = () => {
+  // const [data, setData] = useState("");
   const [username, setUsername] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [characterClass, setCharacterClass] = useState("");
-  // const [data, setData] = useState("");
 
   // const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    },
+  };
+
   useEffect(() => {
     const fetchPrivateData = async () => {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      };
-
       try {
         await axios.get("/profilePage", config);
         // setData(data.data);
@@ -40,13 +40,6 @@ const Profile = () => {
 
   const editHandler = async (e) => {
     e.preventDefault();
-
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-      },
-    };
 
     try {
       if (username === "" && aboutMe === "" && characterClass === "") {

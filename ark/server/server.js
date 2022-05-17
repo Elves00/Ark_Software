@@ -7,6 +7,7 @@ const cors = require("cors");
 const users = require("./controllers/userController");
 const cards = require("./controllers/cardController");
 const pages = require("./controllers/pageController");
+const posts = require("./controllers/postController")
 
 const connectDB = require("./db/conn");
 const { protect } = require("./middleware/auth");
@@ -28,11 +29,12 @@ app.post("/searchRaid", cards.findRaidTier)
 app.post("/findDungeon", cards.findDungeon)
 app.post("/searchDungeon", cards.findDungeonTier)
 
+//Get posts
+app.post("/getPosts",posts.get)
+
 app.post("/login", users.findOne);
 app.patch("/editProfile", protect, users.updateOne);
 app.delete("/deleteProfile", protect, users.deleteOne);
-
-
 
 
 //Increments page views by 1
@@ -43,7 +45,6 @@ app.get("/fetchCard", cards.get);
 
 //Fetch a card 
 app.get("/fetchPage", pages.get);
-
 
 //Fetch a User
 app.get("/fetchUser", users.get);

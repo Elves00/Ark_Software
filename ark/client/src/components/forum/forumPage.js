@@ -78,10 +78,15 @@ const Forums = () => {
     console.log(post)
     return post.map((res) => {
       return (
-          <Posts props={res}/>
-      
+        <Posts props={res} />
+
       );
     });
+  }
+
+
+  function createPost() {
+
   }
 
   return error ? (
@@ -89,6 +94,30 @@ const Forums = () => {
   ) : (
     <div>
       <h1 className="head">Forum</h1>
+      <button onClick={createPost()}>Share a post</button>
+      <form>
+        <div className="forumPageNewPost">
+          <label>Title</label>
+          <input
+            type="text"
+            id="username"
+          // Value={username}
+          // onChange={(e) => setUsername(e.target.value)}
+          />
+
+          <label for="textArea">Content</label>
+          <textarea id="textArea" placeholder="...">
+          </textarea>
+
+          <input
+            type="submit"
+            value="Post"
+          ></input>
+          <button className="forumPageClose" type="reset"></button>
+        </div>
+
+      </form>
+
       <div className="forum">
         <div className="subForum">
           {mapPosts()}

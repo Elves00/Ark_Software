@@ -91,7 +91,7 @@ export default function Raid() {
             <div className='search__container'>
                 <form className='search__form' >
                     <label for="search" >Search: </label>
-                    <input id="search" className='search' type="search" placeholder="..." onChange={(e) => setSearch(e.target.value)}></input>
+                    <input id="search" className='search' type="text" placeholder="..." onChange={(e) => setSearch(e.target.value)}></input>
                 </form>
             </div>
             <Tabs tier={setTier}

@@ -8,7 +8,7 @@ import Navbar from "./components/navbar";
 import CreateUser from "./components/createUser";
 import Boss from "./components/bossPage";
 import Raid from "./components/raidPage";
-import Forums from "./components/forumPage";
+import Forums from "./components/forum/forumPage";
 import Chat from "./components/chatPage";
 import NotFound from "./components/notFoundPage";
 import HomePage from "./components/homePage";

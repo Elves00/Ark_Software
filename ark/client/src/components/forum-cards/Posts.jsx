@@ -4,26 +4,44 @@ import './posts.css';
 export default function Posts() {
     return (
         <div class="container">
-            <div class="subForum">
-                <div className="title">
+            <div class="subforum">
                     <h2>weddit General Discussions</h2>
-                </div>
-                <div className="subforum-row">
+                <a href="">
+                    <div className="subforum-row">
                     <div className="like-dislike subforum-column">
                         <p>Vote Up or Down</p>
                     </div>
                     <div className="description subforum-column">
-                        <h2>
-                            <a href="">Post Title</a>
-                        </h2>
+                        <h1>
+                            <a href="">Post Title dsajkdlsadsakldsajldkjladjkladjsklajdklajdklsajkl</a>
+                        </h1>
                         <p>
-                            Description Content: maybe somehow insert images
+                            Description Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
+                            hereDescription Content: Maybe somehow insert images
                             here
                         </p>
                     </div>
-                    <div className="comment-stats subforum-column">
+                    {/* <div className="comment-stats subforum-column">
                         <span className="comment-info">30 Posts</span>
-                    </div>
+                    </div> */}
                     <div className="post-date subforum-column">
                         <b>
                             <a href="">Last Post</a>
@@ -33,23 +51,25 @@ export default function Posts() {
                         on 17 May 2022
                     </div>
                 </div>
+                </a>
 
-                <div className="subforum-row">
+                <a href="">
+                    <div className="subforum-row">
                     <div className="like-dislike subforum-column">
                         <p>Vote Up or Down</p>
                     </div>
                     <div className="description subforum-column">
-                        <h2>
+                        <h1>
                             <a href="">Post Title</a>
-                        </h2>
+                        </h1>
                         <p>
                             Description Content: Maybe somehow insert images
                             here
                         </p>
                     </div>
-                    <div className="comment-stats subforum-column">
+                    {/* <div className="comment-stats subforum-column">
                         <span className="comment-info">30 Posts</span>
-                    </div>
+                    </div> */}
                     <div className="post-date subforum-column">
                         <b>
                             <a href="">Last Post</a>
@@ -59,23 +79,25 @@ export default function Posts() {
                         on 17 May 2022
                     </div>
                 </div>
+                </a>
 
-                <div className="subforum-row">
+                <a href="">
+                    <div className="subforum-row">
                     <div className="like-dislike subforum-column">
                         <p>Vote Up or Down</p>
                     </div>
                     <div className="description subforum-column">
-                        <h2>
+                        <h1>
                             <a href="">Post Title</a>
-                        </h2>
+                        </h1>
                         <p>
                             Description Content: Maybe somehow insert images
                             here
                         </p>
                     </div>
-                    <div className="comment-stats subforum-column">
+                    {/* <div className="comment-stats subforum-column">
                         <span className="comment-info">30 Posts</span>
-                    </div>
+                    </div> */}
                     <div className="post-date subforum-column">
                         <b>
                             <a href="">Last Post</a>
@@ -85,23 +107,25 @@ export default function Posts() {
                         on 17 May 2022
                     </div>
                 </div>
+                </a>
 
-                <div className="subforum-row">
+                <a href="">
+                    <div className="subforum-row">
                     <div className="like-dislike subforum-column">
                         <p>Vote Up or Down</p>
                     </div>
                     <div className="description subforum-column">
-                        <h2>
+                        <h1>
                             <a href="">Post Title</a>
-                        </h2>
+                        </h1>
                         <p>
                             Description Content: Maybe somehow insert images
                             here
                         </p>
                     </div>
-                    <div className="comment-stats subforum-column">
+                    {/* <div className="comment-stats subforum-column">
                         <span className="comment-info">30 Posts</span>
-                    </div>
+                    </div> */}
                     <div className="post-date subforum-column">
                         <b>
                             <a href="">Last Post</a>
@@ -111,23 +135,25 @@ export default function Posts() {
                         on 17 May 2022
                     </div>
                 </div>
+                </a>
 
-                <div className="subforum-row">
+                <a href="">
+                    <div className="subforum-row">
                     <div className="like-dislike subforum-column">
                         <p>Vote Up or Down</p>
                     </div>
                     <div className="description subforum-column">
-                        <h2>
+                        <h1>
                             <a href="">Post Title</a>
-                        </h2>
+                        </h1>
                         <p>
                             Description Content: Maybe somehow insert images
                             here
                         </p>
                     </div>
-                    <div className="comment-stats subforum-column">
+                    {/* <div className="comment-stats subforum-column">
                         <span className="comment-info">30 Posts</span>
-                    </div>
+                    </div> */}
                     <div className="post-date subforum-column">
                         <b>
                             <a href="">Last Post</a>
@@ -137,23 +163,25 @@ export default function Posts() {
                         on 17 May 2022
                     </div>
                 </div>
+                </a>
 
-                <div className="subforum-row">
+                <a href="">
+                    <div className="subforum-row">
                     <div className="like-dislike subforum-column">
                         <p>Vote Up or Down</p>
                     </div>
                     <div className="description subforum-column">
-                        <h2>
+                        <h1>
                             <a href="">Post Title</a>
-                        </h2>
+                        </h1>
                         <p>
                             Description Content: Maybe somehow insert images
                             here
                         </p>
                     </div>
-                    <div className="comment-stats subforum-column">
+                    {/* <div className="comment-stats subforum-column">
                         <span className="comment-info">30 Posts</span>
-                    </div>
+                    </div> */}
                     <div className="post-date subforum-column">
                         <b>
                             <a href="">Last Post</a>
@@ -163,23 +191,25 @@ export default function Posts() {
                         on 17 May 2022
                     </div>
                 </div>
+                </a>
 
-                <div className="subforum-row">
+                <a href="">
+                    <div className="subforum-row">
                     <div className="like-dislike subforum-column">
                         <p>Vote Up or Down</p>
                     </div>
                     <div className="description subforum-column">
-                        <h2>
+                        <h1>
                             <a href="">Post Title</a>
-                        </h2>
+                        </h1>
                         <p>
                             Description Content: Maybe somehow insert images
                             here
                         </p>
                     </div>
-                    <div className="comment-stats subforum-column">
+                    {/* <div className="comment-stats subforum-column">
                         <span className="comment-info">30 Posts</span>
-                    </div>
+                    </div> */}
                     <div className="post-date subforum-column">
                         <b>
                             <a href="">Last Post</a>
@@ -189,27 +219,27 @@ export default function Posts() {
                         on 17 May 2022
                     </div>
                 </div>
+                </a>
 
-                <div class="subForum">
-                    <div className="title">
+                <div class="subforum">
                         <h2>weddit Game Updates</h2>
-                    </div>
-                    <div className="subforum-row">
+                    <a href="">
+                        <div className="subforum-row">
                         <div className="like-dislike subforum-column">
                             <p>Vote Up or Down</p>
                         </div>
                         <div className="description subforum-column">
-                            <h2>
+                            <h1>
                                 <a href="">Post Title</a>
-                            </h2>
+                            </h1>
                             <p>
                                 Description Content: Maybe somehow insert images
                                 here
                             </p>
                         </div>
-                        <div className="comment-stats subforum-column">
+                        {/* <div className="comment-stats subforum-column">
                             <span className="comment-info">30 Posts</span>
-                        </div>
+                        </div> */}
                         <div className="post-date subforum-column">
                             <b>
                                 <a href="">Last Post</a>
@@ -219,22 +249,24 @@ export default function Posts() {
                             on 17 May 2022
                         </div>
                     </div>
-                    <div className="subforum-row">
+                    </a>
+                    <a href="">
+                        <div className="subforum-row">
                         <div className="like-dislike subforum-column">
                             <p>Vote Up or Down</p>
                         </div>
                         <div className="description subforum-column">
-                            <h2>
+                            <h1>
                                 <a href="">Post Title</a>
-                            </h2>
+                            </h1>
                             <p>
                                 Description Content: Maybe somehow insert images
                                 here
                             </p>
                         </div>
-                        <div className="comment-stats subforum-column">
+                        {/* <div className="comment-stats subforum-column">
                             <span className="comment-info">30 Posts</span>
-                        </div>
+                        </div> */}
                         <div className="post-date subforum-column">
                             <b>
                                 <a href="">Last Post</a>
@@ -244,6 +276,7 @@ export default function Posts() {
                             on 17 May 2022
                         </div>
                     </div>
+                    </a>
                 </div>
             </div>
         </div>

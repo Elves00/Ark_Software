@@ -4,7 +4,6 @@ import axios from "axios";
 import "./editProfile.css";
 
 const Profile = () => {
-  const [data, setData] = useState("");
   const [username, setUsername] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [characterClass, setCharacterClass] = useState("");

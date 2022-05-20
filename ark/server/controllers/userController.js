@@ -110,7 +110,7 @@ module.exports = {
   },
 
   updateOne: async (req, res) => {
-    const { username, aboutMe, characterClass, postImage } = req.body;
+    // const { username, aboutMe, characterClass, postImage, following } = req.body;
     let user = req.user;
     user = await User.findByIdAndUpdate(user._id, req.body, {
       new: true,

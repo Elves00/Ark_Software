@@ -80,11 +80,11 @@ export default function Profile() {
           <div class="row">
             <div class="col-md-4">
               <h2 class="h2">{data.username}</h2>
+              <br/>
               <img class="col-md-10"
                 src= {getPhotoString()}
                 alt = "ProfilePhoto"
                 />         
-                
             </div>
 
             <div class="col-md-8">
@@ -94,6 +94,7 @@ export default function Profile() {
                 <p>Builds: {data.builds}</p> */}
             </div>
           </div>
+          <br/>
           <div class="row">
             <div class="col-md-10">
               <h2 class="h2">About Me</h2>

@@ -3,49 +3,62 @@ import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./user.css";
 
-const Login = () => {
+const Follow = () => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
-  const [retrievedUser, setRetrievedUser] = useState("");
+  const [retrievedUser, setRetrievedUser] = useState({
+    postImage: { myFile: "" },
+  });
   // const navigate = useNavigate();
 
   // const config = {
   //   headers: {
   //     "Content-Type": "application/json",
-  //     Authorization: `Bearer ${localStorage.getItem("authToken")}`,
   //   },
   // };
 
-  //   useEffect(() => {
-  //     const fetchPrivateData = async () => {
-  //       try {
-  //         // setData(data.data);
-  //       } catch (error) {
-  //         localStorage.removeItem("authToken");
-  //         setError("Not authorized, please login, redirecting to login page...");
-  //         setTimeout(() => {
-  //           navigate("/login");
-  //         }, 1000);
-  //       }
-  //     };
+    useEffect(() => {
+      const fetchPrivateData = async () => {
+        if(user !== ""){
+          try{
+            const { data } = await axios.post(`/follow/${user}`);
+            console.log(data.data);
+            setRetrievedUser(data.data);
+          } catch(error){
+            setError("Username does not exist!");
+            setTimeout(() => {
+              setError("");
+            }, 3000);
+          }
+        } else {
+          setRetrievedUser("");
+        }
+      };
 
-  //     fetchPrivateData();
-  //   });
+      fetchPrivateData();
+    });
 
   const searchHandler = async (e) => {
     e.preventDefault();
-
-    try {
-      const { data } = await axios.post(`/follow/${user}`);
-      console.log(data.data);
-      setRetrievedUser(data.data);
-    } catch (error) {
-      setError("Username does not exist!");
-      setTimeout(() => {
-        setError("");
-      }, 3000);
+    if(user !== ""){
+      try{
+        const { data } = await axios.post(`/follow/${user}`);
+        console.log(data.data);
+        setRetrievedUser(data.data);
+        } catch(error){
+          setError("Username does not exist!");
+          setTimeout(() => {
+            setError("");
+          }, 3000);
+        }
+    } else {
+      setRetrievedUser("");
     }
   };
+
+  function getPhotoString() {
+    return retrievedUser.postImage
+  }
 
   return (
     <div className="form">
@@ -54,11 +67,11 @@ const Login = () => {
       <form onSubmit={searchHandler}>
         <div className="forminput">
           <input
-            type="text"
+            type="search"
             id="user"
             placeholder="Enter username"
             required
-            value={user}
+            // value={user}
             onChange={(e) => setUser(e.target.value)}
           />
         </div>
@@ -71,6 +84,7 @@ const Login = () => {
         <br />
       </form>
       <div className="result">
+      <img src= {getPhotoString()} alt = "ProfilePhoto"/> 
         {retrievedUser.username}
         {retrievedUser.characterClass}
         {retrievedUser.aboutMe}
@@ -79,4 +93,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Follow;

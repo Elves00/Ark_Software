@@ -98,7 +98,7 @@ const Forums = () => {
     let user_id = user._id;
     let name = user.username;
     let date = new Date;
-
+    console.log("Launching launching ");
     try {
       const { data } = axios.post(
         "http://localhost:5000/createPost",
@@ -125,7 +125,7 @@ const Forums = () => {
       <h1>{user._id}</h1>
       <h1 className="head">Forum</h1>
       <button onClick={createPost}>Share a post</button>
-      <form>
+      <form onSubmit={createPost}>
         <div className="forumPageNewPost">
           <label>Title</label>
           <input

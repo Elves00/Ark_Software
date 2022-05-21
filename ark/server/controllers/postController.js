@@ -33,35 +33,6 @@ module.exports = {
     }).sort({ date: -1 })
   }),
 
-  findRaid: async (req, res) => {
-    //the content of the search bar
-    const { tier, tag } = req.body;
-    try {
-      console.log(tier)
-      const post = await Post.find({ 'tier': tier, 'tag': tag })
-      res.json(post)
-
-    } catch (err) {
-      // console.log(err);
-      res.status(500).json({ success: false, error: err });
-    }
-  },
-
-  findRaidTier: async (req, res) => {
-    //the content of the search bar
-    const { term } = req.body;
-    try {
-      var regexConst = new RegExp(term, 'i');
-      const post = await Post.find({ 'name': regexConst, 'tag': 'Raid' })
-      res.json(post)
-    } catch (err) {
-      // console.log(err);
-      res.status(500).json({ success: false, error: err });
-    }
-  },
-
-
-
   //Increments the post raiting by 1
   up: async (req, res) => {
 

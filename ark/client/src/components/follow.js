@@ -24,8 +24,8 @@ const Follow = () => {
 
     try {
       const { data } = await axios.post(`/follow/${user}`);
-      console.log(data.data);
       setRetrievedUser(data.data);
+      setFollow(data.data._id);
       setSearched(true);
     } catch (error) {
       setError("Username does not exist!");
@@ -41,9 +41,11 @@ const Follow = () => {
 
   async function handleFollow() {
     try {
-      setFollow(retrievedUser.username);
-      await axios.patch("/editProfile", { $push: {following} }, config);
-      alert("Following");
+      if(following !== ""){
+        // console.log(following);
+        await axios.patch("/editProfile", {$push: {following}}, config);
+        alert("Following");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -66,6 +68,7 @@ const Follow = () => {
           <div class="row">
             <div class="col-md-4">
               <h2 class="h2">{retrievedUser.username}</h2>
+              <br/>
               <img class="col-md-10"
                 src= {getPhotoString()}
                 alt = "ProfilePhoto"
@@ -80,6 +83,7 @@ const Follow = () => {
                 <p>Builds: {data.builds}</p> */}
             </div>
           </div>
+          <br/>
           <div class="row">
             <div class="col-md-10">
               <h2 class="h2">About Me</h2>

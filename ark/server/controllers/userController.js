@@ -105,8 +105,31 @@ module.exports = {
   },
 
   //Account page
-  getOne: (req, res, next) => {
-    res.status(200).json({ success: true, data: req.user });
+  getOne: async (req, res, next) => {
+    let user = req.user;
+    let following = user.following;
+    let followUsers = [];
+
+    try{
+      for(var i=0; i<following.length; i++){
+        const foundUser = await User.findById(following[i]).exec();
+        if(followUsers[i] != foundUser && foundUser != ""){
+          followUsers.push(foundUser.username);
+        }
+      }
+    } catch (error){
+      console.log(error);
+    }
+
+    try{
+      user.followName = followUsers;
+      // console.log(user.followName);
+      res.status(200).json({success:true, data: user, names: followUsers});
+    } catch(error){
+      console.log(error);
+    }
+
+    // res.status(200).json({ success: true, data: req.user });
   },
 
   updateOne: async (req, res) => {

@@ -8,9 +8,13 @@ const PostSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    required: [true, "Date of posting"],
+    required: [false, "Date of posting"],
   },
-  user: {
+  user_id: {
+    type: String,
+    required: [true, "What user posted"],
+  },
+  name: {
     type: String,
     required: [true, "What user posted"],
   },

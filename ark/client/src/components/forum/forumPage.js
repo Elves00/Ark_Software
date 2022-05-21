@@ -7,41 +7,43 @@ import Posts from "./post";
 import "./forum.css";
 
 const Forums = () => {
-  const [data, setData] = useState("");
+  const [user, setUser] = useState("");
   const [error, setError] = useState("");
   const [post, setPosts] = useState([]);
 
+  //Content in create a post
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [raiting, SetRaiting] = useState(0);
+
   const navigate = useNavigate();
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    },
+  };
 
   useEffect(() => {
     const fetchPrivateData = async () => {
-      console.log("checking Passwords")
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-
-      };
-
       try {
-
-        const { data } = await axios.get("/forumPage", config);
+        const { data } = await axios.get("/profilePage", config);
         //Success loged in user can set data
-        setData(data.data);
+        setUser(data.data);
+
       } catch (error) {
         localStorage.removeItem("authToken");
         setError("Not authorized, please login, redirecting to login page...");
         setTimeout(() => {
           navigate("/login");
-        }, 2000);
+        }, 1000);
       }
     };
 
 
     fetchPrivateData();
     displayPosts();
-
 
   }, []);
 
@@ -84,8 +86,35 @@ const Forums = () => {
     });
   }
 
+  function createPost(head) {
 
-  function createPost() {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    //How to use user id to link to the show an acocount page
+    let user_id = user._id;
+    let name = user.username;
+    let date = new Date;
+
+    try {
+      const { data } = axios.post(
+        "http://localhost:5000/createPost",
+        { title, date, name, user_id, content, raiting },
+        config
+      );
+      alert("Post!");
+      localStorage.setItem("authToken", data.token);
+      navigate("/");
+    } catch (error) {
+      // console.log(error.response.data);
+      setError(error.response.data.error);
+      setTimeout(() => {
+        setError("");
+      }, 1000);
+    }
 
   }
 
@@ -93,20 +122,22 @@ const Forums = () => {
     error
   ) : (
     <div>
+      <h1>{user._id}</h1>
       <h1 className="head">Forum</h1>
-      <button onClick={createPost()}>Share a post</button>
+      <button onClick={createPost}>Share a post</button>
       <form>
         <div className="forumPageNewPost">
           <label>Title</label>
           <input
             type="text"
             id="username"
-          // Value={username}
-          // onChange={(e) => setUsername(e.target.value)}
+            // Value={username}
+            onChange={(e) => setTitle(e.target.value)}
           />
 
           <label for="textArea">Content</label>
-          <textarea id="textArea" placeholder="...">
+          <textarea id="textArea" placeholder="..."
+            onChange={(e) => setContent(e.target.value)}>
           </textarea>
 
           <input
@@ -123,7 +154,7 @@ const Forums = () => {
           {mapPosts()}
         </div>
       </div>
-      {data}
+
     </div >
   );
 };

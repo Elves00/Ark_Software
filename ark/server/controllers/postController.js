@@ -5,15 +5,17 @@ const Post = require("../models/posts");
 //Card creation
 module.exports = {
   createOne: (req, res) => {
-    let newCardDetails = req.body;
-    newCardDetails._id = new mongoose.Types.ObjectId();
+    let newPost = req.body;
+    newPost._id = new mongoose.Types.ObjectId();
+    console.log("newPost" + newPost)
 
-    let card = new Post(newCardDetails);
-    card.save((err) => {
+    let post = new Post(newPost);
+    console.log(post);
+    post.save((err) => {
       if (err) {
         return res.status(400).json(err);
       }
-      res.json(card);
+      res.json(post);
     });
   },
 
@@ -33,10 +35,10 @@ module.exports = {
 
   findRaid: async (req, res) => {
     //the content of the search bar
-    const { tier,tag } = req.body;
+    const { tier, tag } = req.body;
     try {
       console.log(tier)
-      const post = await Post.find({ 'tier': tier ,'tag':tag })
+      const post = await Post.find({ 'tier': tier, 'tag': tag })
       res.json(post)
 
     } catch (err) {
@@ -50,7 +52,7 @@ module.exports = {
     const { term } = req.body;
     try {
       var regexConst = new RegExp(term, 'i');
-      const post = await Post.find({ 'name': regexConst ,'tag':'Raid'})
+      const post = await Post.find({ 'name': regexConst, 'tag': 'Raid' })
       res.json(post)
     } catch (err) {
       // console.log(err);
@@ -60,18 +62,35 @@ module.exports = {
 
 
 
-  //Updates the number of views on a page
-  hit: async (req, res) => {
+  //Increments the post raiting by 1
+  up: async (req, res) => {
 
     //The search term
-    const id = req.body;
+    const _id = req.body;
     //What is being updated
-    const update = { $inc: { hit: +1 } };
+    const update = { $inc: { raiting: +1 } };
 
     try {
       //Updates hit counter
-      await Post.findOneAndUpdate(id, update).exec();
-      console.log(id);
+      await Post.findByIdAndUpdate(_id.id, update).exec();
+ ;
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  
+  //decrements the post raiting by 1
+  down: async (req, res) => {
+
+    //The search term
+    const _id = req.body;
+    //What is being updated
+    const update = { $inc: { raiting: -1 } };
+
+    try {
+      //Updates hit counter
+      await Post.findByIdAndUpdate(_id.id, update).exec();
+    
     } catch (err) {
       console.log(err);
     }

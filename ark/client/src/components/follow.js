@@ -1,5 +1,5 @@
-import React, { useState} from "react";
-import { NavLink} from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import "./user.css";
 
@@ -11,6 +11,7 @@ const Follow = () => {
   });
   const [searched, setSearched] = useState("");
   const [following, setFollow] = useState("");
+  const [userFollow, setUserFollow] = useState("");
 
   const config = {
     headers: {
@@ -26,6 +27,7 @@ const Follow = () => {
       const { data } = await axios.post(`/follow/${user}`);
       setRetrievedUser(data.data);
       setFollow(data.data._id);
+      setUserFollow(data.names);
       setSearched(true);
     } catch (error) {
       setError("Username does not exist!");
@@ -36,14 +38,14 @@ const Follow = () => {
   }
 
   function getPhotoString() {
-    return retrievedUser.postImage.myFile
-  }  
+    return retrievedUser.postImage.myFile;
+  }
 
   async function handleFollow() {
     try {
-      if(following !== ""){
+      if (following !== "") {
         // console.log(following);
-        await axios.patch("/editProfile", {$push: {following}}, config);
+        await axios.patch("/editProfile", { $push: { following } }, config);
         alert("Following");
       }
     } catch (error) {
@@ -51,57 +53,60 @@ const Follow = () => {
     }
   }
 
-  function showFollowing(){
+  function showFollowing() {
     var followingList = [];
-    for (var i = 0; i < 10; i++) {
-      followingList.push(<p class="text-center">{retrievedUser.following[i]}</p>);
+    for (var i = 0; i < userFollow.length; i++) {
+      var follow = userFollow[i];
+      followingList.push(<p class="text-center">{follow}</p>);
     }
-    return followingList;       
+    return followingList;
   }
 
-  function showProfile(){
-
-    if (searched === true){
-      return(<div className="FullProfile">
-      <div class="row">
-        <div class="col-md-10">
-          <div class="row">
-            <div class="col-md-4">
-              <h2 class="h2">{retrievedUser.username}</h2>
-              <br/>
-              <img class="col-md-10"
-                src= {getPhotoString()}
-                alt = "ProfilePhoto"
-                />         
-                
-            </div>
-
-            <div class="col-md-8">
-              <h2 class="h2">Character Information</h2>
-              <p style={{textAlign: "left"}}>Class: {retrievedUser.characterClass}</p>
-              {/* <p>Skills: {data.skills}</p>
-                <p>Builds: {data.builds}</p> */}
-            </div>
-          </div>
-          <br/>
+  function showProfile() {
+    if (searched === true) {
+      return (
+        <div className="FullProfile">
           <div class="row">
             <div class="col-md-10">
-              <h2 class="h2">About Me</h2>
-              <p style={{textAlign: "left"}}>{retrievedUser.aboutMe}</p>
+              <div class="row">
+                <div class="col-md-4">
+                  <h2 class="h2">{retrievedUser.username}</h2>
+                  <br />
+                  <img
+                    class="col-md-10"
+                    src={getPhotoString()}
+                    alt="ProfilePhoto"
+                  />
+                </div>
+
+                <div class="col-md-8">
+                  <h2 class="h2">Character Information</h2>
+                  <p style={{ textAlign: "left" }}>
+                    Class: {retrievedUser.characterClass}
+                  </p>
+                  {/* <p>Skills: {data.skills}</p>
+                <p>Builds: {data.builds}</p> */}
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-10">
+                  <h2 class="h2">About Me</h2>
+                  <p style={{ textAlign: "left" }}>{retrievedUser.aboutMe}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button onClick={handleFollow} className="follow-button">
+                Follow {retrievedUser.username}
+              </button>
+              <h2 class="text-center">Following</h2>
+              {showFollowing()}
             </div>
           </div>
         </div>
-        <div class="col-md-2">
-        <button onClick={handleFollow} className="follow-button">
-            Follow {retrievedUser.username}
-          </button>
-          <h2 class="text-center">Following</h2>
-          {showFollowing()}
-        </div>
-      </div>
-    </div>)
+      );
     }
-   
   }
 
   return (
@@ -128,9 +133,7 @@ const Follow = () => {
         <br />
       </form>
       <br />
-      <div className="result">
-        {showProfile()}
-      </div>
+      <div className="result">{showProfile()}</div>
     </div>
   );
 };

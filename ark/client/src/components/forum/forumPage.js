@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Posts from "./post";
 import "./forum.css";
 
+
 const Forums = () => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
@@ -122,9 +123,8 @@ const Forums = () => {
     error
   ) : (
     <div>
-      <h1>{user._id}</h1>
+
       <h1 className="head">Forum</h1>
-      <button onClick={createPost}>Share a post</button>
       <form onSubmit={createPost}>
         <div className="forumPageNewPost">
           <label>Title</label>

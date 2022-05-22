@@ -15,6 +15,7 @@
     border-radius: 3px;
 }
 
+
 .forum2 {
     width: 80%;
 }
@@ -115,8 +116,8 @@
 }
 
 .forumPageClose {
-    position:absolute;
+    position: absolute;
     left: 80%;
     top: 20px;
-    
+
 }

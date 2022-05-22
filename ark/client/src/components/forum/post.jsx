@@ -3,8 +3,6 @@ import axios from 'axios';
 
 export default function Posts(props) {
 
-
-    const [rait, setRait] = useState(0);
     const [value, setValue] = useState();
     const [disable, setDisable] = useState(0);
     const [id, setId] = useState();
@@ -15,61 +13,160 @@ export default function Posts(props) {
         setValue(props.props.raiting);
     }, []);
 
-    
+
     function up() {
-
-
         if (disable == 1) {
-            return;
+
+            const config = {
+                header: {
+                    "Content-Type": "application/json",
+                },
+            };
+
+
+            try {
+                axios.post("http://localhost:5000/postDown",
+                    { id },
+                    config
+                )
+
+                setValue(value - 1);
+                setDisable(0);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        else if (disable == 0) {
+            console.log("The id is :" + id);
+            const config = {
+                header: {
+                    "Content-Type": "application/json",
+                },
+            };
+
+
+            try {
+                axios.post("http://localhost:5000/postUp",
+                    //The name is used to identify the page to increments
+                    { id },
+                    config
+                )
+                setValue(value + 1);
+                setDisable(1);
+
+                // alert("Click!");
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        else {
+            console.log("The id is :" + id);
+            const config = {
+                header: {
+                    "Content-Type": "application/json",
+                },
+            };
+
+
+            try {
+                axios.post("http://localhost:5000/postUp",
+                    //The name is used to identify the page to increments
+                    { id },
+                    config
+                )   
+                axios.post("http://localhost:5000/postUp",
+                    //The name is used to identify the page to increments
+                    { id },
+                    config
+                )
+                setValue(value + 2);
+                setDisable(1);
+
+                // alert("Click!");
+            } catch (error) {
+                console.log(error)
+            }
         }
 
-        console.log("The id is :" + id);
-        const config = {
-            header: {
-                "Content-Type": "application/json",
-            },
-        };
 
-
-        try {
-            axios.post("http://localhost:5000/postUp",
-                //The name is used to identify the page to increments
-                { id },
-                config
-            )
-            setValue(value + 1);
-            setDisable(1);
-
-            // alert("Click!");
-        } catch (error) {
-            console.log(error)
-        }
     }
 
     function down() {
 
+
         if (disable == -1) {
-            return;
+
+            const config = {
+                header: {
+                    "Content-Type": "application/json",
+                },
+            };
+
+
+            try {
+                axios.post("http://localhost:5000/postUp",
+                    //The name is used to identify the page to increments
+                    { id },
+                    config
+                )
+                setValue(value + 1);
+                setDisable(0);
+
+                // alert("Click!");
+            } catch (error) {
+                console.log(error)
+            }
         }
-        console.log("The id is :" + id);
-        const config = {
-            header: {
-                "Content-Type": "application/json",
-            },
-        };
+        else if (disable == 0) {
+            console.log("The id is :" + id);
+            const config = {
+                header: {
+                    "Content-Type": "application/json",
+                },
+            };
 
 
-        try {
-            axios.post("http://localhost:5000/postDown",
+            try {
+                axios.post("http://localhost:5000/postDown",
+                    //The name is used to identify the page to increments
+                    { id },
+                    config
+                )
+                setValue(value - 1);
+                setDisable(-1);
+
+                // alert("Click!");
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        else {
+            console.log("The id is :" + id);
+            const config = {
+                header: {
+                    "Content-Type": "application/json",
+                },
+            };
+
+
+            try {
+                axios.post("http://localhost:5000/postDown",
+                    //The name is used to identify the page to increments
+                    { id },
+                    config
+                )
+                axios.post("http://localhost:5000/postDown",
                 //The name is used to identify the page to increments
                 { id },
                 config
             )
-            setValue(value - 1);
-            setDisable(-1);
-            // alert("Click!");
-        } catch (error) {
-            console.log(error)
+                setValue(value - 2);
+                setDisable(-1);
+
+                // alert("Click!");
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 

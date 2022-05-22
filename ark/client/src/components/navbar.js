@@ -57,7 +57,7 @@ export default function Navbar() {
             <NavLink className="nav-link" to="/chatPage">
               Chat
             </NavLink>
-      
+
           </li>
         </ul>
         {/*This is so the Account Link is on the right*/}
@@ -68,31 +68,31 @@ export default function Navbar() {
               Account
             </button>
             <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
-            <li className="nav-item">
-            <NavLink className="nav-link" to="/profilePage">
-                Profile
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login">
-                Login
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/register">
-                Register
-              </NavLink>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/profilePage">
+                  Profile
+                </NavLink>
               </li>
               <li className="nav-item">
-              <NavLink className="nav-link" to="/logout">
-            Logout
-          </NavLink>
-          </li>
+                <NavLink className="nav-link" to="/login">
+                  Login
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/register">
+                  Register
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/logout">
+                  Logout
+                </NavLink>
+              </li>
             </div>
           </li>
         </ul>
       </div>
-      
+
     </nav>
   );
 }

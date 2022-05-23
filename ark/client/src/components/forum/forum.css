@@ -121,3 +121,21 @@
     top: 20px;
 
 }
+
+.forumUp {
+    color: black;
+    border-color: #fcfaf1;
+}
+
+.forumUp:active {
+    background: greenyellow;
+}
+
+.forumDown {
+    color: black;
+    border-color: #fcfaf1;
+}
+
+.forumDown:active {
+    background: red;
+}

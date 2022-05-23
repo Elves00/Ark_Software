@@ -31,6 +31,7 @@ module.exports = {
           username: req.body.username,
           email: req.body.email,
           password: req.body.password,
+          postImage: req.body.postImage
         };
         let newUserDetails = details;
         newUserDetails._id = new mongoose.Types.ObjectId();
@@ -109,7 +110,7 @@ module.exports = {
   },
 
   updateOne: async (req, res) => {
-    const { username, aboutMe, characterClass } = req.body;
+    // const { username, aboutMe, characterClass, postImage, following } = req.body;
     let user = req.user;
     user = await User.findByIdAndUpdate(user._id, req.body, {
       new: true,
@@ -120,5 +121,22 @@ module.exports = {
   deleteOne: async (req, res, next) => {
     let user = req.user;
     await User.deleteOne(user);
+  },
+
+  searchOne: async (req, res) => {
+    try {
+      const foundUser = await User.findOne({ username: req.params.username });
+
+      if (!foundUser) {
+        res
+          .status(404)
+          .json({ success: false, error: "Username does not exist!" });
+        return;
+      }
+      // const { username, aboutMe, characterClass } = foundUser;
+      res.status(200).json({ success: true, data: foundUser });
+    } catch (err) {
+      res.status(400).json({ success: false, error: err });
+    }
   },
 };

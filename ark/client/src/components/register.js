@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./user.css";
+import picture from "./defaultPicture";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -9,6 +10,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [error, setError] = useState("");
+  const [postImage] = useState({myFile: picture, });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,7 +31,7 @@ const Register = () => {
     try {
       const { data } = await axios.post(
         "http://localhost:5000/register",
-        { username, email, password, confirmpassword },
+        { username, email, password, confirmpassword, postImage },
         config
       );
       alert("Account successfully made!");

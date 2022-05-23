@@ -1,5 +1,5 @@
 import React from "react";
-import './navbar.css'
+import "./navbar.css";
 //This imports the ability for the menu to show up when minimized.
 import "bootstrap/dist/js/bootstrap.min.js";
 
@@ -17,7 +17,9 @@ export default function Navbar() {
     //Colour of Navbar
     <nav className="navbar navbar-expand-lg navbar-custom">
       {/*Logo*/}
-      <NavLink className="navbar-brand" to="/"><img src={card} width="50em" height="50em" alt="" /></NavLink>
+      <NavLink className="navbar-brand" to="/">
+        <img src={card} width="50em" height="50em" alt="" />
+      </NavLink>
       {/*Hamburger menu*/}
       <button
         class="navbar-toggler custom-toggler"
@@ -64,10 +66,19 @@ export default function Navbar() {
         <ul class="navbar-nav ml-auto">
           <li className="nav-item dropdown">
             {/* Link goes nowhere, so works like a button, but is NavLink to look like the others */}
-            <button className="btn btn-dark dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button
+              className="btn btn-dark dropdown-toggle"
+              id="navbarDropdown"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
               Account
             </button>
-            <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
+            <div
+              class="dropdown-menu dropdown-menu"
+              aria-labelledby="navbarDropdown"
+            >
               <li className="nav-item">
                 <NavLink className="nav-link" to="/profilePage">
                   Profile
@@ -92,7 +103,6 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-
     </nav>
   );
 }

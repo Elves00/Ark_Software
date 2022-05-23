@@ -217,9 +217,6 @@ export default function Posts(props) {
                         {props.props.content}
                     </p>
                 </div>
-                {/* <div className="comment-stats subforum-column">
-                    <span className="comment-info">30 Posts</span>
-                </div> */}
                 <div className="post-date subforum-column">
                     <b>
                         <a href="">Last Post</a>
@@ -232,4 +229,5 @@ export default function Posts(props) {
         </div>
 
     );
+   
 }

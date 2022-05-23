@@ -49,8 +49,9 @@ const Forums = () => {
   }, []);
 
 
+  //Function to display posts on screen
   function displayPosts() {
-    console.log("Trying to post")
+ 
     const config = {
       header: {
         "Content-Type": "application/json",
@@ -99,7 +100,7 @@ const Forums = () => {
     let user_id = user._id;
     let name = user.username;
     let date = new Date;
-    console.log("Launching launching ");
+    
     try {
       const { data } = axios.post(
         "http://localhost:5000/createPost",
@@ -116,7 +117,6 @@ const Forums = () => {
         setError("");
       }, 1000);
     }
-
   }
 
   return error ? (

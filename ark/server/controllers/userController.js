@@ -31,7 +31,7 @@ module.exports = {
           username: req.body.username,
           email: req.body.email,
           password: req.body.password,
-          postImage: req.body.postImage
+          postImage: req.body.postImage,
         };
         let newUserDetails = details;
         newUserDetails._id = new mongoose.Types.ObjectId();
@@ -105,8 +105,31 @@ module.exports = {
   },
 
   //Account page
-  getOne: (req, res, next) => {
-    res.status(200).json({ success: true, data: req.user });
+  getOne: async (req, res, next) => {
+    let user = req.user;
+    let following = user.following;
+    let followUsers = [];
+
+    try {
+      for (var i = 0; i < following.length; i++) {
+        const foundUser = await User.findById(following[i]).exec();
+        if (followUsers[i] != foundUser && foundUser != "") {
+          followUsers.push(foundUser.username);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+    try {
+      user.followName = followUsers;
+      // console.log(user.followName);
+      res.status(200).json({ success: true, data: user, names: followUsers });
+    } catch (error) {
+      console.log(error);
+    }
+
+    // res.status(200).json({ success: true, data: req.user });
   },
 
   updateOne: async (req, res) => {
@@ -126,6 +149,19 @@ module.exports = {
   searchOne: async (req, res) => {
     try {
       const foundUser = await User.findOne({ username: req.params.username });
+      let following = foundUser.following;
+      let followUsers = [];
+
+      try {
+        for (var i = 0; i < following.length; i++) {
+          const followedUsers = await User.findById(following[i]).exec();
+          if (followUsers[i] != followedUsers && followedUsers != "") {
+            followUsers.push(followedUsers.username);
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      }
 
       if (!foundUser) {
         res
@@ -133,8 +169,9 @@ module.exports = {
           .json({ success: false, error: "Username does not exist!" });
         return;
       }
-      // const { username, aboutMe, characterClass } = foundUser;
-      res.status(200).json({ success: true, data: foundUser });
+      res
+        .status(200)
+        .json({ success: true, data: foundUser, names: followUsers });
     } catch (err) {
       res.status(400).json({ success: false, error: err });
     }

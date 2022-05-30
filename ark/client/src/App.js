@@ -23,7 +23,6 @@ import BossInfo from "./components/boss-information/demon-beast-canyon";
 import NecromancersOrigin from "./components/boss-information/necromancer's-origin";
 import HallOfTheTwist from "./components/boss-information/hall-of-the-twisted";
 import Follow from "./components/follow";
-
 import BlockPage from "./components/boss-information/page";
 import MiniBlock from "./components/boss-information/blockLayout";
 

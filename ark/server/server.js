@@ -34,8 +34,8 @@ app.post("/searchDungeon", cards.findDungeonTier)
 //Posts
 app.post("/getPosts",posts.get)
 app.post("/createPost",posts.createOne)
-app.post("/postUp",posts.up)
-app.post("/postDown",posts.down)
+app.post("/rait",posts.rait)
+app.post("/findUser",posts.findOne)
 
 app.post("/login", users.findOne);
 app.post("/follow/:username", users.searchOne);

@@ -59,7 +59,7 @@ export default function Navbar() {
             <NavLink className="nav-link" to="/chatPage">
               Chat
             </NavLink>
-      
+
           </li>
         </ul>
         {/*This is so the Account Link is on the right*/}

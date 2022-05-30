@@ -10,7 +10,9 @@ export default function Profile() {
     postImage: { myFile: "" },
   });
   const [error, setError] = useState("");
+  const [following, setFollowing] = useState("");
   const navigate = useNavigate();
+
 
 
   const config = {
@@ -24,13 +26,14 @@ export default function Profile() {
     const fetchPrivateData = async () => {
       try {
         const { data } = await axios.get("/profilePage", config);
+        setFollowing(data.names);
         setData(data.data);
       } catch (error) {
         localStorage.removeItem("authToken");
         setError("Not authorized, please login, redirecting to login page...");
         setTimeout(() => {
           navigate("/login");
-        }, 1000);
+        }, 2000);
       }
     };
 
@@ -71,14 +74,14 @@ export default function Profile() {
     return data.postImage.myFile
   }
 
-  // function showFollowing(){
-  //   var followingList = [];
-  //   for (var i = 0; i < 10; i++) {
-  //     var follow = data.following[i];
-  //     followingList.push(<p class="text-center">{follow}</p>);
-  //   }
-  //   return followingList;
-  // }
+  function showFollowing(){
+    var followingList = [];
+    for (var i = 0; i < following.length; i++) {
+      var follow = following[i];
+      followingList.push(<p class="text-center">{follow}</p>);
+    }
+    return followingList;
+  }
 
   return error ? (
     error
@@ -89,11 +92,11 @@ export default function Profile() {
           <div class="row">
             <div class="col-md-4">
               <h2 class="h2">{data.username}</h2>
+              <br/>
               <img class="col-md-10"
                 src= {getPhotoString()}
                 alt = "ProfilePhoto"
                 />         
-                
             </div>
 
             <div class="col-md-8">
@@ -103,6 +106,7 @@ export default function Profile() {
                 <p>Builds: {data.builds}</p> */}
             </div>
           </div>
+          <br/>
           <div class="row">
             <div class="col-md-10">
               <h2 class="h2">About Me</h2>
@@ -126,8 +130,9 @@ export default function Profile() {
           <button onClick={handleDelete} className="delete-button">
             Delete Account
           </button>
+          <br />
           <h2 class="text-center">Following</h2>
-              {/* {showFollowing()} */}
+              <p>{showFollowing()}</p>
         </div>
       </div>
     </div>

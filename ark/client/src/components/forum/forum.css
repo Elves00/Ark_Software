@@ -10,10 +10,14 @@
     height: 2000px;
     background-color: #fcfaf1;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 50px;
     overflow: hidden;
     border-radius: 3px;
 }
+
 
 .forum2 {
     width: 80%;
@@ -86,18 +90,18 @@
 .forumPageNewPost {
     display: block;
     text-align: left;
-    margin-left: 10px;
     background-color: #fcfaf1;
     width: 80%;
     padding: 10px;
     border-radius: 3px;
+    min-height: 200px;
 }
 
 .forumPageNewPost textarea {
     display: block;
     background-color: #fcfaf1;
-    width: 80%;
-    height: 10vh;
+    width: 90%;
+    height: 150px;
     border-radius: 3px;
 }
 
@@ -111,11 +115,30 @@
     margin: 0;
     color: black;
     border-radius: 3px;
+    display: block;
 }
 
 .forumPageClose {
-    position:absolute;
+    position: absolute;
     left: 80%;
     top: 20px;
-    
+
+}
+
+.forumUp {
+    color: black;
+    border-color: #fcfaf1;
+}
+
+.forumUp:active {
+    background: greenyellow;
+}
+
+.forumDown {
+    color: black;
+    border-color: #fcfaf1;
+}
+
+.forumDown:active {
+    background: red;
 }

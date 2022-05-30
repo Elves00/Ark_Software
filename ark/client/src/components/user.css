@@ -44,7 +44,21 @@
   text-align: center;
 }
 
-form button:hover {
+.follow-button {
+  appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: black;
+  border-radius: 3px;
+  width: 200px;
+  font-size: 18px;
+  text-align: center;
+}
+
+form button:hover,
+.follow-button:hover {
   background-color: #e6b31e;
 }
 

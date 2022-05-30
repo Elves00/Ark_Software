@@ -22,15 +22,20 @@ app.get("/profilePage", protect, users.getOne);
 
 app.post("/register", users.createOne);
 app.post("/createCard", cards.createOne);
-//Find a raid
+
+//Find a Raid
 app.post("/findRaid", cards.findRaid)
 app.post("/searchRaid", cards.findRaidTier)
-//Find a dungeon
+
+//Find a Dungeon
 app.post("/findDungeon", cards.findDungeon)
 app.post("/searchDungeon", cards.findDungeonTier)
 
-//Get posts
+//Posts
 app.post("/getPosts",posts.get)
+app.post("/createPost",posts.createOne)
+app.post("/rait",posts.rait)
+app.post("/findUser",posts.findOne)
 
 app.post("/login", users.findOne);
 app.post("/follow/:username", users.searchOne);

@@ -3,6 +3,7 @@ import React from 'react';
 export default function Posts(props) {
     return (
         <div className="forum__content">
+            <a href="">
             <div className="subforum-row">
                 <div className="like-dislike subforum-column">
                     <p>Vote Up or Down</p>
@@ -27,6 +28,7 @@ export default function Posts(props) {
                     on {props.props.date}
                 </div>
             </div>
+            </a>
         </div>
 
     );

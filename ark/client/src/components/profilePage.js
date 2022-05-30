@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { confirmAlert } from "react-confirm-alert";
 import axios from "axios";
-
 import { useNavigate, NavLink } from "react-router-dom";
 import "./profilePage.css";
 
@@ -12,8 +11,6 @@ export default function Profile() {
   const [error, setError] = useState("");
   const [following, setFollowing] = useState("");
   const navigate = useNavigate();
-
-
 
   const config = {
     headers: {
@@ -40,6 +37,7 @@ export default function Profile() {
     fetchPrivateData();
   });
 
+  // Function to delete profile, has a pop up to make sure it is what they want to do
   function handleDelete() {
     confirmAlert({
       customUI: ({ onClose }) => {
@@ -62,6 +60,7 @@ export default function Profile() {
     });
   }
 
+  // Delete's user from database
   async function handleClickDelete() {
     try {
       await axios.delete("/deleteProfile", config);
@@ -70,10 +69,12 @@ export default function Profile() {
     }
   }
 
+  // Returns the string of the profile photo
   function getPhotoString() {
     return data.postImage.myFile
   }
 
+  // Display all the users that this person is following
   function showFollowing(){
     var followingList = [];
     for (var i = 0; i < following.length; i++) {
@@ -83,6 +84,7 @@ export default function Profile() {
     return followingList;
   }
 
+  // This is the profile page, it is formatted into columns which stack on a smaller screen
   return error ? (
     error
   ) : (
@@ -98,12 +100,9 @@ export default function Profile() {
                 alt = "ProfilePhoto"
                 />         
             </div>
-
             <div class="col-md-8">
               <h2 class="h2">Character Information</h2>
               <p>Class: {data.characterClass}</p>
-              {/* <p>Skills: {data.skills}</p>
-                <p>Builds: {data.builds}</p> */}
             </div>
           </div>
           <br/>

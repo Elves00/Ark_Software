@@ -2,16 +2,12 @@ import React from "react";
 import "./navbar.css";
 //This imports the ability for the menu to show up when minimized.
 import "bootstrap/dist/js/bootstrap.min.js";
-
-// We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
-
-// We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
-//Import image
+//Import Logo
 import card from "../ArkLogoNoLinemum.png";
-// Here, we display our Navbar
 
+// Here, we display our Navbar
 export default function Navbar() {
   return (
     //Colour of Navbar
@@ -54,12 +50,6 @@ export default function Navbar() {
             <NavLink className="nav-link" to="/forumPage">
               Forum
             </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/chatPage">
-              Chat
-            </NavLink>
-
           </li>
         </ul>
         {/*This is so the Account Link is on the right*/}
@@ -106,6 +96,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
-// The below code can be used if we want the navbar to collapse once a link it clicked, but makes full screen navbar 'blink'
-// <NavLink className="nav-link" data-toggle="collapse" data-target="#navbarText" to="/raidPage">Raids</NavLink>

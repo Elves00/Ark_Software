@@ -9,7 +9,6 @@ import CreateUser from "./components/createUser";
 import Boss from "./components/bossPage";
 import Raid from "./components/raidPage";
 import Forums from "./components/forum/forumPage";
-import Chat from "./components/chatPage";
 import NotFound from "./components/notFoundPage";
 import HomePage from "./components/homePage";
 import Profile from "./components/profilePage";
@@ -44,7 +43,6 @@ const App = () => {
             <Route exact path="/forumPage" element={<Private />}>
             <Route exact path="/forumPage" element={<Forums />} />
             </Route>
-            <Route path="/chatPage" element={<Chat />} />
             <Route exact path="/profilePage" element={<Private />}>
               <Route path="/profilePage" element={<Profile />} />
             </Route>

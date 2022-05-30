@@ -26,7 +26,28 @@ const PostSchema = new mongoose.Schema({
     type: Number,
 
     required: [false, "Whats the raiting"],
+  },
+  vote: {
+    type: Array,
+    required: [true]
   }
 });
+
+
+//Card with name and view count
+const VoteSchema = new mongoose.Schema({
+  rait: {
+      type: Number,
+      required: [true]
+    },
+});
+
+const Vote = new mongoose.Schema({
+  rait: {
+      name: String,
+      Vote: [VoteSchema]
+    },
+});
+
 
 module.exports = mongoose.model("Post", PostSchema);

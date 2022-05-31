@@ -7,6 +7,7 @@ chai.should();
 chai.use(chaiHttp);
 
 describe("Testing register route to create an account", () => {
+  //test case will fail if user exist in the database
   it("It should createOne user", (done) => {
     const user = {
       username: "Test",
@@ -40,5 +41,39 @@ describe("Testing register route to create an account", () => {
         res.should.have.status(504);
         done();
       });
+  });
+});
+
+describe("Testing login route for users to log into their account", () => {
+  it("It should verify the email and password of an account", (done) => {
+    const user = {
+      email: "test@gmail.com",
+      password: "123456"
+    };
+    chai
+      .request(server)
+      .post("/login")
+      .send(user)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.have.property("token");
+      });
+      done();
+  });
+
+  it("It should verify the email and password of an account", (done) => {
+    const user2 = {
+      email: "test@gmail.com",
+      password: "12345" //wrong password
+    };
+    chai
+      .request(server)
+      .post("/login")
+      .send(user2)
+      .end((err, res) => {
+        res.should.have.status(404);
+        res.body.should.have.property("error");
+      });
+      done();
   });
 });

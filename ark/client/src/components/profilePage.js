@@ -13,8 +13,6 @@ export default function Profile() {
   const [following, setFollowing] = useState("");
   const navigate = useNavigate();
 
-
-
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -71,10 +69,10 @@ export default function Profile() {
   }
 
   function getPhotoString() {
-    return data.postImage.myFile
+    return data.postImage.myFile;
   }
 
-  function showFollowing(){
+  function showFollowing() {
     var followingList = [];
     for (var i = 0; i < following.length; i++) {
       var follow = following[i];
@@ -92,11 +90,12 @@ export default function Profile() {
           <div class="row">
             <div class="col-md-4">
               <h2 class="h2">{data.username}</h2>
-              <br/>
-              <img class="col-md-10"
-                src= {getPhotoString()}
-                alt = "ProfilePhoto"
-                />         
+              <br />
+              <img
+                class="col-md-10"
+                src={getPhotoString()}
+                alt="ProfilePhoto"
+              />
             </div>
 
             <div class="col-md-8">
@@ -106,7 +105,7 @@ export default function Profile() {
                 <p>Builds: {data.builds}</p> */}
             </div>
           </div>
-          <br/>
+          <br />
           <div class="row">
             <div class="col-md-10">
               <h2 class="h2">About Me</h2>
@@ -132,7 +131,7 @@ export default function Profile() {
           </button>
           <br />
           <h2 class="text-center">Following</h2>
-              <p>{showFollowing()}</p>
+          <p>{showFollowing()}</p>
         </div>
       </div>
     </div>

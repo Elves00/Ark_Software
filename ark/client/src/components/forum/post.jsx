@@ -200,7 +200,6 @@ export default function Posts(props) {
 
     return (
         <div className="forum__content">
-            <a href="">
             <div className="subforum-row">
                 {id ?
                     loadButtons()
@@ -224,7 +223,6 @@ export default function Posts(props) {
                     on {props.props.date}
                 </div>
             </div>
-            </a>
         </div>
 
     );

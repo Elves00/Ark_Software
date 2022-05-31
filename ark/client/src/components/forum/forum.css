@@ -37,7 +37,7 @@
 h2 {
     overflow: hidden;
     font-size: 30px;
-    white-space: pre;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
 
@@ -53,6 +53,7 @@ h2 {
     height: 10rem;
     grid-template-columns: 10% 75% 15%;
     background: #343434;
+    overflow: hidden;
 }
 
 .subforum-row:hover {

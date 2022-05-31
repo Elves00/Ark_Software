@@ -71,8 +71,9 @@ export default function Profile() {
 
   // Returns the string of the profile photo
   function getPhotoString() {
-    return data.postImage.myFile
+    return data.postImage.myFile;
   }
+
 
   // Display all the users that this person is following
   function showFollowing(){
@@ -94,18 +95,19 @@ export default function Profile() {
           <div class="row">
             <div class="col-md-4">
               <h2 class="h2">{data.username}</h2>
-              <br/>
-              <img class="col-md-10"
-                src= {getPhotoString()}
-                alt = "ProfilePhoto"
-                />         
+              <br />
+              <img
+                class="col-md-10"
+                src={getPhotoString()}
+                alt="ProfilePhoto"
+              />
             </div>
             <div class="col-md-8">
               <h2 class="h2">Character Information</h2>
               <p>Class: {data.characterClass}</p>
             </div>
           </div>
-          <br/>
+          <br />
           <div class="row">
             <div class="col-md-10">
               <h2 class="h2">About Me</h2>
@@ -131,7 +133,7 @@ export default function Profile() {
           </button>
           <br />
           <h2 class="text-center">Following</h2>
-              <p>{showFollowing()}</p>
+          <p>{showFollowing()}</p>
         </div>
       </div>
     </div>

@@ -15,11 +15,17 @@ const Forums = () => {
   //Content in create a post
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [raiting, SetRaiting] = useState(0);
+
 
   const navigate = useNavigate();
 
   const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  const autherizationConfig = {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -29,7 +35,7 @@ const Forums = () => {
   useEffect(() => {
     const fetchPrivateData = async () => {
       try {
-        const { data } = await axios.get("/profilePage", config);
+        const { data } = await axios.get("/profilePage", autherizationConfig);
         //Success loged in user can set data
         setUser(data.data);
 
@@ -42,7 +48,6 @@ const Forums = () => {
       }
     };
 
-
     fetchPrivateData();
     displayPosts();
 
@@ -51,16 +56,10 @@ const Forums = () => {
 
   //Function to display posts on screen
   function displayPosts() {
- 
-    const config = {
-      header: {
-        "Content-Type": "application/json",
-      },
-    };
+
     try {
       axios.post("http://localhost:5000/getPosts",
         //The name is used to identify the page to increments
-        {},
         config
 
       )
@@ -76,35 +75,21 @@ const Forums = () => {
 
   }
 
+  //Create post is used to send the details from the form and details of the current user to the backend in order
+  //to create a new post requiring a (title,data,name,user_id,content,raiting)
+  function createPost() {
 
-  function mapPosts() {
-    //Map all response to new Cards
-    console.log(post)
-    return post.map((res) => {
-      return (
-        <Posts props={res} />
-
-      );
-    });
-  }
-
-  function createPost(head) {
-
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    //How to use user id to link to the show an acocount page
+    //Takes the currents users id and name 
     let user_id = user._id;
     let name = user.username;
     let date = new Date;
-    
+    let raiting = 1;
+    let vote = { user_id: user_id, rait: 1 };
+
     try {
       const { data } = axios.post(
         "http://localhost:5000/createPost",
-        { title, date, name, user_id, content, raiting },
+        { title, date, name, user_id, content, raiting, vote },
         config
       );
       alert("Post!");
@@ -117,6 +102,19 @@ const Forums = () => {
         setError("");
       }, 1000);
     }
+  }
+
+  function mapPosts() {
+    //Creates all posts stored in the post const.
+    return post.map((res) => {
+
+      //Current UserID is sent to check if they have upvoted any post.
+      return (
+
+        <Posts props={res} userId={user._id} />
+
+      );
+    });
   }
 
   return error ? (
@@ -148,10 +146,9 @@ const Forums = () => {
         </div>
 
       </form>
-
       <div className="forum">
         <div className="subForum">
-          {mapPosts()}
+          {user ? mapPosts() : <h1>Loading posts</h1>}
         </div>
       </div>
 

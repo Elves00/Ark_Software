@@ -4,211 +4,208 @@ import axios from 'axios';
 export default function Posts(props) {
 
     const [value, setValue] = useState();
-    const [disable, setDisable] = useState(0);
+    const [disable, setDisable] = useState(); //1 up is on -1 down is on -100 nothing is on
     const [id, setId] = useState();
+    const [userId, setUserId] = useState();
+    const config = {
+        header: {
+            "Content-Type": "application/json",
+        },
+    };
+
 
     useEffect(() => {
-        console.log(props.props._id)
-        setId(props.props._id)
+        setId(props.props._id);
+        setUserId((props.userId));
         setValue(props.props.raiting);
+        findUser();
+
     }, []);
 
 
-    function up() {
+    function findUser() {
+        //Search each post to see if the current user has upvoted or downvoted
+        if (props.props.vote) {
 
-
-
-
-        if (disable == 1) {
-
-            document.getElementById(id + "up").style.borderColor = "#fcfaf2";
-            document.getElementById(id + "up").style.backgroundColor = "";
-
-            const config = {
-                header: {
-                    "Content-Type": "application/json",
-                },
-            };
-
+            let id = props.props._id
+            let userId = (props.userId);
 
             try {
-                axios.post("http://localhost:5000/postDown",
-                    { id },
+                //if the current user has voted set the votes to match
+                axios.post(
+                    "http://localhost:5000/findUser",
+                    { id, userId },
                     config
                 )
+                    .then((res) => {
+                        //If the user has voted updates the page to reflect there previous votes
+                        console.log(res.data)
+                        switch (res.data) {
+                            case 1:
+                                setDisable(1);
+                                break;
+                            case -100:
+                                setDisable(-100);
+                                break;
+                            case -1:
+                                setDisable(-1);
+                                // redButton("down");
+                                break;
 
-                setValue(value - 1);
-                setDisable(0);
-            } catch (error) {
-                console.log(error)
+                            default:
+                                setDisable(-100);
+                                break;
+                        }
+                    });
+            }
+
+            catch (error) {
+                console.log("There was an error")
             }
         }
-        else if (disable == 0) {
+
+    }
 
 
-            document.getElementById(id + "up").style.borderColor = "greenyellow";
-            document.getElementById(id + "up").style.backgroundColor = "greenyellow";
-            document.getElementById(id + "down").style.borderColor = "#fcfaf1";
-            document.getElementById(id + "down").style.backgroundColor = "";
-            const config = {
-                header: {
-                    "Content-Type": "application/json",
-                },
-            };
+
+    //Styles the inital buttons based on disable.
+    function styleButtons() {
+        switch (disable) {
+            case 1:
+                greenButton("up");
+                break;
+            case -100:
+                plainButton("up");
+                plainButton("down");
+                break;
+            case -1:
+                redButton("down");
+                break;
+
+            default:
+                break;
+        }
+    }
 
 
-            try {
-                axios.post("http://localhost:5000/postUp",
-                    //The name is used to identify the page to increments
-                    { id },
-                    config
-                )
-                setValue(value + 1);
-                setDisable(1);
+    //Changes the color of a button to green
+    function greenButton(key) {
+        if (id == null || key == null) {
+            console.log("id:" + id + " key:" + null);
+        } else {
+            document.getElementById(id + key).style.borderColor = "greenyellow";
+            document.getElementById(id + key).style.backgroundColor = "greenyellow";
+        }
+    }
 
-                // alert("Click!");
-            } catch (error) {
-                console.log(error)
-            }
+    //Changes the color of a button to red
+    function redButton(key) {
+        if (id == null || key == null) {
+            console.log("id:" + id + " key:" + null);
+        } else {
+            document.getElementById(id + key).style.borderColor = "#red";
+            document.getElementById(id + key).style.backgroundColor = "red";
+        }
+    }
+
+    //Changes the color of a button to plain
+    function plainButton(key) {
+        if (id == null || key == null) {
+            console.log("id:" + id + " key:" + null);
+        } else {
+            document.getElementById(id + key).style.borderColor = "#fcfaf2";
+            document.getElementById(id + key).style.backgroundColor = "";
+        }
+    }
+
+    //send a post request to the database with the current state of the button and the value to change the post by.
+    function databaserait(number, disable) {
+        try {
+            axios.post("http://localhost:5000/rait",
+                { disable, number, userId, id },
+                config
+            )
+            //changes the value displayed on the page
+            setValue(value + number);
+            //changes what button is deemed acctive
+            setDisable(disable);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    function up() {
+
+        let number = 0;
+
+
+
+        //If the post has a vote object check if we have voted
+        //If we have not voted increment
+
+        if (disable == 1) {
+            plainButton("up");
+            databaserait(-1, -100,)
+        }
+        else if (disable == -100) {
+
+
+            greenButton("up");
+            plainButton("down");
+
+            databaserait(1, 1,)
         }
         else {
 
-            const config = {
-                header: {
-                    "Content-Type": "application/json",
-                },
-            };
 
-            document.getElementById(id + "up").style.borderColor = "greenyellow";
-            document.getElementById(id + "up").style.backgroundColor = "greenyellow";
-            document.getElementById(id + "down").style.borderColor = "#fcfaf1";
-            document.getElementById(id + "down").style.backgroundColor = "";
-
-            try {
-                axios.post("http://localhost:5000/postUp",
-                    //The name is used to identify the page to increments
-                    { id },
-                    config
-                )
-                axios.post("http://localhost:5000/postUp",
-                    //The name is used to identify the page to increments
-                    { id },
-                    config
-                )
-                setValue(value + 2);
-                setDisable(1);
-
-                // alert("Click!");
-            } catch (error) {
-                console.log(error)
-            }
+            greenButton("up");
+            plainButton("down");
+            databaserait(2, 1,)
         }
-
-
     }
+
+
 
     function down() {
 
-
+        let number = 0;
         if (disable == -1) {
 
-            document.getElementById(id + "down").style.borderColor = "#fcfaf1";
-            document.getElementById(id + "down").style.backgroundColor = "";
-
-            const config = {
-                header: {
-                    "Content-Type": "application/json",
-                },
-            };
-
-
-            try {
-                axios.post("http://localhost:5000/postUp",
-                    //The name is used to identify the page to increments
-                    { id },
-                    config
-                )
-                setValue(value + 1);
-                setDisable(0);
-
-                // alert("Click!");
-            } catch (error) {
-                console.log(error)
-            }
+            plainButton("down");
+            databaserait(1, -100,)
         }
-        else if (disable == 0) {
+        else if (disable == -100) {
 
-            document.getElementById(id + "down").style.borderColor = "red";
-            document.getElementById(id + "down").style.backgroundColor = "red";
-            document.getElementById(id + "up").style.borderColor = "#fcfaf2";
-            document.getElementById(id + "up").style.backgroundColor = "";
-
-
-
-            const config = {
-                header: {
-                    "Content-Type": "application/json",
-                },
-            };
-
-
-            try {
-                axios.post("http://localhost:5000/postDown",
-                    //The name is used to identify the page to increments
-                    { id },
-                    config
-                )
-                setValue(value - 1);
-                setDisable(-1);
-
-                // alert("Click!");
-            } catch (error) {
-                console.log(error)
-            }
+            redButton("down");
+            plainButton("up");
+            databaserait(-1, -1,)
         }
         else {
-            document.getElementById(id + "down").style.borderColor = "red";
-            document.getElementById(id + "down").style.backgroundColor = "red";
-            document.getElementById(id + "up").style.borderColor = "#fcfaf2";
-            document.getElementById(id + "up").style.backgroundColor = "";
-
-            const config = {
-                header: {
-                    "Content-Type": "application/json",
-                },
-            };
-
-
-            try {
-                axios.post("http://localhost:5000/postDown",
-                    //The name is used to identify the page to increments
-                    { id },
-                    config
-                )
-                axios.post("http://localhost:5000/postDown",
-                    //The name is used to identify the page to increments
-                    { id },
-                    config
-                )
-                setValue(value - 2);
-                setDisable(-1);
-
-                // alert("Click!");
-            } catch (error) {
-                console.log(error)
-            }
+            redButton("down");
+            plainButton("up");
+            databaserait(-2, -1,)
         }
     }
 
+    function loadButtons() {
+        //Functions is called once id has been loaded in so that each button can be styled using style buttons
+        styleButtons();
+        return (
+            <div className="like-dislike subforum-column">
+                <button onClick={up} className="forumUp" id={id + "up"} >up</button>
+                <button onClick={down} className="forumDown" id={id + "down"}>down</button>
+                <p>{value}</p>
+            </div>);
+    }
 
     return (
         <div className="forum__content">
             <div className="subforum-row">
-                <div className="like-dislike subforum-column">
-                    <button onClick={up} className="forumUp" id={id + "up"} >up</button>
-                    <button onClick={down} className="forumDown" id={id + "down"}>down</button>
-                    <p>{value}</p>
-                </div>
+                {id ?
+                    loadButtons()
+                    :
+                    <div>loading</div>
+                }
                 <div className="description subforum-column">
                     <h2>
                         <a href="">{props.props.title}</a>
@@ -229,5 +226,5 @@ export default function Posts(props) {
         </div>
 
     );
-   
+
 }

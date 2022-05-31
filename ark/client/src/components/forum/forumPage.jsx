@@ -83,8 +83,8 @@ const Forums = () => {
     let user_id = user._id;
     let name = user.username;
     let date = new Date;
-    let raiting = 0;
-    let vote = { id: "dog" };
+    let raiting = 1;
+    let vote = { user_id: user_id, rait: 1 };
 
     try {
       const { data } = axios.post(

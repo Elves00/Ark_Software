@@ -22,6 +22,7 @@ export default function Posts(props) {
 
     }, []);
 
+
     function findUser() {
         //Search each post to see if the current user has upvoted or downvoted
         if (props.props.vote) {
@@ -117,58 +118,53 @@ export default function Posts(props) {
         }
     }
 
-
+    //send a post request to the database with the current state of the button and the value to change the post by.
     function databaserait(number, disable) {
         try {
             axios.post("http://localhost:5000/rait",
-                //The name is used to identify the page to increments
                 { disable, number, userId, id },
                 config
             )
+            //changes the value displayed on the page
             setValue(value + number);
+            //changes what button is deemed acctive
             setDisable(disable);
-
-
-            console.log(disable);
         } catch (error) {
             console.log(error)
         }
     }
+
     function up() {
 
         let number = 0;
 
 
-        //If the post has no voting object
-        if (!props.props.vote) {
-            console.log("Inside up if")
-            //create a voteing object and add the user_id of the current user to the list of votes
-        }
+
         //If the post has a vote object check if we have voted
         //If we have not voted increment
-        else {
-            if (disable == 1) {
-                plainButton("up");
-                databaserait(-1, -100,)
-            }
-            else if (disable == -100) {
 
-
-                greenButton("up");
-                plainButton("down");
-
-                databaserait(1, 1,)
-            }
-            else {
-
-
-                greenButton("up");
-                plainButton("down");
-                databaserait(2, 1,)
-            }
+        if (disable == 1) {
+            plainButton("up");
+            databaserait(-1, -100,)
         }
+        else if (disable == -100) {
 
+
+            greenButton("up");
+            plainButton("down");
+
+            databaserait(1, 1,)
+        }
+        else {
+
+
+            greenButton("up");
+            plainButton("down");
+            databaserait(2, 1,)
+        }
     }
+
+
 
     function down() {
 

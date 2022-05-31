@@ -77,3 +77,35 @@ describe("Testing login route for users to log into their account", () => {
       done();
   });
 });
+
+describe("Testing searching route for bosses", () => {
+  it("It should find a boss called necromancer's-origin", (done) => {
+    const card = {
+      name: "necromancer's-origin"
+    };
+    chai
+      .request(server)
+      .post("/searchDungeon")
+      .send(card)
+      .end((err, res) => {
+        res.should.have.status(200);
+      });
+      done();
+  });
+
+  it("It shouldn't find a boss called notABoss", (done) => {
+    const card2 = {
+      name: "notABoss"
+    };
+    chai
+      .request(server)
+      .post("/searchDungeon")
+      .send(card2)
+      .end((err, res) => {
+        res.should.have.status(200); //Also 200 as nothing displays if not found, not error
+      });
+      done();
+  });
+});
+
+

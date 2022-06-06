@@ -34,7 +34,7 @@
     width: 100%;
 }
 
-h2 {
+.subforum-row-header {
     overflow: hidden;
     font-size: 30px;
     white-space: nowrap;
@@ -135,6 +135,7 @@ p {
     margin: 0;
     height: 2em;
     border-radius: 3px;
+    margin-right: 3px;
 }
 
 .forumPageNewPost label {

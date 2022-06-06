@@ -207,8 +207,8 @@ export default function Posts(props) {
                     <div>loading</div>
                 }
                 <div className="description subforum-column">
-                    <h2>
-                        <a href="">{props.props.title}</a>
+                    <h2 className='subforum-row-header'>
+                        {props.props.title}
                     </h2>
                     <p>
                         {props.props.content}
@@ -216,9 +216,9 @@ export default function Posts(props) {
                 </div>
                 <div className="post-date subforum-column">
                     <b>
-                        <a href="">Last Post</a>
+                       Last Post
                     </b>{' '}
-                    by <a href="">{props.props.name}</a>
+                    by {props.props.name}
                     <br></br>
                     on {props.props.date}
                 </div>

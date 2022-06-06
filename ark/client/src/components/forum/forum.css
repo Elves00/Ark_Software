@@ -123,10 +123,10 @@
 }
 
 .forumPageClose {
-    position: absolute;
-    left: 80%;
-    top: 20px;
-
+    position: relative;
+    margin: 0;
+    height: 2em;
+    border-radius: 3px;
 }
 
 .forumUp {

@@ -9,12 +9,14 @@ module.exports = {
     let newPost = req.body;
     newPost._id = new mongoose.Types.ObjectId();
 
+  
     let post = new Post(newPost);
 
     post.save((err) => {
       if (err) {
         return res.status(400).json(err);
       }
+      res.status(200).json({ success: true, data: "found a card" });
       res.json(post);
     });
   },
@@ -91,8 +93,11 @@ module.exports = {
       else {
         res.json(0);
       }
+
+      res.status(200).json({ success: true, data: "found a card" });
     } catch (err) {
 
+      res.status(500).json({ success: false, error: err });
     }
   },
 

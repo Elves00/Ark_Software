@@ -58,7 +58,7 @@ describe("Testing login route for users to log into their account", () => {
         res.should.have.status(200);
         res.body.should.have.property("token");
       });
-      done();
+    done();
   });
 
   it("It should verify the email and password of an account", (done) => {
@@ -74,7 +74,7 @@ describe("Testing login route for users to log into their account", () => {
         res.should.have.status(404);
         res.body.should.have.property("error");
       });
-      done();
+    done();
   });
 });
 
@@ -90,7 +90,7 @@ describe("Testing searching route for bosses", () => {
       .end((err, res) => {
         res.should.have.status(200);
       });
-      done();
+    done();
   });
 
   it("It shouldn't find a boss called notABoss", (done) => {
@@ -104,8 +104,49 @@ describe("Testing searching route for bosses", () => {
       .end((err, res) => {
         res.should.have.status(200); //Also 200 as nothing displays if not found, not error
       });
-      done();
+    done();
   });
 });
 
 
+
+
+
+// describe("Testing creating a post", () => {
+//   it("it should return a post", (done) => {
+
+//     let title = "The title";
+//     let date = new Date;
+//     let name = "bob";
+//     let user_id = "627b1c25564ec2f7fc69f920";
+//     let content = "The content of the base";
+//     let raiting = 1;
+//     let vote = { user_id: "627b1c25564ec2f7fc69f920", rait: 1 };
+
+//     const post={
+//       title,date,name,user_id,content,raiting,vote
+//     }
+
+//     chai
+//       .request(server)
+//       .post("/createPost")
+//       .send(post)
+//       .end((err, res) => {
+//         res.should.have.status(200);
+//       });
+//     done();
+//   });
+
+//   it("It shouldn't post a invalid post", (done) => {
+//     const post2 = {
+//     };
+//     chai
+//       .request(server)
+//       .post("/createPost")
+//       .send(post2)
+//       .end((err, res) => {
+//         res.should.have.status(200);
+//       });
+//     done();
+//   });
+// });

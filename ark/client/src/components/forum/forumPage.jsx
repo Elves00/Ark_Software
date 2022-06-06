@@ -142,7 +142,7 @@ const Forums = () => {
             type="submit"
             value="Post"
           ></input>
-          <button className="forumPageClose" type="reset"></button>
+          <button className="forumPageClose" type="reset">Reset</button>
         </div>
 
       </form>

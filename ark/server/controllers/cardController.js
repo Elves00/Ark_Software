@@ -79,8 +79,8 @@ module.exports = {
     try {
       var regexConst = new RegExp(term, 'i');
       const card = await Card.find({ 'name': regexConst,'tag':'Dungeon' })
-      res.status(200).json({ success: true, data: "dungeons found" });
-      res.json(card)
+      res.status(200).json(card);
+
     } catch (err) {
       // console.log(err);
       res.status(500).json({ success: false, error: err });

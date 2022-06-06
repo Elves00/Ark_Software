@@ -16,8 +16,7 @@ module.exports = {
       if (err) {
         return res.status(400).json(err);
       }
-      res.status(200).json({ success: true, data: "found a card" });
-      res.json(post);
+      res.status(200).json(post);
     });
   },
 
@@ -84,17 +83,16 @@ module.exports = {
 
       // console.log("id: " + id + " User ID:" + userId + " up: " + up);
       if (up.length > 0) {
-        res.json(1);
+        res.status(200).json(1);
 
       }
       else if (down.length > 0) {
-        res.json(-1);
+        res.status(200).json(-1);
       }
       else {
-        res.json(0);
+        res.status(200).json(0);
       }
 
-      res.status(200).json({ success: true, data: "found a card" });
     } catch (err) {
 
       res.status(500).json({ success: false, error: err });

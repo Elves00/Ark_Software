@@ -1,0 +1,23 @@
+{
+  "name": "ark_software",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare-server":"cd server && npm install",
+    "prepare-client":"cd client && npm install",
+    "start":"npm run prepare-server && npm run prepare-client"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elves00/Ark_Software.git"
+  },
+  "author": "Brecon,Rebbeca,Alex,Davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elves00/Ark_Software/issues"
+  },
+  "homepage": "https://github.com/Elves00/Ark_Software#readme"
+}

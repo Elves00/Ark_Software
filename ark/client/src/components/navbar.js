@@ -1,23 +1,21 @@
 import React from "react";
-import './navbar.css'
+import "./navbar.css";
 //This imports the ability for the menu to show up when minimized.
 import "bootstrap/dist/js/bootstrap.min.js";
-
-// We import bootstrap to make our application look better.
 import "bootstrap/dist/css/bootstrap.css";
-
-// We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
-//Import image
+//Import Logo
 import card from "../ArkLogoNoLinemum.png";
-// Here, we display our Navbar
 
+// Here, we display our Navbar
 export default function Navbar() {
   return (
     //Colour of Navbar
     <nav className="navbar navbar-expand-lg navbar-custom">
       {/*Logo*/}
-      <NavLink className="navbar-brand" to="/"><img src={card} width="50em" height="50em" alt="" /></NavLink>
+      <NavLink className="navbar-brand" to="/">
+        <img src={card} width="50em" height="50em" alt="" />
+      </NavLink>
       {/*Hamburger menu*/}
       <button
         class="navbar-toggler custom-toggler"
@@ -53,48 +51,48 @@ export default function Navbar() {
               Forum
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/chatPage">
-              Chat
-            </NavLink>
-          </li>
         </ul>
         {/*This is so the Account Link is on the right*/}
         <ul class="navbar-nav ml-auto">
           <li className="nav-item dropdown">
             {/* Link goes nowhere, so works like a button, but is NavLink to look like the others */}
-            <button className="btn btn-dark dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button
+              className="btn btn-dark dropdown-toggle"
+              id="navbarDropdown"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
               Account
             </button>
-            <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
-            <li className="nav-item">
-            <NavLink className="nav-link" to="/profilePage">
-                Profile
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login">
-                Login
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/register">
-                Register
-              </NavLink>
+            <div
+              class="dropdown-menu dropdown-menu"
+              aria-labelledby="navbarDropdown"
+            >
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/profilePage">
+                  Profile
+                </NavLink>
               </li>
               <li className="nav-item">
-              <NavLink className="nav-link" to="/logout">
-            Logout
-          </NavLink>
-          </li>
+                <NavLink className="nav-link" to="/login">
+                  Login
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/register">
+                  Register
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/logout">
+                  Logout
+                </NavLink>
+              </li>
             </div>
           </li>
         </ul>
       </div>
-      
     </nav>
   );
 }
-
-// The below code can be used if we want the navbar to collapse once a link it clicked, but makes full screen navbar 'blink'
-// <NavLink className="nav-link" data-toggle="collapse" data-target="#navbarText" to="/raidPage">Raids</NavLink>

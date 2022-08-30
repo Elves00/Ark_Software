@@ -7,11 +7,11 @@ const CardSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a Cardname"],
   },
-  content: {
+  image: {
     type: String,
-    required: [false, "A number"],
+    required: [false, "Please provide some"],
   },
-  count: {
+  tag: {
     type: String,
     required: [true, "A number"],
   },
@@ -19,6 +19,18 @@ const CardSchema = new mongoose.Schema({
     type: Number,
     required: [false, "view number"],
   },
+  path: {
+    type: String,
+    required: [true, "Path to image must be specified"]
+  },
+  tier: {
+    type: Number,
+    required: [false, "What tier"]
+  },
+  location: {
+    type: String,
+    required: [false, "What location"]
+  }
 });
 
 module.exports = mongoose.model("Card", CardSchema);

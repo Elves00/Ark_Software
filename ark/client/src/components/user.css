@@ -1,31 +1,22 @@
-body {
-  background-color: #343434;
-  color: #cacaca;
-}
-
-h2 {
-  color: #e6b31e;
-}
-
-h3 {
+.account-form-h3 {
   text-align: center;
   color: #e6b31e;
   font-size: 50px;
 }
 
-span {
+.account-form-span {
   font-size: 0.7rem;
   display: block;
   margin: 0.5rem 0;
   color: #cacaca;
 }
 
-form {
+.form {
   padding: 20px 0;
   position: relative;
   text-align: center;
 }
-form input {
+.form input {
   border: 1px solid #cacaca;
   background-color: #fcfaf1;
   width: 250px;
@@ -40,7 +31,7 @@ form input {
   font-weight: 300;
 }
 
-form button {
+.account-form-button {
   appearance: none;
   outline: 0;
   background-color: white;
@@ -53,13 +44,31 @@ form button {
   text-align: center;
 }
 
-form button:hover {
+.follow-button {
+  appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: black;
+  border-radius: 3px;
+  width: 200px;
+  font-size: 18px;
+  text-align: center;
+}
+
+form button:hover,
+.follow-button:hover {
   background-color: #e6b31e;
 }
 
 ::placeholder {
   color: #cacaca;
   opacity: 1;
+}
+
+.form-link {
+  text-decoration: none;
 }
 
 .error-message {

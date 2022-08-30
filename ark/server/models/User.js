@@ -23,6 +23,25 @@ const UserSchema = new mongoose.Schema({
     minlength: 6,
     select: false,
   },
+  aboutMe: {
+    type: String,
+  },
+  characterClass:{
+    type: String,
+  },
+
+  postImage: {
+    myFile: String,
+  },
+
+  following: {
+    type: [String],
+  },
+
+  followingName: {
+    type: [String],
+  }
+
 });
 
 //This function runs before a user is saved in the database using the mongoose pre functionality

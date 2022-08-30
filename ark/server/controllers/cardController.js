@@ -31,6 +31,63 @@ module.exports = {
     }).sort({ count: -1 }).limit(4)
   }),
 
+  findRaid: async (req, res) => {
+    //the content of the search bar
+    const { tier,tag } = req.body;
+    try {
+      console.log(tier)
+      const card = await Card.find({ 'tier': tier ,'tag':tag })
+      res.json(card)
+
+    } catch (err) {
+      // console.log(err);
+      res.status(500).json({ success: false, error: err });
+    }
+  },
+
+  findRaidTier: async (req, res) => {
+    //the content of the search bar
+    const { term } = req.body;
+    try {
+      var regexConst = new RegExp(term, 'i');
+      const card = await Card.find({ 'name': regexConst ,'tag':'Raid'})
+      res.json(card)
+    } catch (err) {
+      // console.log(err);
+      res.status(500).json({ success: false, error: err });
+    }
+  },
+
+  findDungeon: async (req, res) => {
+    //the content of the search bar
+    const { tier,tag } = req.body;
+    try {
+      console.log(tier)
+      console.log("Tag"+tag)
+      const card = await Card.find({ 'tier': tier ,'tag':tag})
+      res.json(card)
+
+    } catch (err) {
+      // console.log(err);
+      res.status(500).json({ success: false, error: err });
+    }
+  },
+
+  findDungeonTier: async (req, res) => {
+    //the content of the search bar
+    const { term } = req.body;
+    try {
+      var regexConst = new RegExp(term, 'i');
+      const card = await Card.find({ 'name': regexConst,'tag':'Dungeon' })
+      res.status(200).json(card);
+
+    } catch (err) {
+      // console.log(err);
+      res.status(500).json({ success: false, error: err });
+    }
+  },
+
+
 
   //Updates the number of views on a page
   hit: async (req, res) => {
@@ -43,8 +100,9 @@ module.exports = {
     try {
       //Updates hit counter
       await Card.findOneAndUpdate(id, update).exec();
+      console.log(id);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   },
 

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./user.css";
+import picture from "./defaultPicture";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -9,8 +10,15 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
   const [error, setError] = useState("");
+  const [postImage] = useState({myFile: picture, });
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (localStorage.getItem("authToken")) {
+      navigate("/");
+    }
+  });
+  
   const registerHandler = async (e) => {
     e.preventDefault();
 
@@ -23,7 +31,7 @@ const Register = () => {
     try {
       const { data } = await axios.post(
         "http://localhost:5000/register",
-        { username, email, password, confirmpassword },
+        { username, email, password, confirmpassword, postImage },
         config
       );
       alert("Account successfully made!");
@@ -40,7 +48,7 @@ const Register = () => {
 
   return (
     <div className="form">
-      <h3>Register</h3>
+      <h3 className="account-form-h3">Register</h3>
       {error && <span className="error-message">{error}</span>}
       <form onSubmit={registerHandler}>
         <input
@@ -79,13 +87,13 @@ const Register = () => {
           onChange={(e) => setConfirmpassword(e.target.value)}
         />
 
-        <button type="submit">Register</button>
+        <button type="submit" className="account-form-button">Register</button>
         <br />
-        <span>
+        <span className="account-form-span">
           Already have an account? <NavLink to="/login">Login</NavLink>
         </span>
       </form>
-    </div>
+      </div>
   );
 };
 

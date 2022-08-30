@@ -8,9 +8,7 @@ import Navbar from "./components/navbar";
 import CreateUser from "./components/createUser";
 import Boss from "./components/bossPage";
 import Raid from "./components/raidPage";
-import Forums from "./components/forumPage";
-import Chat from "./components/chatPage";
-import Account from "./components/accountPage";
+import Forums from "./components/forum/forumPage";
 import NotFound from "./components/notFoundPage";
 import HomePage from "./components/homePage";
 import Profile from "./components/profilePage";
@@ -22,9 +20,13 @@ import Logout from "./components/logout";
 import Footer from "./components/footer/footer";
 import BossInfo from "./components/boss-information/demon-beast-canyon";
 import NecromancersOrigin from "./components/boss-information/necromancer's-origin";
+import HallOfTheTwist from "./components/boss-information/hall-of-the-twisted";
+import Follow from "./components/follow";
+import BlockPage from "./components/boss-information/page";
+import MiniBlock from "./components/boss-information/blockLayout";
+
 
 import "./App.css";
-
 
 const App = () => {
   return (
@@ -34,24 +36,35 @@ const App = () => {
         <div style={{ margin: 20 }}>
           <Routes>
             {/*First as Not found*/}
-            <Route path='*' element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
             <Route exact path="/" element={<HomePage />} />
             <Route path="/bossPage" element={<Boss />} />
             <Route path="/raidPage" element={<Raid />} />
             <Route exact path="/forumPage" element={<Private />}>
-              <Route exact path="/forumPage" element={<Forums />} />
+            <Route exact path="/forumPage" element={<Forums />} />
             </Route>
-            <Route path="/chatPage" element={<Chat />} />
-            <Route path="/accountPage" element={<Account />} />
-            <Route path="/profilePage" element={<Profile />} />
+            <Route exact path="/profilePage" element={<Private />}>
+              <Route path="/profilePage" element={<Profile />} />
+            </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/demon-beast-canyon" element={<BossInfo />} />
-            <Route path="/necromancer's-origin" element={<NecromancersOrigin />} />
+            <Route path="/hall-of-the-twisted" element={<HallOfTheTwist />} />
+            <Route path="/blockPage" element={<BlockPage />} />
+            <Route path="/blockPage" element={<MiniBlock />} />
+            
+            <Route
+              path="/necromancer's-origin"
+              element={<NecromancersOrigin />}
+            />
             <Route path="/createUser" element={<CreateUser />} />
-            <Route path="/editProfile" element={<EditProfile />} />
+            <Route exact path="/editProfile" element={<Private />}>
+              <Route path="/editProfile" element={<EditProfile />} />
+            </Route>
             <Route path="/logout" element={<Logout />} />
-            {/* <Route path="/editUser/:id" element={<EditUser />} /> */}
+            <Route exact path="/follow" element={<Private />}>
+              <Route path="/follow" element={<Follow />} />
+            </Route>
           </Routes>
         </div>
       </div>

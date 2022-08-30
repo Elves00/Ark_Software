@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare-server":"cd server && npm install",
-    "prepare-client":"cd client && npm install",
-    "start":"npm run prepare-server && npm run prepare-client"
-
+    "prepare-server":"cd ark && cd server && npm install",
+    "prepare-client":"cd ark && cd client && npm install",
+    "build":"cd ark && npm run prepare-server && npm run prepare-client",
+    "start":"cd ark && cd client && npm start"
   },
   "repository": {
     "type": "git",
